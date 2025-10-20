@@ -1,0 +1,4 @@
+# 1. METADATOS
+#-------------------------------------------
+provider: AccuWeather
+api: Minute Cast API
