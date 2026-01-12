@@ -1,0 +1,47 @@
+saasName: ADS-B Exchange
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://www.adsbexchange.com/data/"
+createdAt: "2026-01-12"
+currency: "USD"
+tags:
+  - Aviation Data
+  - Real-Time Tracking
+  - ADS-B
+features:
+  aircraftTraffic:
+    tag: Real-Time Tracking
+    description: Access to global aircraft positions and telemetry.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  historicalData:
+    tag: Aviation Data
+    description: Access to past flight paths and historical telemetry.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  milTraffic:
+    tag: Aviation Data
+    description: Filter and track military aircraft specifically.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  callsignSearch:
+    tag: Aviation Data
+    description: Search aircraft by callsign or registration.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+plans:
+  #Plan público disponible en Rapid API.
+  BASIC:
+    description: Low volume for personal/hobbyist use.
+    price: 10.00
+    unit: month
+    usageLimits:
+      maxDailyLimit:
+      value: 1000
+
+  #ADS-B Exchange requiere que las empresas y usuarios comerciales firmen un acuerdo de licencia específico. Este pricing no es público y se cotiza bajo demanda.

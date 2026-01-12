@@ -1,0 +1,14 @@
+associatedSaaS: ADS-B Exchange
+url: "https://rapidapi.com/adsbx/api/adsbexchange-com1"
+planReference: BASIC
+type: Partial SaaS
+capacity:
+  - value: 1000 calls/day
+    autoRecharge: daily
+    extraCharge: None
+maxPower:
+  value: 1 request/second
+  reference: "https://github.com/athielen/adsbexchange-documentation"
+coolingPeriod: "TBD (Hard block tras alcanzar el límite diario)"
+segmentation:
+  - Key Level: El límite se aplica a la API Key única proporcionada vía RapidAPI u oficial.
