@@ -1,0 +1,157 @@
+saasName: AccuWeather
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://developer.accuweather.com/pricing"
+createdAt: "2026-01-12"
+currency: "USD"
+tags:
+  - Weather Data
+  - Geolocation
+  - Forecasting
+  - Imagery and Maps
+
+features:
+  # --- Data Access ---
+  locationsAPI:
+    tag: Geolocation
+    description: Access to location keys via city name, coordinates, or IP address.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  currentConditions:
+    tag: Weather Data
+    description: Real-time current weather data for a specific location.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  forecastData:
+    tag: Weather Data
+    description: Access to future weather predictions (range varies by plan).
+    valueType: TEXT
+    defaultValue: "1 Day"
+    type: DOMAIN
+  indices:
+    tag: Weather Data
+    description: Health and lifestyle indices (flu, arthritis, UV, etc.).
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  weatherAlarms:
+    tag: Weather Data
+    description: Direct access to severe weather alerts and alarms.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+
+  # --- Commercial & Legal ---
+  commercialUse:
+    tag: Security And Privacy
+    description: Legal right to use data in a revenue-generating application.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  brandingRequirements:
+    tag: Customer Support
+    description: Obligation to display AccuWeather logo and link.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  maxDailyCalls:
+    description: Maximum API calls allowed per 24-hour period.
+    valueType: NUMERIC
+    defaultValue: 50
+    unit: call
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+  maxKeys:
+    description: Number of API keys allowed per account.
+    valueType: NUMERIC
+    defaultValue: 1
+    unit: key
+    type: NON_RENEWABLE
+
+plans:
+  FREE_TRIAL:
+    price: 0.00
+    unit: month
+    description: "Free 14 day trial"
+    usageLimits:
+      maxDailyLimit:
+        value: 500
+
+      maxKeys:
+        value: 1
+
+    features:
+      historicalCurrentConditions:
+        value: true
+
+      indices:
+        value: "5 Days"
+
+      alarms:
+        value: "5 Days"
+
+  STARTER:
+    price: 2.00
+    unit: month
+    description: "$0.25 CPM overage"
+    usageLimits:
+      maxMonthlyLimit:
+        value: 15000
+    features:
+      historicalCurrentConditions:
+        value: false
+      indices:
+        value: "None"
+      alarms:
+        value: "None"
+
+  STANDARD:
+    price: 25.00
+    unit: month
+    description: "$0.12 CPM overage"
+    usageLimits:
+      maxMonthlyLimit:
+        value: 225000
+    features:
+      historicalCurrentConditions:
+        value: true
+      indices:
+        value: "5 Days"
+      alarms:
+        value: "5 Days"
+
+  PRIME:
+    price: 250.00
+    unit: month
+    description: "$0.15 CPM overage"
+    usageLimits:
+      maxMonthlyLimit:
+        value: 1800000
+    features:
+      dailyForecast:
+        value: "10 Days"
+      hourlyForecast:
+        value: "72 Hours"
+      indices:
+        value: "10 Days"
+
+  ELITE:
+    price: 500.00
+    unit: month
+    description: "$0.22 CPM overage"
+    usageLimits:
+      maxMonthlyLimit:
+        value: 2400000
+    features:
+      dailyForecast:
+        value: "15 Days"
+      hourlyForecast:
+        value: "120 Hours"
+      indices:
+        value: "15 Days"

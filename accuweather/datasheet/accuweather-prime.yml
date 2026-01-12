@@ -1,0 +1,14 @@
+associatedSaaS: AccuWeather
+url: "https://developer.accuweather.com/pricing"
+planReference: PRIME
+type: Partial SaaS
+capacity:
+  - value: 1800000 calls/month
+    autoRecharge: monthly
+    extraCharge: 0.15 USD CPM
+maxPower:
+  value: 50 requests/second
+  reference: "Incluye acceso a módulos Tropical e Imagery"
+coolingPeriod: "TBD (Prioridad de tráfico sobre planes inferiores en periodos de alta demanda)"
+segmentation:
+  - Account Level (Distributed): La cuota mensual es compartida entre todas las llaves de la organización.

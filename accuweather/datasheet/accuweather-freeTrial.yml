@@ -1,0 +1,14 @@
+associatedSaaS: AccuWeather
+url: "https://developer.accuweather.com/pricing"
+planReference: FREE_TRIAL
+type: Partial SaaS
+capacity:
+  - value: 500 calls/day
+    autoRecharge: daily
+    extraCharge: None
+maxPower:
+  value: 1 request/second
+  reference: "https://developer.accuweather.com/faq"
+coolingPeriod: "TBD (Sin embargo se incluye la cabecera Retry-After en las respuestas 429 - https://developer.accuweather.com/faq)"
+segmentation:
+  - Account Level (Authenticated): Limitado a 1 sola API Key por desarrollador.

@@ -1,0 +1,14 @@
+associatedSaaS: AccuWeather
+url: "https://developer.accuweather.com/pricing"
+planReference: STARTER
+type: Partial SaaS
+capacity:
+  - value: 15000 calls/month
+    autoRecharge: monthly
+    extraCharge: 0.25 USD CPM
+maxPower:
+  value: 5 requests/second
+  reference: "https://developer.accuweather.com/faq"
+coolingPeriod: "TBD (Sin embargo se incluye la cabecera Retry-After en las respuestas 429)"
+segmentation:
+  - Key Level: Los límites de velocidad se aplican por API Key individual.
