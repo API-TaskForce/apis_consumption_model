@@ -1,0 +1,11 @@
+Assoaciated SaaS: API-Football (https://rapidapi.com/api-sports/api/api-football/pricing)
+type: Partial SaaS
+capacity:
+  - value: 100 requests/day
+    autoRecharge: daily
+    extraCharge: None
+  - value: 10240 MB/month
+    autoRecharge: monthly
+    extraCharge: 0.001 USD/MB
+maxPower:
+  value: 1000 requests/hour
