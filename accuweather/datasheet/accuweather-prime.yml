@@ -3,11 +3,15 @@ url: "https://developer.accuweather.com/pricing"
 planReference: PRIME
 type: Partial SaaS
 capacity:
-  - value: 1800000 calls/month
+  - value: 1800000 calls
+    type: QUOTA
+    windowType: CALENDAR_MONTH
     autoRecharge: monthly
     extraCharge: 0.15 USD CPM
 maxPower:
   value: 50 requests/second
+  type: RATE_LIMIT
+  algorithm: SLIDING_WINDOW_COUNTER
   reference: "Incluye acceso a módulos Tropical e Imagery"
 coolingPeriod: "TBD (Prioridad de tráfico sobre planes inferiores en periodos de alta demanda)"
 segmentation:

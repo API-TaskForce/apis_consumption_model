@@ -3,12 +3,16 @@ url: "https://developer.accuweather.com/pricing"
 planReference: ELITE
 type: Partial SaaS
 capacity:
-  - value: 2400000 calls/month
+  - value: 2400000 calls
+    type: QUOTA
+    windowType: CALENDAR_MONTH
     autoRecharge: monthly
     extraCharge: 0.22 USD CPM
 maxPower:
   value: 100 requests/second
-  reference: "Soporta ráfagas/burst de hasta 200 requests"
+  ttype: RATE_LIMIT
+  algorithm: SLIDING_WINDOW_COUNTER
+  reference: "https://developer.accuweather.com/faq"
 coolingPeriod: "TBD (Manejo dinámico basado en Retry-After y colas de prioridad)"
 segmentation:
   - Global Account Level: Acceso total a todos los endpoints incluyendo pronósticos extendidos.

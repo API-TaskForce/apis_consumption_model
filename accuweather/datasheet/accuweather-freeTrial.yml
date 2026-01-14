@@ -3,11 +3,15 @@ url: "https://developer.accuweather.com/pricing"
 planReference: FREE_TRIAL
 type: Partial SaaS
 capacity:
-  - value: 500 calls/day
+  - value: 500 calls
+    windowType: ROLLING_24H
+    resetCondition: "24-hour period beginning at the time of your first request"
     autoRecharge: daily
     extraCharge: None
 maxPower:
   value: 1 request/second
+  type: RATE_LIMIT
+  algorithm: FIXED_WINDOW
   reference: "https://developer.accuweather.com/faq"
 coolingPeriod: "TBD (Sin embargo se incluye la cabecera Retry-After en las respuestas 429 - https://developer.accuweather.com/faq)"
 segmentation:

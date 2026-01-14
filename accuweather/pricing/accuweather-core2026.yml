@@ -1,0 +1,36 @@
+saasName: AccuWeather Core Weather
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://developer.accuweather.com/pricing"
+createdAt: "2026-01-14"
+currency: "USD"
+plans:
+  FREE_TRIAL:
+    price: 0.00
+    usageLimits:
+      maxDailyLimit:
+        value: 500 calls
+  STARTER:
+    price: 2.00
+    description: "$0.25 CPM overage"
+    usageLimits:
+      maxMonthlyLimit:
+        value: 15000 calls
+  STANDARD:
+    price: 25.00
+    description: "$0.12 CPM overage"
+    usageLimits:
+      maxMonthlyLimit:
+        value: 225000 calls
+  PRIME:
+    price: 250.00
+    description: "$0.15 CPM overage"
+    usageLimits:
+      maxMonthlyLimit:
+        value: 1800000 calls
+  ELITE:
+    price: 500.00
+    description: "$0.22 CPM overage"
+    usageLimits:
+      maxMonthlyLimit:
+        value: 2400000 calls

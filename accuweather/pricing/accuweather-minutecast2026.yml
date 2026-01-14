@@ -1,0 +1,24 @@
+saasName: AccuWeather MinuteCast
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://developer.accuweather.com/pricing"
+createdAt: "2026-01-14"
+currency: "USD"
+plans:
+  MINUTECAST_FREE:
+    price: 0.00
+    usageLimits:
+      maxDailyLimit:
+        value: 50 calls
+  MINUTECAST_LITE:
+    price: 25.00
+    description: "$0.18 CPM overage"
+    usageLimits:
+      maxMonthlyLimit:
+        value: 10000 calls
+  MINUTECAST_FULL:
+    price: 100.00
+    description: "$0.12 CPM overage"
+    usageLimits:
+      maxMonthlyLimit:
+        value: 675000 calls

@@ -3,11 +3,15 @@ url: "https://developer.accuweather.com/pricing"
 planReference: STANDARD
 type: Partial SaaS
 capacity:
-  - value: 225000 calls/month
+  - value: 225000 calls
+    type: QUOTA
+    windowType: CALENDAR_MONTH
     autoRecharge: monthly
     extraCharge: 0.12 USD CPM
 maxPower:
   value: 10 requests/second
+  type: RATE_LIMIT
+  algorithm: SLIDING_WINDOW_COUNTER
   reference: "https://developer.accuweather.com/faq"
 coolingPeriod: "TBD (Sin embargo se incluye la cabecera Retry-After en las respuestas 429)"
 segmentation:
