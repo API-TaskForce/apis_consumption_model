@@ -3,14 +3,37 @@ url: "https://azure.microsoft.com/en-us/pricing/details/search/"
 planReference: STORAGE_OPTIMIZED_L1
 type: Partial SaaS
 capacity:
-  - value: 2 TB per partition (Max 24 TB per service)
+  - value: 2 TB per partition
+    type: QUOTA
+    windowType: STATIC
     autoRecharge: monthly
+    description: "Maximum 24 TB per service (using 12 partitions)"
     extraCharge: SCALE_BY_UNIT
-  - value: 10 indexes per service
+  - value: 10 indexes
+    type: ENTITY_LIMIT
+    windowType: STATIC
     autoRecharge: fixed
+    description: "Strict limit designed for large monolithic datasets"
 maxPower:
-  value: Up to 36 units per service
-  reference: "Scale-out: Max 12 partitions / Max 12 replicas"
-coolingPeriod: "TBD (Optimized for large disk-bound datasets)"
+  value: Up to 36 Search Units (SU)
+  type: SCALABLE_CAPACITY
+  scaleOutLimits:
+    - value: 12 partitions
+      description: "Maximum horizontal scaling for storage (24 TB total)"
+    - value: 12 replicas
+      description: "Scale for query availability; throughput is disk-bound"
+  rateLimits:
+    - value: 200 requests/minute
+      type: MANAGEMENT_OPERATIONS
+      windowType: FIXED_WINDOW
+      resetCondition: "Per-minute rolling window"
+      description: "Control plane operations limit"
+    - value: Scalable
+      type: DATA_PLANE_OPERATIONS
+      windowType: CONCURRENT_REQUESTS
+      description: "Throttling is more sensitive to disk I/O than CPU on L-series"
+  reference: "https://learn.microsoft.com/en-us/azure/search/search-limits-quotas-capacity"
+coolingPeriod: "TBD (Optimizado para datasets masivos vinculados a disco. Se activa throttling 503 si la latencia de disco excede los umbrales)"
 segmentation:
-  - Service Level: Best for large-scale storage with lower query frequency.
+  - Service Level: Dedicated Storage-Optimized infrastructure.
+  - Use Case: Ideal para indexación de grandes archivos, logs históricos o repositorios documentales masivos donde el volumen prima sobre la velocidad de consulta.

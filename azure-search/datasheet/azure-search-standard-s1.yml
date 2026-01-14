@@ -3,14 +3,37 @@ url: "https://azure.microsoft.com/en-us/pricing/details/search/"
 planReference: STANDARD_S1
 type: Partial SaaS
 capacity:
-  - value: 160 GB per partition (Max 1.9 TB per service)
+  - value: 160 GB per partition
+    type: QUOTA
+    windowType: STATIC
     autoRecharge: monthly
+    description: "Maximum 1.9 TB per service (using 12 partitions)"
     extraCharge: SCALE_BY_UNIT
-  - value: 50 indexes per service
+  - value: 50 indexes
+    type: ENTITY_LIMIT
+    windowType: STATIC
     autoRecharge: fixed
+    description: "Maximum logical search indexes per service instance"
 maxPower:
-  value: Up to 36 units per service
-  reference: "Scale-out: Max 12 partitions / Max 12 replicas"
-coolingPeriod: "Dynamic (SLA 99.9% requires 2+ replicas)"
+  value: Up to 36 Search Units (SU)
+  type: SCALABLE_CAPACITY
+  scaleOutLimits:
+    - value: 12 partitions
+      description: "Scale for massive data storage (Scaling factor: 160GB x N)"
+    - value: 12 replicas
+      description: "Scale for high query throughput (QPS) and load balancing"
+  rateLimits:
+    - value: 200 requests/minute
+      type: MANAGEMENT_OPERATIONS
+      windowType: FIXED_WINDOW
+      resetCondition: "Per-minute rolling window"
+      description: "Applies to index schema updates and administrative tasks"
+    - value: Scalable
+      type: DATA_PLANE_OPERATIONS
+      windowType: CONCURRENT_REQUESTS
+      description: "Search and indexing performance scales with SU count; adaptive throttling via 503/429"
+  reference: "https://learn.microsoft.com/en-us/azure/search/search-limits-quotas-capacity"
+coolingPeriod: "Dynamic (SLA 99.9% requires 2+ replicas for read; 3+ for read/write)"
 segmentation:
-  - Service Level: Multi-replica support for high availability.
+  - Service Level: Dedicated infrastructure. Multi-replica support enabled.
+  - Performance: Optimized for production-grade workloads with sub-second latency.

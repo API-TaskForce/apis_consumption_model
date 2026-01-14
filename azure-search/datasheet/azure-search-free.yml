@@ -4,16 +4,32 @@ planReference: FREE
 type: Partial SaaS
 capacity:
   - value: 50 MB storage
+    type: QUOTA
+    windowType: STATIC
     autoRecharge: fixed
-    extraCharge: None (El servicio se detiene al alcanzar el límite)
-  - value: 3 indexes per service
-    autoRecharge: fixed
+    extraCharge: None (Hard limit: service returns 403 on index/upload)
+  - value: 3 indexes
+    type: ENTITY_LIMIT
+    windowType: STATIC
+    description: "Maximum logical indexes allowed per service"
   - value: 1000 documents per index
-    autoRecharge: fixed
+    type: QUOTA
+    windowType: STATIC
+    description: "Total document count limit across each index"
 maxPower:
   value: Shared Infrastructure
-  reference: "Infraestructura compartida sin garantía de QPS. Latencia variable."
-coolingPeriod: "Immediate (El servicio devuelve error 403 al exceder almacenamiento o 429 bajo congestión de red compartida)"
+  type: RATE_LIMIT
+  rateLimits:
+    - value: 200 requests/minute
+      type: MANAGEMENT_OPERATIONS
+      windowType: FIXED_WINDOW
+      description: "Applies to control plane (create/update/delete indexes)"
+    - value: Variable
+      type: SEARCH_QUERIES
+      windowType: CONCURRENT_REQUESTS
+      description: "Throttled based on shared cluster load; returns 429 when congested"
+  reference: "https://learn.microsoft.com/en-us/azure/search/search-limits-quotas-capacity"
+coolingPeriod: "Immediate (403 for storage/index limits; 429 with Retry-After for traffic congestion)"
 segmentation:
   - Subscription Level: Límite de 1 recurso de nivel Free por suscripción de Azure.
   - Scale-out: No permite escalado (fijo a 0 Search Units dedicadas).

@@ -4,11 +4,6 @@ version: "2026"
 url: "https://azure.microsoft.com/pricing/details/search/"
 createdAt: "2026-01-12"
 currency: "USD"
-tags:
-  - Search Engine
-  - Vector Database
-  - RAG Infrastructure
-  - AI Enrichment
 features:
   vectorSearch:
     tag: Search Engine

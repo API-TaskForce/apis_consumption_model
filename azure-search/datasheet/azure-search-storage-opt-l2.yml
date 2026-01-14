@@ -4,13 +4,36 @@ planReference: STORAGE_OPTIMIZED_L2
 type: Partial SaaS
 capacity:
   - value: 4 TB per partition
+    type: QUOTA
+    windowType: STATIC
     autoRecharge: monthly
-    extraCharge: SCALE_BY_UNIT (Up to 48 TB per service)
-  - value: 10 indexes per service
+    description: "Maximum 48 TB per service (using 12 partitions)"
+    extraCharge: SCALE_BY_UNIT
+  - value: 10 indexes
+    type: ENTITY_LIMIT
+    windowType: STATIC
     autoRecharge: fixed
+    description: "Strict limit per service; architecture optimized for massive individual indices"
 maxPower:
-  value: Up to 36 search units (SU) per service
-  reference: "Scale-out: Max 12 partitions / Max 12 replicas. Prioriza ancho de banda de E/S."
-coolingPeriod: "Dynamic (Diseñado para índices de actualización lenta y gran volumen)"
+  value: Up to 36 Search Units (SU)
+  type: SCALABLE_CAPACITY
+  scaleOutLimits:
+    - value: 12 partitions
+      description: "Highest horizontal scale for storage (48 TB total service capacity)"
+    - value: 12 replicas
+      description: "Scale for read availability and E/S bandwidth"
+  rateLimits:
+    - value: 200 requests/minute
+      type: MANAGEMENT_OPERATIONS
+      windowType: FIXED_WINDOW
+      resetCondition: "Per-minute rolling window"
+      description: "Applies to service management and API key operations"
+    - value: Scalable
+      type: DATA_PLANE_OPERATIONS
+      windowType: CONCURRENT_REQUESTS
+      description: "Optimized for high-volume batch indexing; sensitive to disk I/O throughput"
+  reference: "https://learn.microsoft.com/en-us/azure/search/search-limits-quotas-capacity"
+coolingPeriod: "Dynamic (Diseñado para índices de actualización lenta; el throttling ocurre si se satura el ancho de banda de disco)"
 segmentation:
-  - Storage-First Architecture: Mayor densidad de datos por unidad de cómputo que el tier Standard.
+  - Storage-First Architecture: Mayor densidad de datos por unidad de cómputo que los niveles Standard.
+  - Performance Profile: Optimizado para grandes volúmenes de datos con una frecuencia de consulta menor o latencias permitidas ligeramente superiores a la serie S.
