@@ -1,0 +1,17 @@
+associatedSaaS: AccuWeather MinuteCast
+planReference: MINUTECAST_LITE
+type: Partial SaaS
+capacity:
+  - value: 10000 calls
+    type: QUOTA
+    windowType: CALENDAR_MONTH
+    autoRecharge: monthly
+    extraCharge: 0.18 USD CPM
+maxPower:
+  value: 10 requests/second
+  type: RATE_LIMIT
+  algorithm: FIXED_WINDOW_PER_SECOND
+  reference: "https://developer.accuweather.com/documentation/minutecast-quick-start"
+coolingPeriod: "TBD (Se incluye la cabecera Retry-After en las respuestas 429)"
+segmentation:
+  - Key Level: Acceso a pronósticos de precipitación minuto a minuto por coordenadas.

@@ -277,6 +277,7 @@ usageLimits:
     type: NON_RENEWABLE
     linkedFeatures:
     - teamMembers
+
 plans:
   FREE:
     description: Free plan
