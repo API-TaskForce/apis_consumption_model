@@ -1,0 +1,17 @@
+associatedSaaS: currencylayer
+url: "https://currencylayer.com/product"
+planReference: FREE
+type: Partial SaaS
+capacity:
+  - value: 100 requests
+    type: QUOTA
+    windowType: CALENDAR_MONTH
+    autoRecharge: monthly
+    extraCharge: None (Hard limit: API returns error 104 when exhausted)
+maxPower:
+  value: 100 requests/month
+  type: RATE_LIMIT
+  reference: "https://currencylayer.com/documentation"
+coolingPeriod: "Daily" #Currencylayer no tiene un "período de espera" (cooling period) en el sentido de una demora de seguridad para nuevas cuentas o transacciones, pero sí aplica diferentes frecuencias de actualización de datos según el plan de suscripción. 
+segmentation:
+  - Key Level: Los límites se aplican por API Access Key individual.
