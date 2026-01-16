@@ -1,0 +1,14 @@
+Assoaciated SaaS: Resend (https://resend.com/pricing?product=transactional)
+type: Partial SaaS
+capacity:
+  - value: 100 emails/day
+    autoRecharge: daily
+    extraCharge: None
+  - value: 3000 emails/month
+    autoRecharge: monthly
+    extraCharge: None
+maxPower:
+  value: 2 requests/second (https://resend.com/docs/api-reference/rate-limit)
+coolingPeriod: TBD (Sin embargo se incluye la cabecera Retry-After en las respuestas 429 - https://resend.com/docs/api-reference/rate-limit)
+segmentation:
+  - Account Level (Authenticated): Múltiples API Keys aplican sobre el mismo límite global de la cuenta.
