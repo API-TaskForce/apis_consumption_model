@@ -4,33 +4,240 @@ version: "2026"
 url: "https://developer.accuweather.com/pricing"
 createdAt: "2026-01-14"
 currency: "USD"
+tags:
+  - "Nota: Las features de accuweather-core no están agrupadas por categorías o tags."
+features:
+  apiCalls:
+    description: Number of api calls you can make
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  locationsAPI:
+    description: Access to location keys via city name, coordinates, or IP address.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  currentConditions:
+    description: Real-time current weather data.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  dailyForecast:
+    description: Access to daily future weather predictions.
+    valueType: TEXT
+    defaultValue: 5 Days
+    type: DOMAIN
+  hourlyForecast:
+    description: Access to hourly future weather predictions.
+    valueType: TEXT
+    defaultValue: 12 Hours
+    type: DOMAIN
+  indices:
+    description: Health and lifestyle indices.
+    valueType: TEXT
+    defaultValue: ""
+    type: DOMAIN
+  alarms:
+    description: Access to severe weather alerts and alarms.
+    valueType: TEXT
+    defaultValue: 5 Days
+    type: DOMAIN
+  translations:
+    description: Access to severe weather alerts and alarms.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  tropical:
+    description: Access to severe weather alerts and alarms.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  alerts:
+    description: Access to severe weather alerts and alarms.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  imagery:
+    description: Access to severe weather alerts and alarms.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  overageAccess: #Acceso a pago por CPM
+    description: "Enables continuous API access after exceeding the base quota."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  maxDailyLimit:
+    description: Maximum API calls allowed per rolling 24-hour period.
+    valueType: NUMERIC
+    defaultValue: 500
+    unit: call
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - apiCalls
+  maxMonthlyLimit:
+    description: Maximum API calls allowed per calendar month.
+    valueType: NUMERIC
+    defaultValue: 15000
+    unit: call
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - apiCalls
+
 plans:
   FREE_TRIAL:
     price: 0.00
+    unit: user/month
+    description: "Free 14 day trial 500 calls per day 1 key per developer"
+    features:
+      dailyForecast:
+        value: 5 Days
+      hourlyForecast:
+        value: 12 Hours
+      indices:
+        value: 5 Days
+      alarms:
+        value: 5 Days
+      imagery:
+        value: true
+      overageAccess:
+        value: false
     usageLimits:
       maxDailyLimit:
-        value: 500 calls
+        value: 500
+      maxMonthlyLimit:
+        value: 0 #En el plan gratuito únicamente podemos utilizar la api por 14 días.
   STARTER:
     price: 2.00
-    description: "$0.25 CPM overage"
+    unit: user/month
+    description: "$0.25 CPM over 15.000 calls per month"
+    features:
+      dailyForecast:
+        value: 5 Days
+      hourlyForecast:
+        value: 12 Hours
+      indices:
+        value: ""
+      alarms:
+        value: ""
+      imagery:
+        value: false
+      overageAccess:
+        value: true
     usageLimits:
+      maxDailyLimit:
+        value: .inf #Accuweather no dice cuales son los límities diarios de llamadas a la api
       maxMonthlyLimit:
-        value: 15000 calls
+        value: 15000
   STANDARD:
     price: 25.00
-    description: "$0.12 CPM overage"
+    unit: user/month
+    description: "$0.12 CPM over 225.000 calls per month"
+    features:
+      dailyForecast:
+        value: 5 Days
+      hourlyForecast:
+        value: 12 Hours
+      indices:
+        value: 5 Days
+      alarms:
+        value: 5 Days
+      imagery:
+        value: false
+      overageAccess:
+        value: true
     usageLimits:
+      maxDailyLimit:
+        value: .inf #Accuweather no dice cuales son los límities diarios de llamadas a la api
       maxMonthlyLimit:
-        value: 225000 calls
+        value: 225000
   PRIME:
     price: 250.00
-    description: "$0.15 CPM overage"
+    unit: user/month
+    description: "$0.15 CPM over 1.800.000 calls per month"
+    features:
+      dailyForecast:
+        value: 10 Days
+      hourlyForecast:
+        value: 72 Hours
+      indices:
+        value: 10 Days
+      alarms:
+        value: 10 Days
+      imagery:
+        value: true
+      overageAccess:
+        value: true
     usageLimits:
+      maxDailyLimit:
+        value: .inf #Accuweather no dice cuales son los límities diarios de llamadas a la api
       maxMonthlyLimit:
-        value: 1800000 calls
+        value: 1800000
   ELITE:
     price: 500.00
-    description: "$0.22 CPM overage"
+    unit: user/month
+    description: "$0.22 CPM over 2.400.000 calls per month"
+    features:
+      dailyForecast:
+        value: 15 Days
+      hourlyForecast:
+        value: 120 Hours
+      indices:
+        value: 15 Days
+      alarms:
+        value: 15 Days
+      imagery:
+        value: true
+      overageAccess:
+        value: true
     usageLimits:
+      maxDailyLimit:
+        value: .inf #Accuweather no dice cuales son los límities diarios de llamadas a la api
       maxMonthlyLimit:
-        value: 2400000 calls
+        value: 2400000
+
+addOns:
+  cpmStarterAddOn:
+    description: "Overage charge for Starter plan"
+    price: 0.25
+    unit: 1000 calls
+    availableFor:
+      - STARTER
+    features:
+      overageAccess:
+        value: true
+  cpmStandardAddOn:
+    description: "Overage charge for Standard plan"
+    price: 0.12
+    unit: 1000 calls
+    availableFor:
+      - STANDARD
+    features:
+      overageAccess:
+        value: true
+  cpmPrimeAddOn:
+    description: "Overage charge for Prime plan"
+    price: 0.15
+    unit: 1000 calls
+    availableFor:
+      - PRIME
+    features:
+      overageAccess:
+        value: true
+  cpmEliteAddOn:
+    description: "Overage charge for Elite plan"
+    price: 0.22
+    unit: 1000 calls
+    availableFor:
+      - ELITE
+    features:
+      overageAccess:
+        value: true

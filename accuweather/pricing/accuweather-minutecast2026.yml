@@ -4,21 +4,104 @@ version: "2026"
 url: "https://developer.accuweather.com/pricing"
 createdAt: "2026-01-14"
 currency: "USD"
+
+features:
+  apiCalls:
+    description: Number of api calls you can make
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  minutecastDepth:
+    description: "Duration of the minute-by-minute precipitation forecast."
+    valueType: TEXT
+    defaultValue: 120 Minutes
+    type: DOMAIN
+  overageAccess: #Acceso a pago por CPM
+    description: "Enables continuous API access after exceeding the base quota."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  maxDailyLimit:
+    description: "Quota of calls per 24-hour rolling window."
+    valueType: NUMERIC
+    defaultValue: 50
+    unit: call
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - apiCalls
+  maxMonthlyLimit:
+    description: "Quota of calls per calendar month."
+    valueType: NUMERIC
+    defaultValue: 10000
+    unit: call
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - apiCalls
+
 plans:
   MINUTECAST_FREE:
+    description: "Free 14 day trial 50 calls per day 1 key per developer"
     price: 0.00
+    unit: user/month
+    features:
+      minutecastDepth:
+        value: 120 Minutes
+      overageAccess:
+        value: false
     usageLimits:
       maxDailyLimit:
-        value: 50 calls
+        value: 50
+      maxMonthlyLimit:
+        value: 0 # En la tier gratuita de Accuweather únicamente tenemos 14 días de acceso a la API
   MINUTECAST_LITE:
+    description: "$0.18 CPM over 10.000 calls per month"
     price: 25.00
-    description: "$0.18 CPM overage"
+    unit: user/month
+    features:
+      minutecastDepth:
+        value: 120 Minutes
     usageLimits:
+      maxDailyLimit:
+        value: .inf #Accuweather no dice cuales son los límities diarios de llamadas a la api
       maxMonthlyLimit:
-        value: 10000 calls
+        value: 10000
   MINUTECAST_FULL:
+    description: "$0.12 CPM over 675.000 calls per month"
     price: 100.00
-    description: "$0.12 CPM overage"
+    unit: user/month
+    features:
+      minutecastDepth:
+        value: 120 Minutes
     usageLimits:
+      maxDailyLimit:
+        value: .inf #Accuweather no dice cuales son los límities diarios de llamadas a la api
       maxMonthlyLimit:
-        value: 675000 calls
+        value: 675000
+
+addOns:
+  cpmLiteAddOn:
+    description: "Overage charge for MinuteCast Lite plan"
+    price: 0.18
+    unit: 1000 calls
+    availableFor:
+      - MINUTECAST_LITE
+    features:
+      overageAccess:
+        value: true
+  cpmFullAddOn:
+    description: "Overage charge for MinuteCast Full plan"
+    price: 0.12
+    unit: 1000 calls
+    availableFor:
+      - MINUTECAST_FULL
+    features:
+      overageAccess:
+        value: true
