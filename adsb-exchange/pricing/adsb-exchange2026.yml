@@ -4,44 +4,111 @@ version: "2026"
 url: "https://www.adsbexchange.com/data/"
 createdAt: "2026-01-12"
 currency: "USD"
-tags:
-  - Aviation Data
-  - Real-Time Tracking
-  - ADS-B
+
 features:
-  aircraftTraffic:
-    tag: Real-Time Tracking
-    description: Access to global aircraft positions and telemetry.
+  apiCalls:
+    description: Access to the API.
     valueType: BOOLEAN
     defaultValue: true
     type: DOMAIN
-  historicalData:
-    tag: Aviation Data
-    description: Access to past flight paths and historical telemetry.
+  rateLimit:
+    description: API rate limit.
+    valueType: TEXT
+    defaultValue: No limit
+    type: DOMAIN
+  monthlyQueriesIncluded:
+    description: Max number of queries per month
     valueType: BOOLEAN
     defaultValue: false
     type: DOMAIN
-  milTraffic:
-    tag: Aviation Data
-    description: Filter and track military aircraft specifically.
+  maxBandwidth:
+    description: Max amount of bandwith per month.
     valueType: BOOLEAN
     defaultValue: true
     type: DOMAIN
-  callsignSearch:
-    tag: Aviation Data
-    description: Search aircraft by callsign or registration.
+  extraCallCharge:
+    description: Access to additional charges per call.
     valueType: BOOLEAN
     defaultValue: true
     type: DOMAIN
+  extraBandwidthCharge:
+    description: Access to bandwith additional charges.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  maxApiCallLimit:
+    description: "Max number of daily requests"
+    valueType: NUMERIC
+    defaultValue: 10000 # ADSB Exchange no indica ningún límite de uso diario.
+    unit: call
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - apiCalls
+  maxMonthlyQueriesLimit:
+    description: "Max number of daily queries"
+    valueType: NUMERIC
+    defaultValue: 10000 # ADSB Exchange no indica ningún límite de uso diario.
+    unit: querie
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - monthlyQueriesIncluded
+  maxBandwidthLimit:
+    description: "Max amount of bandwith per month."
+    valueType: NUMERIC
+    defaultValue: 10240 # ADSB Exchange no indica ningún límite de uso diario.
+    unit: MB
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - maxBandwidth
 
 plans:
-  #Plan público disponible en Rapid API.
-  BASIC:
+  BASIC: #Plan público disponible en Rapid API.
     description: Low volume for personal/hobbyist use.
     price: 10.00
-    unit: month
+    unit: user/month
+    features:
+      rateLimit:
+        value: No Limit
+      monthlyQueriesIncluded:
+        value: true
     usageLimits:
-      maxDailyLimit:
-      value: 1000
+      maxApiCallLimit:
+        value: 10000
+      maxMonthlyQueriesLimit:
+        value: 10000
+      maxBandwidthLimit:
+        value: 10240
 
   #ADS-B Exchange requiere que las empresas y usuarios comerciales firmen un acuerdo de licencia específico. Este pricing no es público y se cotiza bajo demanda.
+
+addOns:
+  extraRequestCharge:
+    description: "+0.0015$ extra per call"
+    price: 0.0015
+    unit: call
+    availableFor:
+      - BASIC
+    features:
+      extraCallCharge:
+        value: true
+
+  extraBandwithCharge:
+    description: "+0.001$ per MB"
+    price: 0.001
+    unit: MB
+    availableFor:
+      - BASIC
+    features:
+      extraBandwidthCharge:
+        value: true
