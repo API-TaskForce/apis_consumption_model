@@ -7,7 +7,7 @@ capacity:
     windowType: CUSTOM
     description: "Volume and overage negotiated via SLA"
 maxPower:
-  value: Custom
+  value: 60 requests per minute (https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors)
   type: RATE_LIMIT
   reference: "Dedicated infrastructure scaling"
 segmentation:

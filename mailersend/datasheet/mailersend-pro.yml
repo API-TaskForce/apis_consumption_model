@@ -15,7 +15,7 @@ capacity:
     type: QUOTA
     windowType: ROLLING_24H
 maxPower:
-  value: 100 requests/second
+  value: 60 requests per minute (https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors)
   type: RATE_LIMIT
   description: "High-priority throughput"
 segmentation:
