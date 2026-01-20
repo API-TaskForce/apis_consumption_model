@@ -1,0 +1,19 @@
+associatedSaaS: MailerSend
+planReference: FREE
+type: Partial SaaS
+capacity:
+  - value: 500 emails
+    type: QUOTA
+    windowType: CALENDAR_MONTH
+    resetCondition: "First day of the calendar month"
+    extraCharge: "None (Hard Limit)"
+  - value: 100 requests
+    type: QUOTA
+    windowType: ROLLING_24H
+    throttling: "Daily quota"
+maxPower:
+  value: 1 request/second
+  type: RATE_LIMIT
+  description: "Shared infrastructure burst limit"
+segmentation:
+  - Key Level: Limits applied per MailerSend account API key.

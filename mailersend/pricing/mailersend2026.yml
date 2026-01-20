@@ -1,0 +1,477 @@
+saasName: MailerSend
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://www.mailersend.com/pricing"
+createdAt: "2026-01-19"
+currency: "USD"
+
+features:
+  #Credits Features
+  emails:
+    description: "Allowed emails per month"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  emailVerificationCredits:
+    description: "Included credits for email verification."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  sms:
+    description: "Allowed SMS per month"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+  #Main features
+  emailThreadSupport:
+    description: "Allows email thread support."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  dragDropBuilder:
+    description: "Visual editor for creating email templates."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  bulkEmailing:
+    description: "Enables bulk email sending."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  apiLogsRetention:
+    description: "Retention period for API logs."
+    valueType: TEXT
+    defaultValue: 7 Day
+    type: DOMAIN
+  senderIdentities:
+    description: "Ability to manage multiple sender identities."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  removeMailerSendLogo:
+    description: "Option to remove MailerSend branding from emails."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  smsApi:
+    description: "Access to sending SMS via API."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  dedicatedAccountManager:
+    description: "Access to a dedicated manager for account support."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  deliverabilityConsultation:
+    description: "Professional advice on improving email deliverability."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  dedicatedIP:
+    description: "Private IP address for dedicated sending reputation."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  enterpriseSupport:
+    description: "Grants professional enterprise grade support."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+  #Limits
+  dailyApiRequests:
+    description: "Allowed daily api requests."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  userSeats:
+    description: "Allowed user seats."
+    valueType: TEXT
+    defaultValue: 1 user seat + 1 accountant role
+    type: DOMAIN
+  domains:
+    description: "Allowed domains."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  templates:
+    description: "Allowed templates."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  activityDataRetention:
+    description: "Duration for which activity data is stored."
+    valueType: TEXT
+    defaultValue: 1 Day
+    type: DOMAIN
+
+  #Addons
+  extraEmails:
+    description: "Access to extra emails"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  extraSMS:
+    description: "Access to extra SMS"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  maxEmailsLimit:
+    description: "Monthly email sending quota."
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: email
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - emails
+  emailVerificationCreditsLimit:
+    description: "Monthly email verification credits"
+    valueType: NUMERIC
+    defaultValue: 10
+    unit: credit
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - emailVerificationCredits
+  maxSmsLimit:
+    description: "Included SMS per month."
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: sms
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - sms
+  dailyApiRequestsLimit:
+    description: "Limit of API requests allowed per day."
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: requests
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - dailyApiRequests
+  maxDomains:
+    description: "Number of sending domains allowed."
+    valueType: NUMERIC
+    defaultValue: 1
+    unit: domain
+    type: NON_RENEWABLE
+    linkedFeatures:
+      - domains
+  maxTemplates:
+    description: "Number of saved email templates allowed."
+    valueType: NUMERIC
+    defaultValue: 1
+    unit: templates
+    type: NON_RENEWABLE
+    linkedFeatures:
+      - templates
+
+plans:
+  FREE:
+    price: 0.00
+    unit: user/month
+    description: "For occasional email testing and sending"
+    features:
+      emails:
+        value: true
+      emailVerificationCredits:
+        value: true
+      emailThreadSupport:
+        value: true
+      bulkEmailing:
+        value: false
+      apiLogsRetention:
+        value: No rentention
+      senderIdentities:
+        value: false
+      removeMailerSendLogo:
+        value: false
+      smsApi:
+        value: false
+      dedicatedAccountManager:
+        value: false
+      deliverabilityConsultation:
+        value: false
+      dedicatedIP:
+        value: false
+      enterpriseSupport:
+        value: false
+      extraEmails:
+        value: false
+      extraSMS:
+        value: false
+      activityDataRetention:
+        value: 1-day activity data retention
+      dailyApiRequests:
+        value: true
+      dragDropBuilder:
+        value: true
+      userSeats:
+        value: 1 user seat + 1 accountant role
+    usageLimits:
+      maxEmailsLimit:
+        value: 500
+      emailVerificationCreditsLimit:
+        value: 10
+      dailyApiRequestsLimit:
+        value: 100
+      maxDomains:
+        value: 1
+      maxTemplates:
+        value: 1
+
+  HOBBY:
+    price: 7.00
+    unit: user/month
+    description: "For personal projects and side hustles"
+    features:
+      emails:
+        value: true
+      emailVerificationCredits:
+        value: true
+      apiLogsRetention:
+        value: No rentention
+      senderIdentities:
+        value: false
+      removeMailerSendLogo:
+        value: false
+      smsApi:
+        value: false
+      dedicatedAccountManager:
+        value: false
+      deliverabilityConsultation:
+        value: false
+      dedicatedIP:
+        value: false
+      enterpriseSupport:
+        value: false
+      extraEmails:
+        value: true
+      extraSMS:
+        value: true
+      activityDataRetention:
+        value: 1 Day
+      dailyApiRequests:
+        value: true
+      dragDropBuilder:
+        value: true
+      bulkEmailing:
+        value: true
+      userSeats:
+        value: 5 seats
+    usageLimits:
+      maxEmailsLimit:
+        value: 5000
+      emailVerificationCreditsLimit:
+        value: 100
+      dailyApiRequestsLimit:
+        value: 1000
+      maxDomains:
+        value: 1
+      maxTemplates:
+        value: 3
+
+  STARTER:
+    price: 35.00
+    unit: user/month
+    description: "For growing startups and small businesses"
+    features:
+      emails:
+        value: true
+      emailVerificationCredits:
+        value: true
+      emailThreadSupport:
+        value: true
+      apiLogsRetention:
+        value: No rentention
+      dedicatedAccountManager:
+        value: false
+      deliverabilityConsultation:
+        value: false
+      dedicatedIP:
+        value: false
+      enterpriseSupport:
+        value: false
+      extraEmails:
+        value: true
+      extraSMS:
+        value: true
+      dragDropBuilder:
+        value: true
+      bulkEmailing:
+        value: true
+      activityDataRetention:
+        value: 7-day activity data retention
+      senderIdentities:
+        value: true
+      removeMailerSendLogo:
+        value: true
+      smsApi:
+        value: true
+      userSeats:
+        value: 5 seats
+    usageLimits:
+      maxEmailsLimit:
+        value: 50000
+      emailVerificationCreditsLimit:
+        value: 100
+      maxSmsLimit:
+        value: 100
+      dailyApiRequestsLimit:
+        value: 100000
+      maxDomains:
+        value: 10
+      maxTemplates:
+        value: 250
+
+  PROFESSIONAL:
+    price: 110.00
+    unit: user/month
+    description: "For agencies and white-label resellers sending at scale"
+    features:
+      emails:
+        value: true
+      emailThreadSupport:
+        value: true
+      dedicatedIP:
+        value: false
+      enterpriseSupport:
+        value: false
+      extraEmails:
+        value: true
+      extraSMS:
+        value: true
+      emailVerificationCredits:
+        value: true
+      dragDropBuilder:
+        value: true
+      bulkEmailing:
+        value: true
+      activityDataRetention:
+        value: 30-day activity data retention
+      apiLogsRetention:
+        value: 7-days API logs retention
+      senderIdentities:
+        value: true
+      removeMailerSendLogo:
+        value: true
+      smsApi:
+        value: true
+      userSeats:
+        value: infinte users*
+      dedicatedAccountManager:
+        value: true
+      deliverabilityConsultation:
+        value: true
+    usageLimits:
+      maxEmailsLimit:
+        value: 50000
+      emailVerificationCreditsLimit:
+        value: 400
+      maxSmsLimit:
+        value: 150
+      dailyApiRequestsLimit:
+        value: 500000
+      maxDomains:
+        value: .inf
+      maxTemplates:
+        value: .inf
+
+  ENTERPRISE: #Plan personalizado para empresas
+    price: .inf #Precio desconocido asumimos un precio cualquiera
+    unit: user/month
+    description: "Designed for scale - Custom pricing"
+    features:
+      emails:
+        value: true
+      emailVerificationCredits:
+        value: true
+      dragDropBuilder:
+        value: true
+      bulkEmailing:
+        value: true
+      activityDataRetention:
+        value: Custom
+      apiLogsRetention:
+        value: 14-days API logs retention
+      senderIdentities:
+        value: true
+      removeMailerSendLogo:
+        value: true
+      smsApi:
+        value: true
+      userSeats:
+        value: Not specified
+      deliverabilityConsultation:
+        value: true
+      dedicatedIP:
+        value: true
+      dedicatedAccountManager:
+        value: true
+    usageLimits:
+      maxEmailsLimit:
+        value: .inf
+      emailVerificationCreditsLimit:
+        value: .inf
+      dailyApiRequestsLimit:
+        value: .inf
+      maxSmsLimit:
+        value: .inf
+      maxDomains:
+        value: .inf
+      maxTemplates:
+        value: .inf
+
+addOns:
+  extraEmailsHobby:
+    description: "Extra email usage for Hobby plan"
+    price: 1.20
+    unit: 1000 emails
+    availableFor:
+      - HOBBY
+    features:
+      emails:
+        value: true
+  extraEmailsStarter:
+    description: "Extra email usage for Starter plan"
+    price: 0.95
+    unit: 1000 emails
+    availableFor:
+      - STARTER
+    features:
+      emails:
+        value: true
+  extraEmailsProfessional:
+    description: "Extra email usage for Professional plan"
+    price: 0.80
+    unit: 1000 emails
+    availableFor:
+      - PROFESSIONAL
+    features:
+      emails:
+        value: true
+  extraSmsStarterProfessional:
+    description: "Extra SMS usage for Starter and Professional plans"
+    price: 1.40
+    unit: 100 sms
+    availableFor:
+      - STARTER
+      - PROFESSIONAL
+    features:
+      emails:
+        value: true

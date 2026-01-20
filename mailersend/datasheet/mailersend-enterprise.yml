@@ -1,0 +1,14 @@
+associatedSaaS: MailerSend
+planReference: ENTERPRISE
+type: Partial SaaS
+capacity:
+  - value: .inf
+    type: QUOTA
+    windowType: CUSTOM
+    description: "Volume and overage negotiated via SLA"
+maxPower:
+  value: Custom
+  type: RATE_LIMIT
+  reference: "Dedicated infrastructure scaling"
+segmentation:
+  - Organization Level: Limits can be distributed across sub-accounts.

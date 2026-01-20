@@ -1,0 +1,22 @@
+associatedSaaS: MailerSend
+planReference: PROFESSIONAL
+type: Partial SaaS
+capacity:
+  - value: 50000 emails
+    type: QUOTA
+    windowType: CALENDAR_MONTH
+    extraCharge: 0.80 USD CPM
+  - value: 150 requests
+    type: QUOTA
+    unit: sms
+    windowType: CALENDAR_MONTH
+    extraCharge: 14.00 USD CPM
+  - value: 500000 requests
+    type: QUOTA
+    windowType: ROLLING_24H
+maxPower:
+  value: 100 requests/second
+  type: RATE_LIMIT
+  description: "High-priority throughput"
+segmentation:
+  - Key Level: Account-wide limits.
