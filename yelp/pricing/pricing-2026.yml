@@ -1,0 +1,219 @@
+saasName: Yelp Places API
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://business.yelp.com/data/products/places-api/"
+createdAt: "2026-01-20"
+currency: "USD"
+
+features:
+  aiApiAccess:
+    description: Early access to the AI API (100 daily API calls).
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  attributesLevel:
+    description: Level of data attributes available (Base, Enhanced, Premium).
+    valueType: TEXT
+    defaultValue: "Base"
+    type: DOMAIN
+  searchFiltersLevel:
+    description: Level of search filters available.
+    valueType: TEXT
+    defaultValue: "Base"
+    type: DOMAIN
+  photosAccess:
+    description: Access to business photos.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  photosLimitPerBusiness:
+    description: Max photos returned per business.
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: photo
+    type: DOMAIN
+  reviewExcerptsAccess:
+    description: Access to review excerpts.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  reviewExcerptsLimitPerBusiness:
+    description: Max review excerpts per business.
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: excerpt
+    type: DOMAIN
+  reviewHighlightsEndpoint:
+    description: Access to Review Highlights endpoint.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  apiCalls:
+    description: General API calls.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  trialAccess:
+    description: Access to 30-day free trial calls.
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  trialCalls:
+    description: Free API calls during the 30-day trial period.
+    valueType: NUMERIC
+    defaultValue: 5000
+    unit: request
+    type: NON_RENEWABLE
+    linkedFeatures:
+      - trialAccess
+
+  limitApiCalls:
+    description: Limit for general API calls (Pay-as-you-go).
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - apiCalls
+  
+  aiApiDailyLimit:
+    description: Daily limit for AI API calls.
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - aiApiAccess
+
+plans:
+  BASE:
+    description: Base attributes and search filters. No photos or review excerpts.
+    price: 229.00
+    unit: user/month
+    features:
+      aiApiAccess:
+        value: true
+      attributesLevel:
+        value: "Base"
+      searchFiltersLevel:
+        value: "Base"
+      photosAccess:
+        value: false
+      photosLimitPerBusiness:
+        value: 0
+      reviewExcerptsAccess:
+        value: false
+      reviewExcerptsLimitPerBusiness:
+        value: 0
+      reviewHighlightsEndpoint:
+        value: false
+      trialAccess:
+         value: true
+    usageLimits:
+      trialCalls:
+        value: 5000
+      aiApiDailyLimit:
+        value: 100
+      limitApiCalls:
+        value: 0
+
+  ENHANCED:
+    description: Enhanced attributes, 3 photos, 3 review excerpts.
+    price: 299.00
+    unit: user/month
+    features:
+      aiApiAccess:
+        value: true
+      attributesLevel:
+        value: "Enhanced"
+      searchFiltersLevel:
+        value: "Base" # Text implies only Premium has "Premium search filters", Base has "Base", Enhanced says "Enhanced attributes only" but doesn't mention filter upgrade? Assuming Base filters unless specified. Wait, Enhanced says "Enhanced attributes only". It lists "Enhanced attributes only", "Limit to max 3 photos", "Limit to max 3 review excerpts". It does NOT explicitly say "Enhanced search filters". Premium says "Premium search filters", Base says "Base search filters only". Enhanced is silent on filters. I will assume Base filters for Enhanced based on strict reading, or maybe Enhanced filters? Let's stick to Base defaults if not listed.
+      photosAccess:
+        value: true
+      photosLimitPerBusiness:
+        value: 3
+      reviewExcerptsAccess:
+        value: true
+      reviewExcerptsLimitPerBusiness:
+        value: 3
+      reviewHighlightsEndpoint:
+        value: false
+      trialAccess:
+         value: true
+    usageLimits:
+      trialCalls:
+        value: 5000
+      aiApiDailyLimit:
+        value: 100
+      limitApiCalls:
+        value: 0
+
+  PREMIUM:
+    description: Premium attributes, filters, 12 photos, 7 review excerpts, Review Highlights.
+    price: 643.00
+    unit: user/month
+    features:
+      aiApiAccess:
+        value: true
+      attributesLevel:
+        value: "Premium"
+      searchFiltersLevel:
+        value: "Premium"
+      photosAccess:
+        value: true
+      photosLimitPerBusiness:
+        value: 12
+      reviewExcerptsAccess:
+        value: true
+      reviewExcerptsLimitPerBusiness:
+        value: 7
+      reviewHighlightsEndpoint:
+        value: true
+      trialAccess:
+        value: true
+    usageLimits:
+      trialCalls:
+        value: 5000
+      aiApiDailyLimit:
+        value: 100
+      limitApiCalls:
+        value: 0
+
+addOns:
+  baseOverage:
+    description: Additional calls for Base plan ($5.91 per 1,000 calls).
+    price: 0.00591
+    unit: request
+    availableFor:
+      - BASE
+    usageLimitsExtensions:
+      limitApiCalls:
+        value: 1
+  
+  enhancedOverage:
+    description: Additional calls for Enhanced plan ($6.57 per 1,000 calls).
+    price: 0.00657
+    unit: request
+    availableFor:
+      - ENHANCED
+    usageLimitsExtensions:
+      limitApiCalls:
+        value: 1
+
+  premiumOverage:
+    description: Additional calls for Premium plan ($14.13 per 1,000 calls).
+    price: 0.01413
+    unit: request
+    availableFor:
+      - PREMIUM
+    usageLimitsExtensions:
+      limitApiCalls:
+        value: 1
