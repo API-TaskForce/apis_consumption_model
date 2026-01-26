@@ -22,3 +22,12 @@
 **Contexto:** El pricing menciona "5,000 free API calls during the 30-day trial period". Sin embargo, la documentación de Rate Limiting menciona un "Starter Plan" limitado a **300 API calls per 24 hours**.
 **Duda:** ¿Coexisten ambos límites? ¿Es el Starter Plan una opción distinta al Trial de los planes de pago?
 **Decisión provisional:** Se ha mantenido el modelado de 5,000 en el Trial de los planes `BASE`, `ENHANCED` y `PREMIUM`, pero se ha registrado el límite diario de 300 en la datasheet de Rate Limiting para futuras aclaraciones.
+## 6. Modelo "Partner API" con Aprobación
+**Contexto:** La Yelp Insights API se describe como una "Partner API".
+**Duda:** ¿Debería considerarse el tipo "Partner API" como una categoría especial en el modelo?
+**Decisión:** Se ha etiquetado como `type: Partner API` en la datasheet. Esto implica un prerrequisito de pasar por un proceso de aceptación/aprobación por parte de Yelp antes de poder acceder.
+## 7. Cálculo de $750.00 en Yelp AI API
+**Contexto:** La web dice "$25/ 1,000 API calls" y "Minimum 1,000 daily API calls".
+**Duda:** ¿Cuál es el coste fijo mensual real?
+**Decisión:** Se ha modelado como un precio de **$750.00 al mes**.
+**Razón:** Si el mínimo son 1,000 llamadas diarias y cada 1,000 llamadas cuestan $25, el coste mínimo diario es de $25. Multiplicado por un mes estándar de 30 días, el compromiso mínimo mensual resulta en $750.00 ($25/día * 30 días).
