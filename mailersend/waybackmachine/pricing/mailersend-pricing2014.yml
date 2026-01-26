@@ -1,0 +1,93 @@
+saasName: MailerSend (Legacy 2014)
+syntaxVersion: "3.0"
+version: "2014"
+url: "https://www.mailersend.com/pricing"
+createdAt: "2026-01-22"
+currency: "USD"
+
+features:
+  subscribers:
+      description: "Allowed number of subscribers"
+      valueType: BOOLEAN
+      defaultValue: true
+      type: DOMAIN
+  unlimitedEmails:
+    description: "No cap on the number of emails sent per month."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  dedicatedIP:
+    description: "Dedicated IP address for sender reputation management."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  consultationFreq:
+    description: "Frequency of expert consultations."
+    valueType: TEXT
+    defaultValue: "Monthly Consultation"
+    type: DOMAIN
+  designCreativeWork:
+    description: "Days of dedicated design and creative work per month."
+    valueType: NUMERIC
+    defaultValue: 1
+    unit: day
+    type: DOMAIN
+
+usageLimits:
+  maxSubscribers:
+    description: "Total number of active subscribers allowed in the database."
+    valueType: NUMERIC
+    defaultValue: 500000 
+    unit: subscribers
+    type: NON_RENEWABLE
+    linkedFeatures: 
+    - subscribers
+
+plans:
+  STANDARD:
+    price: 2000.00
+    unit: account/month
+    features:
+      unlimitedEmails:  
+        value: true 
+      dedicatedIP:  
+        value: true 
+      consultationFreq:  
+        value: "Monthly" 
+      designCreativeWork:  
+        value: 1 
+    usageLimits:
+      maxSubscribers:  
+        value: 500000 
+
+  PREMIUM:
+    price: 3000.00
+    unit: account/month
+    features:
+      unlimitedEmails:  
+        value: true 
+      dedicatedIP:  
+        value: true 
+      consultationFreq:  
+        value: "Monthly" 
+      designCreativeWork:  
+        value: 2 
+    usageLimits:
+      maxSubscribers:  
+        value: 1000000 
+
+  UNLIMITED:
+    price: 4000.00
+    unit: account/month
+    features:
+      unlimitedEmails:  
+        value: true 
+      dedicatedIP:  
+        value: true 
+      consultationFreq:  
+        value: "Weekly" 
+      designCreativeWork:  
+        value: 3 
+    usageLimits:
+      maxSubscribers:  
+        value: .inf
