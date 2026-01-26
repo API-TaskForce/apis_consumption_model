@@ -30,7 +30,6 @@ features:
     description: Max photos returned per business.
     valueType: NUMERIC
     defaultValue: 0
-    unit: photo
     type: DOMAIN
   reviewExcerptsAccess:
     description: Access to review excerpts.
@@ -41,7 +40,6 @@ features:
     description: Max review excerpts per business.
     valueType: NUMERIC
     defaultValue: 0
-    unit: excerpt
     type: DOMAIN
   reviewHighlightsEndpoint:
     description: Access to Review Highlights endpoint.

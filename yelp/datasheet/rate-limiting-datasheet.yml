@@ -1,0 +1,22 @@
+Associated SaaS: Yelp Places API (https://docs.developer.yelp.com/docs/fusion-rate-limiting)
+type: Partial SaaS
+capacity:
+  - value: 300 API calls/day (Starter Plan)
+    autoRecharge: daily
+    extraCharge: None (Return HTTP 429 ACCESS_LIMIT_REACHED)
+maxPower:
+  - value: TBD queries-per-second (Returns HTTP 429 TOO_MANY_REQUESTS_PER_SECOND)
+coolingPeriod: TBD (ResetTime included in headers: RateLimit-ResetTime)
+segmentation:
+  - Client Level: Your remaining calls are returned in the header of each response and can be viewed on the Manage App page.
+  - Endpoint Level: Optionally a limit for specific endpoints (RateLimit-ResourceDailyLimit).
+notes:
+  - Additional API calls: Can be requested by emailing data-licensing@yelp.com with product details, mock-ups, and Client ID.
+  - Caching: Yelp recommends caching data for up to 24 hours to minimize API calls during development.
+extraFields:
+  headers:
+    - RateLimit-DailyLimit: The maximum number of calls you can make per day
+    - RateLimit-Remaining: The number of calls remaining within the current day
+    - RateLimit-ResourceDailyLimit: The maximum number of calls you can make per day to the current endpoint (Optional)
+    - RateLimit-ResourceRemaining: The number of calls remaining within the current day to the current endpoint (Optional)
+    - RateLimit-ResetTime: The time at which the current rate limiting window will expire as an ISO 8601 timestamp

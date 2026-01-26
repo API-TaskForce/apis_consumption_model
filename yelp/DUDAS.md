@@ -14,3 +14,11 @@
 ## 3. Niveles de Atributos y Filtros en Enhanced
 **Duda:** El plan Enhanced dice "Enhanced attributes only" y "Enhanced parameters" pero no especifica "Search Filters" como Premium.
 **Decisión:** Se ha mantenido en `Base` para Search Filters en el plan Enhanced, asumiendo que solo Premium tiene "Premium search filters" y Base tiene "Base search filters".
+
+## 4. Features adicionales en Documentación vs Pricing
+**Contexto:** En https://docs.developer.yelp.com/docs/plans aparecen más features listadas, pero no aparecen en el pricing.
+**Duda:** ¿Se deben añadir también estas features al modelo?
+## 5. Discrepancia en Límites de Trial (5,000 total vs 300/día)
+**Contexto:** El pricing menciona "5,000 free API calls during the 30-day trial period". Sin embargo, la documentación de Rate Limiting menciona un "Starter Plan" limitado a **300 API calls per 24 hours**.
+**Duda:** ¿Coexisten ambos límites? ¿Es el Starter Plan una opción distinta al Trial de los planes de pago?
+**Decisión provisional:** Se ha mantenido el modelado de 5,000 en el Trial de los planes `BASE`, `ENHANCED` y `PREMIUM`, pero se ha registrado el límite diario de 300 en la datasheet de Rate Limiting para futuras aclaraciones.
