@@ -1,0 +1,23 @@
+associatedSaaS: ADSBexchange.com API
+url: "https://web.archive.org/web/20190920154142/https://rapidapi.com/adsbx/api/adsbexchange-com1/pricing"
+planReference: BASIC
+type: Partial SaaS
+capacity:
+  - value: 500 calls
+    type: QUOTA
+    windowType: ROLLING_24H
+    resetCondition: "Daily reset (Single Aircraft Info)"
+    extraCharge: "0.002 USD per extra call"
+  - value: 1000 calls
+    type: QUOTA
+    windowType: ROLLING_24H
+    resetCondition: "Daily reset (Radius Queries)"
+    extraCharge: "0.002 USD per extra call"
+maxPower:
+  value: TBD
+  type: RATE_LIMIT
+  description: "Throughput regulated by daily quota and credit balance for overages."
+coolingPeriod: TBD
+segmentation:
+  - Geographic Gating: Max radius of 100nm. 250nm queries are strictly blocked for this tier.
+  - Overage Model: Pay-as-you-go after initial daily quota exhaustion.
