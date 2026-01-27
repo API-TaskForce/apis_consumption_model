@@ -1,0 +1,15 @@
+associatedSaaS: currencylayer (2016)
+planReference: BASIC
+type: Partial SaaS
+capacity:
+  - value: 10000
+    type: QUOTA
+    unit: requests
+    windowType: MONTHLY
+maxPower:
+  value: TBD
+  type: RATE_LIMIT
+coolingPeriod: TBD
+segmentation:
+  - Data Gating: Hourly updates.
+  - Tier Gating: Basic Functionality level.
