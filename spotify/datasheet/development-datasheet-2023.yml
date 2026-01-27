@@ -1,6 +1,6 @@
 associatedSaaS:
   name: Spotify API (Development Mode)
-  url: https://developer.spotify.com/documentation/web-api/concepts/rate-limits
+  url: https://web.archive.org/web/20230327131416/https://developer.spotify.com/documentation/web-api/concepts/rate-limits
   type: SaaS
 capacity:
   value: Restricted (Max 25 Auth Users)
@@ -10,8 +10,10 @@ maxPower:
   value: Standard Rate Limit (Calculated on 30s rolling window)
   throttling: Sliding Window (30 seconds)
   policies: 
-    - User Limit: Max 25 Authenticated Users total per app.
-    - Rate Limit: Default limits applied.
+    - Default mode for new applications.
+    - Up to 25 authenticated Spotify users allowed.
+    - Users must be manually added to an allowlist.
+    - Custom limits for specific endpoints (e.g., playlist image upload).
 perRequestCost: 0.00
 coolingPeriod: 
   value: Defined by 'Retry-After' header in 429 response.
@@ -24,3 +26,4 @@ extraFields:
     - Allowlist manual de usuarios (nombre y email).
   BestPractices: Backoff-retry, Batch APIs, use snapshot_id, Lazy Loading.
   ErrorResponses: 429 Too Many Requests, 403 (User not in Allowlist).
+

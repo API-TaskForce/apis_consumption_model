@@ -1,17 +1,19 @@
 associatedSaaS:
-  name: Spotify API (Extended Quota Mode)
+  name: Spotify API (Development Mode)
   url: https://developer.spotify.com/documentation/web-api/concepts/rate-limits
   type: SaaS
 capacity:
-  value: Unlimited Users / High Scale
+  value: Restricted (Max 25 Auth Users)
   autoRecharge: dynamic
-  extraCharge: None (Hard Limit / 429 Error)
+  extraCharge: None (Hard Limit / 403 Error if user not listed)
 maxPower:
-  value: High Rate Limit (Calculated on 30s rolling window)
+  value: Standard Rate Limit (Calculated on 30s rolling window)
   throttling: Sliding Window (30 seconds)
   policies: 
-    - User Limit: Unlimited users.
-    - Rate Limit: Increased limits tailored for scale.
+    - Default mode for new applications.
+    - Up to 25 authenticated Spotify users allowed.
+    - Users must be manually added to an allowlist.
+    - Custom limits for specific endpoints (e.g., playlist image upload).
 perRequestCost: 0.00
 coolingPeriod: 
   value: Defined by 'Retry-After' header in 429 response.
@@ -21,9 +23,6 @@ segmentation:
 sharedLimits: Rate limit is calculated per app, across all its users.
 extraFields:
   Requisitos:
-    - Aplicación y aprobación requerida.
-    - Entidad legal (empresa).
-    - Mínimo 250k MAUs.
-    - Servicio activo en mercados clave.
+    - Allowlist manual de usuarios (nombre y email).
   BestPractices: Backoff-retry, Batch APIs, use snapshot_id, Lazy Loading.
-  ErrorResponses: 429 Too Many Requests.
+  ErrorResponses: 429 Too Many Requests, 403 (User not in Allowlist).
