@@ -24,7 +24,7 @@ features:
     description: "Access to historical exchange rate data."
     valueType: BOOLEAN
     defaultValue: true
-    type: DOMAIN
+    type: GUARANTEE
   httpsEncryption:
     description: "Access to the API via encrypted HTTPS endpoints."
     valueType: BOOLEAN
@@ -34,7 +34,7 @@ features:
     description: "Level of technical support provided."
     valueType: TEXT
     defaultValue: No support
-    type: DOMAIN
+    type: SUPPORT
   sourceCurrency:
     description: "Access to source currency"
     valueType: BOOLEAN
