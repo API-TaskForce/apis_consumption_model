@@ -1,0 +1,22 @@
+Associated SaaS: Vimeo (https://developer.vimeo.com/guidelines/rate-limiting)
+type: Partial SaaS
+apiVersion: 3.4
+capacity:
+  - value: 2500 requests/minute
+    autoRecharge: per minute (60-second fixed period)
+    extraCharge: None
+  - value: 5000 requests/minute (with field filtering)
+    autoRecharge: per minute (60-second fixed period)
+    extraCharge: None
+    note: Field filtering effectively doubles the quota. Use the `fields` query parameter to specify which data fields to return.
+maxPower:
+  value: 2500 requests/minute (5000 with field filtering)
+coolingPeriod: Remainder of the current 60-second period. HTTP 429 (error code 9000) returned until X-RateLimit-Reset datetime.
+rateLimitHeaders:
+  - X-RateLimit-Limit: The maximum number of API responses that the requester can make through your app in any given 60-second period (assumes field filtering; divide by 2 if not using it).
+  - X-RateLimit-Remaining: The remaining number of API responses that the requester can make through your app in the current 60-second period (assumes field filtering; divide by 2 if not using it).
+  - X-RateLimit-Reset: A datetime value indicating when the next 60-second period begins.
+segmentation:
+  - Unauthenticated Token: The end user is the owner of the app. All requests count as coming from this person. Cooldown kicks in if total requests exceed the quota corresponding to the app owner's membership level.
+  - Authenticated Token (per user): The end user is the person identified by the token. Each authenticated end user has their own independent quota, which doesn't impact any other user's quota.
+note: This is the highest current tier (2500 req/min). No legacy tier matches this value. The legacy table (Table 2) only goes up to Vimeo Premium at 750 req/min.
