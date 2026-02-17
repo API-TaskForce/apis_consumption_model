@@ -1,0 +1,16 @@
+Associated SaaS: Dailymotion (https://developers.dailymotion.com/reference/rate-limiting)
+type: Partial SaaS
+tierName: Premium Creators, Pro Enterprise
+capacity:
+  uploads: #(Una forma de hacer segmentacion para quotas)
+    - value: 96 videos/24h (default, can be increased by contacting Dailymotion)
+      autoRecharge: per 24h
+      extraCharge: None (upload privileges suspended for 24h if exceeded)
+    - value: Unlimited total duration/24h
+      autoRecharge: per 24h
+      extraCharge: None
+maxPower:
+  perVideo:
+    maxDuration: Unlimited per video
+    maxFileSize: 64 GB per video
+coolingPeriod: 24-hour suspension of upload privileges if upload limits are exceeded.
