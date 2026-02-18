@@ -1,0 +1,20 @@
+Associated SaaS: Bitbucket Cloud (https://support.atlassian.com/bitbucket-cloud/docs/api-request-limits/)
+type: Full SaaS
+capacity:
+  - value: Up to 10,000 requests/hour
+    autoRecharge: hourly
+    extraCharge: Requires Standard or Premium plan with >100 paid users.
+maxPower:
+  value: Various (Calculated based on paid users)
+  throttling: Rolling Window (1 hour)
+  policies:
+    - Formula: 1,000 + (Paid Users - 100) * 10
+    - Max Cap: 10,000 requests/hour.
+    - Requirements: Standard/Premium plan, >100 paid users, Workspace/Project/Repo access tokens or Forge app.
+coolingPeriod: Not explicitly defined. Use `X-RateLimit-NearLimit` header to monitor usage (>80% used).
+segmentation:
+  - Workspace / Repository Access Token
+  - Forge App User (asApp)
+extraFields:
+  - Bonus: 10 requests/hour per paid user (beyond first 100).
+  - Response Headers: X-RateLimit-Limit, X-RateLimit-Resource, X-RateLimit-NearLimit.

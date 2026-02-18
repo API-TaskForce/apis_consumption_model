@@ -1,0 +1,14 @@
+Associated SaaS: Bitbucket Cloud (https://support.atlassian.com/bitbucket-cloud/docs/api-request-limits/)
+type: Full SaaS
+capacity:
+  - value: 1000 requests/hour consecutively
+    autoRecharge: hourly
+    extraCharge: None. Login required for higher limits.
+maxPower:
+  value: 60 requests/hour
+  throttling: Rolling Window (1 hour)
+  policies:
+    - Strict limit across all API resources.
+coolingPeriod: Not explicitly defined.
+segmentation:
+  - IP Address (Anonymous)

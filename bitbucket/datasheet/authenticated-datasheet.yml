@@ -1,0 +1,21 @@
+Associated SaaS: Bitbucket Cloud (https://support.atlassian.com/bitbucket-cloud/docs/api-request-limits/)
+type: Full SaaS
+capacity:
+  - value: 1000 requests/hour consecutively 
+    autoRecharge: hourly
+    extraCharge: None. Scaled limits available for paid plans with >100 users.
+maxPower:
+  value: 1000 requests/hour
+  throttling: Rolling Window (1 hour)
+  policies:
+    - Limit applies per user.
+coolingPeriod: Not explicitly defined (Retry-After not mentioned). Use `X-RateLimit-NearLimit` header to monitor usage (>80% used).
+segmentation:
+  - User ID (Authenticated)
+extraFields: #tambien son ratelimits/maxpower
+  - Git Operations: 60,000 requests/hour (HTTPS & SSH).
+  - Raw Files: 5,000 requests/hour.
+  - Archive Files: 1,500 files/hour.
+  - Webhook Management: 1,000 requests/hour.
+  - Application Properties: 2,000 requests/hour.
+  - Invitations: 100 requests/minute.
