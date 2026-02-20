@@ -1,0 +1,27 @@
+Associated SaaS: Spoonacular Food API (https://spoonacular.com/food-api/docs#Quotas)
+type: API-First
+capacity:
+  - value: Custom (precio y cuota negociados para grandes clientes)
+    autoRecharge: daily (se reinicia a medianoche UTC)
+    extraCharge: Custom (según acuerdo)
+maxPower:
+  value: Custom 
+  throttling: TBD
+  policies: TBD (personalizado según acuerdo)
+perRequestCost:
+  description: >
+    El sistema usa "points" (puntos). Cada endpoint tiene un coste diferente en puntos.
+    En general, 1 request cuesta 1 punto + 0.01 puntos por cada resultado devuelto.
+    Existen tres métricas de cuota: requests, results y tinyrequests.
+    El detalle por endpoint se encuentra en https://spoonacular.com/food-api/docs/quotas
+  headers:
+    - X-API-Quota-Request: Puntos consumidos por la petición actual.
+    - X-API-Quota-Used: Puntos totales consumidos hoy (se reinicia a medianoche UTC).
+    - X-API-Quota-Left: Puntos restantes hoy (según el plan).
+coolingPeriod: TBD (personalizado)
+segmentation:
+  - API Key Level: Cada API Key tiene su propia cuota diaria y rate limit.
+  - Endpoint Level: Cada endpoint tiene un coste en puntos diferente (ver https://spoonacular.com/food-api/docs/quotas).
+sharedLimits: Los puntos de cuota diaria se comparten entre todos los endpoints bajo la misma API Key.
+extraFields:
+  caching: Se permite cachear datos solicitados por el usuario hasta 1 hora máximo. Después se debe refrescar vía API.
