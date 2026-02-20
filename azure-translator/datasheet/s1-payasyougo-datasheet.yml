@@ -1,0 +1,77 @@
+Associated SaaS: Azure Translator / Azure AI Services (https://learn.microsoft.com/en-us/azure/ai-services/translator/service-limits)
+type: Full SaaS
+capacity:
+  - value: Sin límite mensual explícito (pay-as-you-go, se paga por carácter consumido)
+    autoRecharge: N/A (pago por uso)
+    extraCharge: N/A (no hay cuota fija, todo es consumo variable)
+maxPower:
+  value: 40.000.000 characters/hour (no mas rapido de 666.666 characters/minute)
+  throttling: Sliding Window 
+  policies: >
+    Si se excede la cuota horaria o se envía una gran porción de la cuota en un período demasiado corto,
+    se recibe una respuesta de out-of-quota. No hay límites en peticiones concurrentes,
+    pero los caracteres de todas las peticiones simultáneas cuentan para el límite horario.
+    Las suscripciones multi-servicio (Azure AI Services) tienen los mismos límites que S1.
+perRequestCost:
+  description: >
+    Los cargos se basan en el número de caracteres, NO en la frecuencia de peticiones.
+  textTranslation: $10 per 1.000.000 characters (standard translation, language detection, bilingual dictionaries, transliteration)
+  documentTranslation: $15 per 1.000.000 characters
+  documentTranslationImages: $8 per 1.000 images (cada imagen hasta 500 caracteres; si excede, se factura en incrementos de 500)
+  customTextTranslation: $40 per 1.000.000 characters
+  customModelTraining: $10 per 1.000.000 source+target characters (máximo $300 por sesión de entrenamiento)
+  customModelHosting: $10/month per modelo custom alojado por región
+  limitsPerOperation:
+    Translate:
+      maxArrayElementSize: 50.000 characters
+      maxArrayElements: 1.000
+      maxRequestSize: 50.000 characters
+    Transliterate:
+      maxArrayElementSize: 5.000 characters
+      maxArrayElements: 10
+      maxRequestSize: 5.000 characters
+    Detect:
+      maxArrayElementSize: 50.000 characters
+      maxArrayElements: 100
+      maxRequestSize: 50.000 characters
+    BreakSentence:
+      maxArrayElementSize: 50.000 characters
+      maxArrayElements: 100
+      maxRequestSize: 50.000 characters
+    DictionaryLookup:
+      maxArrayElementSize: 100 characters
+      maxArrayElements: 10
+      maxRequestSize: 1.000 characters
+    DictionaryExamples:
+      maxArrayElementSize: 100 characters for text + 100 for translation (200 total)
+      maxArrayElements: 10
+      maxRequestSize: 2.000 characters
+coolingPeriod: No documentado explícitamente. Se recibe respuesta out-of-quota al exceder los límites horarios.
+segmentation:
+  - Subscription Level: Los límites de caracteres por hora se aplican a nivel de suscripción (recurso Azure).
+  - Per-Request Level: Variable según operación (ver limitsPerOperation).
+sharedLimits: >
+  Los caracteres por hora se comparten entre todas las operaciones de text translation bajo la misma suscripción.
+  Las suscripciones multi-servicio (Azure AI Services) tienen los mismos límites que el tier S1.
+extraFields:
+  latency:
+    standardModels: Máximo 15 segundos
+    customModels: Máximo 120 segundos
+    typicalFor100Chars: 150-300 ms
+  authentication: Azure subscription key + endpoint regional.
+  customModelsLimit: 3.600 characters/second por modelo custom.
+  documentTranslation:
+    asynchronous:
+      maxDocumentSize: 40 MB
+      maxImageFileSize: 5 MB 
+      maxFiles: 1.000
+      maxBatchContentSize: 250 MB
+      maxTargetLanguages: 10
+      maxGlossaryFileSize: 10 MB
+    synchronous:
+      maxDocumentSize: 10 MB
+      maxFiles: 1
+      maxTargetLanguages: 1
+      maxGlossaryFileSize: 1 MB
+      characterLimit: 6.000.000 characters/minute
+
