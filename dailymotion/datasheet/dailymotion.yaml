@@ -1,0 +1,70 @@
+associated_saas: dailymotion
+type: partial_saas
+url: https://developers.dailymotion.com/reference/rate-limiting
+syntax_version: 0.1
+date: 2026-02-24
+
+capacity:
+  quota_standard_videos:
+    value: 15
+    unit: videos
+    period: 1 day # 24h
+    window_type: rolling
+
+  quota_standard_duration:
+    value: 10
+    unit: hours
+    period: 1 day
+    window_type: rolling
+
+  quota_premium_videos:
+    value: 96 # Default, can be increased by contacting Dailymotion
+    unit: videos
+    period: 1 day
+    window_type: rolling
+
+max_power:
+  rate_standard_videos:
+    value: 15
+    unit: videos
+    period: 1 day
+  rate_standard_duration:
+    value: 10
+    unit: hours
+    period: 1 day
+  rate_premium_videos:
+    value: 96
+    unit: videos
+    period: 1 day
+
+throttling: {}
+
+policies:
+  payload_limits:
+    standard:
+      max_duration_per_video: "2 hours"
+      max_file_size_per_video: "4 GB"
+    premium:
+      max_duration_per_video: "Unlimited"
+      max_file_size_per_video: "64 GB"
+
+cooling_period:
+  description: "24-hour suspension of upload privileges if upload limits are exceeded."
+
+plans:
+  standard:
+    # description: "Includes Users, Standard Creators, Pro Trial, Pro Starter, Pro Advanced"
+    endpoints:
+      uploads_videos:
+        rate: rate_standard_videos
+        quota: quota_standard_videos
+      uploads_duration:
+        rate: rate_standard_duration
+        quota: quota_standard_duration
+
+  premium:
+    # description: "Includes Premium Creators, Pro Enterprise"
+    endpoints:
+      uploads_videos:
+        rate: rate_premium_videos
+        quota: quota_premium_videos
