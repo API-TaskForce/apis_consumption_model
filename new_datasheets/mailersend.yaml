@@ -1,0 +1,160 @@
+associated_saas: mailersend
+type: partial_saas
+url: https://www.mailersend.com/pricing
+syntax_version: 0.1
+date: 2026-02-23
+
+capacity:
+  quota_free_emails:
+    value: 500
+    unit: emails
+    period: 1 month
+    window_type: rolling
+  quota_free_requests:
+    value: 100
+    unit: requests
+    period: 1 day
+    window_type: fixed_utc_midnight
+
+  quota_hobby_emails:
+    value: 5000
+    unit: emails
+    period: 1 month
+    window_type: rolling
+  quota_hobby_requests:
+    value: 1000
+    unit: requests
+    period: 1 day
+    window_type: fixed_utc_midnight
+
+  quota_starter_emails:
+    value: 50000
+    unit: emails
+    period: 1 month
+    window_type: rolling
+  quota_starter_requests:
+    value: 100000
+    unit: requests
+    period: 1 day
+    window_type: fixed_utc_midnight
+  quota_starter_sms:
+    value: 100
+    unit: sms
+    period: 1 month
+    window_type: rolling
+
+  quota_professional_emails:
+    value: 50000
+    unit: emails
+    period: 1 month
+    window_type: rolling
+  quota_professional_requests:
+    value: 500000
+    unit: requests
+    period: 1 day
+    window_type: fixed_utc_midnight
+  quota_professional_sms:
+    value: 150
+    unit: sms
+    period: 1 month
+    window_type: rolling
+
+max_power:
+  healthy_reputation_rate:
+    value: 60
+    unit: requests
+    period: 1 min
+  healthy_reputation_rate_for_email:
+    value: 120
+    unit: requests
+    period: 1 min
+  healthy_reputation_rate_for_bulk:
+    value: 10
+    unit: requests
+    period: 1 min
+  healthy_reputation_rate_for_bulk_starter:
+    value: 15
+    unit: requests
+    period: 1 min
+  healthy_reputation_rate_for_bulk_professional:
+    value: 30
+    unit: requests
+    period: 1 min
+
+  under_review_reputation_rate_for_email:
+    value: 10
+    unit: requests
+    period: 1 min
+  under_review_reputation_rate_for_bulk:
+    value: 1
+    unit: requests
+    period: 1 min
+
+throttling: {}
+policies: {}
+cooling_period: {}
+
+plans:
+  free:
+    price: 0 $
+    billing_period: 1 month
+    quota: quota_free_requests
+    endpoints:
+      v1/email-healthy:
+        rate: healthy_reputation_rate_for_email
+        quota: quota_free_emails
+        cost_per_request: "1email per to_ header"
+      v1/email-under-review:
+        rate: under_review_reputation_rate_for_email
+        quota: quota_free_emails
+        cost_per_request: "1email per to_ header"
+      general:
+        rate: healthy_reputation_rate
+
+  hobby:
+    price: 5.60 $
+    billing_period: 1 month
+    quota: quota_hobby_requests
+    endpoints:
+      v1/email-healthy:
+        rate: healthy_reputation_rate_for_email
+        quota: quota_hobby_emails
+        cost_per_request: "1email per to_ header"
+      v1/email-under-review:
+        rate: under_review_reputation_rate_for_email
+        quota: quota_hobby_emails
+        cost_per_request: "1email per to_ header"
+      general:
+        rate: healthy_reputation_rate
+
+  starter:
+    price: 28 $
+    billing_period: 1 month
+    quota: quota_starter_requests
+    endpoints:
+      v1/email-healthy:
+        rate: healthy_reputation_rate_for_email
+        quota: quota_starter_emails
+        cost_per_request: "1email per to_ header"
+      v1/email-under-review:
+        rate: under_review_reputation_rate_for_email
+        quota: quota_starter_emails
+        cost_per_request: "1email per to_ header"
+      general:
+        rate: healthy_reputation_rate
+
+  professional:
+    price: 88 $
+    billing_period: 1 month
+    quota: quota_professional_requests
+    endpoints:
+      v1/email-healthy:
+        rate: healthy_reputation_rate_for_email
+        quota: quota_professional_emails
+        cost_per_request: "1email per to_ header"
+      v1/email-under-review:
+        rate: under_review_reputation_rate_for_email
+        quota: quota_professional_emails
+        cost_per_request: "1email per to_ header"
+      general:
+        rate: healthy_reputation_rate

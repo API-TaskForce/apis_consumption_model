@@ -1,0 +1,605 @@
+associated_saas: amadeus
+type: partial_saas
+url: https://developers.amadeus.com/pricing
+syntax_version: 0.1
+date: 2026-02-23
+
+capacity:
+  # Flights quotas
+  quota_flight_offers:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_flight_offers_pricing:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_flight_orders:
+    value: 10000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_flight_orders_id:
+    value: 5000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_seatmaps:
+    value: 1000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_flight_offers_upselling:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_flight_destinations:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_flight_dates:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_flight_availabilities:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_recommended_locations:
+    value: 10000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_schedule_flights:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_locations:
+    value: 7000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_locations_id:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_locations_airports:
+    value: 10000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_direct_destinations:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_checkin_links:
+    value: 10000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_airlines:
+    value: 10000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_airline_destinations:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  # Destination experiences quotas
+  quota_activities:
+    value: 400
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_activities_by_square:
+    value: 400
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_activities_id:
+    value: 200
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_locations_cities:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  # Market insights quotas
+  quota_air_traffic_traveled:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_air_traffic_booked:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_air_traffic_busiest_period:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  # Cars and Transfers quotas
+  quota_transfer_orders:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_transfer_cancellation:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_transfer_offers:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  # Hotels quotas
+  quota_hotels_by_hotels:
+    value: 1000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_hotels_by_city:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_hotels_by_geocode:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_hotel_offers_v2:
+    value: 2400
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_hotel_offers_by_hotel:
+    value: 900
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_hotel_offers_v2_id:
+    value: 900
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_hotel_offers_v3:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_hotel_offers_v3_id:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_hotel_bookings:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_hotel_orders:
+    value: 3000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_hotel_sentiments:
+    value: 2000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+  
+  quota_locations_hotel:
+    value: 10000
+    unit: requests
+    period: 1 month
+    window_type: rolling
+
+max_power:
+  rate_test:
+    value: 1
+    unit: requests
+    period: 100 ms
+  
+  rate_production:
+    value: 40
+    unit: requests
+    period: 1 sec
+
+throttling: {}
+policies: {}
+cooling_period: {}
+
+plans:
+  test:
+    price: 0 $
+    billing_period: 1 month
+    endpoints:
+      # Flights
+      v2/shopping/flight-offers:
+        rate: rate_test
+        quota: quota_flight_offers
+      
+      v1/shopping/flight-offers/pricing:
+        rate: rate_test
+        quota: quota_flight_offers_pricing
+      
+      v1/shopping/flight-orders/:
+        rate: rate_test
+        quota: quota_flight_orders
+      
+      v1/shopping/flight-orders/*:
+        rate: rate_test
+        quota: quota_flight_orders_id
+      
+      v1/shopping/seatmaps:
+        rate: rate_test
+        quota: quota_seatmaps
+      
+      v1/shopping/flight-offers/upselling:
+        rate: rate_test
+        quota: quota_flight_offers_upselling
+      
+      v1/shopping/flight-destinations:
+        rate: rate_test
+        quota: quota_flight_destinations
+      
+      v1/shopping/flight-dates:
+        rate: rate_test
+        quota: quota_flight_dates
+      
+      v1/shopping/availability/flight-availabilities:
+        rate: rate_test
+        quota: quota_flight_availabilities
+      
+      v1/reference-data/recommended-locations:
+        rate: rate_test
+        quota: quota_recommended_locations
+      
+      v2/schedule/flights:
+        rate: rate_test
+        quota: quota_schedule_flights
+      
+      v1/reference-data/locations:
+        rate: rate_test
+        quota: quota_locations
+      
+      v1/reference-data/locations/*:
+        rate: rate_test
+        quota: quota_locations_id
+      
+      v1/reference-data/locations/airports:
+        rate: rate_test
+        quota: quota_locations_airports
+      
+      v1/airport/direct-destinations:
+        rate: rate_test
+        quota: quota_direct_destinations
+      
+      v2/reference-data/urls/checkin-links:
+        rate: rate_test
+        quota: quota_checkin_links
+      
+      v1/reference-data/airlines:
+        rate: rate_test
+        quota: quota_airlines
+      
+      v1/airline/destinations:
+        rate: rate_test
+        quota: quota_airline_destinations
+      
+      # Destination experiences
+      v1/shopping/activities:
+        rate: rate_test
+        quota: quota_activities
+      
+      v1/shopping/activities/by-square:
+        rate: rate_test
+        quota: quota_activities_by_square
+      
+      v1/shopping/activities/*:
+        rate: rate_test
+        quota: quota_activities_id
+      
+      v1/reference-data/locations/cities:
+        rate: rate_test
+        quota: quota_locations_cities
+      
+      # Market insights
+      v1/travel/analytics/air-traffic/traveled:
+        rate: rate_test
+        quota: quota_air_traffic_traveled
+      
+      v1/travel/analytics/air-traffic/booked:
+        rate: rate_test
+        quota: quota_air_traffic_booked
+      
+      v1/travel/analytics/air-traffic/busiest-period:
+        rate: rate_test
+        quota: quota_air_traffic_busiest_period
+      
+      # Cars and Transfers
+      v1/ordering/transfer-orders:
+        rate: rate_test
+        quota: quota_transfer_orders
+      
+      v1/ordering/transfer-order/*/transfers/cancellation:
+        rate: rate_test
+        quota: quota_transfer_cancellation
+      
+      v1/shopping/transfer-offers:
+        rate: rate_test
+        quota: quota_transfer_offers
+      
+      # Hotels
+      v1/reference-data/locations/hotels/by-hotels:
+        rate: rate_test
+        quota: quota_hotels_by_hotels
+      
+      v1/reference-data/locations/hotels/by-city:
+        rate: rate_test
+        quota: quota_hotels_by_city
+      
+      v1/reference-data/locations/hotels/by-geocode:
+        rate: rate_test
+        quota: quota_hotels_by_geocode
+      
+      v2/shopping/hotel-offers:
+        rate: rate_test
+        quota: quota_hotel_offers_v2
+      
+      v2/shopping/hotel-offers/by-hotel:
+        rate: rate_test
+        quota: quota_hotel_offers_by_hotel
+      
+      v2/shopping/hotel-offers/*:
+        rate: rate_test
+        quota: quota_hotel_offers_v2_id
+      
+      v3/shopping/hotel-offers:
+        rate: rate_test
+        quota: quota_hotel_offers_v3
+      
+      v3/shopping/hotel-offers/*:
+        rate: rate_test
+        quota: quota_hotel_offers_v3_id
+      
+      v1/booking/hotel-bookings:
+        rate: rate_test
+        quota: quota_hotel_bookings
+      
+      v2/booking/hotel-orders:
+        rate: rate_test
+        quota: quota_hotel_orders
+      
+      v2/e-reputation/hotel-sentiments:
+        rate: rate_test
+        quota: quota_hotel_sentiments
+      
+      v1/reference-data/locations/hotel:
+        rate: rate_test
+        quota: quota_locations_hotel
+  
+  production:
+    price: 0 $
+    billing_period: 1 month
+    endpoints:
+      # Flights
+      v2/shopping/flight-offers:
+        rate: rate_production
+        quota: quota_flight_offers
+      
+      v1/shopping/flight-offers/pricing:
+        rate: rate_production
+        quota: quota_flight_offers_pricing
+      
+      v1/shopping/flight-orders/:
+        rate: rate_production
+        quota: quota_flight_orders
+      
+      v1/shopping/flight-orders/*:
+        rate: rate_production
+        quota: quota_flight_orders_id
+      
+      v1/shopping/seatmaps:
+        rate: rate_production
+        quota: quota_seatmaps
+      
+      v1/shopping/flight-offers/upselling:
+        rate: rate_production
+        quota: quota_flight_offers_upselling
+      
+      v1/shopping/flight-destinations:
+        rate: rate_production
+        quota: quota_flight_destinations
+      
+      v1/shopping/flight-dates:
+        rate: rate_production
+        quota: quota_flight_dates
+      
+      v1/shopping/availability/flight-availabilities:
+        rate: rate_production
+        quota: quota_flight_availabilities
+      
+      v1/reference-data/recommended-locations:
+        rate: rate_production
+        quota: quota_recommended_locations
+      
+      v2/schedule/flights:
+        rate: rate_production
+        quota: quota_schedule_flights
+      
+      v1/reference-data/locations:
+        rate: rate_production
+        quota: quota_locations
+      
+      v1/reference-data/locations/*:
+        rate: rate_production
+        quota: quota_locations_id
+      
+      v1/reference-data/locations/airports:
+        rate: rate_production
+        quota: quota_locations_airports
+      
+      v1/airport/direct-destinations:
+        rate: rate_production
+        quota: quota_direct_destinations
+      
+      v2/reference-data/urls/checkin-links:
+        rate: rate_production
+        quota: quota_checkin_links
+      
+      v1/reference-data/airlines:
+        rate: rate_production
+        quota: quota_airlines
+      
+      v1/airline/destinations:
+        rate: rate_production
+        quota: quota_airline_destinations
+      
+      # Destination experiences
+      v1/shopping/activities:
+        rate: rate_production
+        quota: quota_activities
+      
+      v1/shopping/activities/by-square:
+        rate: rate_production
+        quota: quota_activities_by_square
+      
+      v1/shopping/activities/*:
+        rate: rate_production
+        quota: quota_activities_id
+      
+      v1/reference-data/locations/cities:
+        rate: rate_production
+        quota: quota_locations_cities
+      
+      # Market insights
+      v1/travel/analytics/air-traffic/traveled:
+        rate: rate_production
+        quota: quota_air_traffic_traveled
+      
+      v1/travel/analytics/air-traffic/booked:
+        rate: rate_production
+        quota: quota_air_traffic_booked
+      
+      v1/travel/analytics/air-traffic/busiest-period:
+        rate: rate_production
+        quota: quota_air_traffic_busiest_period
+      
+      # Cars and Transfers
+      v1/ordering/transfer-orders:
+        rate: rate_production
+        quota: quota_transfer_orders
+      
+      v1/ordering/transfer-order/*/transfers/cancellation:
+        rate: rate_production
+        quota: quota_transfer_cancellation
+      
+      v1/shopping/transfer-offers:
+        rate: rate_production
+        quota: quota_transfer_offers
+      
+      # Hotels
+      v1/reference-data/locations/hotels/by-hotels:
+        rate: rate_production
+        quota: quota_hotels_by_hotels
+      
+      v1/reference-data/locations/hotels/by-city:
+        rate: rate_production
+        quota: quota_hotels_by_city
+      
+      v1/reference-data/locations/hotels/by-geocode:
+        rate: rate_production
+        quota: quota_hotels_by_geocode
+      
+      v2/shopping/hotel-offers:
+        rate: rate_production
+        quota: quota_hotel_offers_v2
+      
+      v2/shopping/hotel-offers/by-hotel:
+        rate: rate_production
+        quota: quota_hotel_offers_by_hotel
+      
+      v2/shopping/hotel-offers/*:
+        rate: rate_production
+        quota: quota_hotel_offers_v2_id
+      
+      v3/shopping/hotel-offers:
+        rate: rate_production
+        quota: quota_hotel_offers_v3
+      
+      v3/shopping/hotel-offers/*:
+        rate: rate_production
+        quota: quota_hotel_offers_v3_id
+      
+      v1/booking/hotel-bookings:
+        rate: rate_production
+        quota: quota_hotel_bookings
+      
+      v2/booking/hotel-orders:
+        rate: rate_production
+        quota: quota_hotel_orders
+      
+      v2/e-reputation/hotel-sentiments:
+        rate: rate_production
+        quota: quota_hotel_sentiments
+      
+      v1/reference-data/locations/hotel:
+        rate: rate_production
+        quota: quota_locations_hotel
