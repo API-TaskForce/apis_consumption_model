@@ -1,0 +1,174 @@
+associated_saas: vimeo
+type: partial_saas
+url: https://developer.vimeo.com/guidelines/rate-limiting
+syntax_version: 0.1
+date: 2026-02-24
+
+capacity:
+  quota_free:
+    value: 25
+    unit: requests
+    period: 1 min
+    window_type: fixed
+  quota_free_filtered:
+    value: 50
+    unit: requests
+    period: 1 min
+    window_type: fixed
+
+  quota_starter:
+    value: 125
+    unit: requests
+    period: 1 min
+    window_type: fixed
+  quota_starter_filtered:
+    value: 250
+    unit: requests
+    period: 1 min
+    window_type: fixed
+
+  quota_standard:
+    value: 250
+    unit: requests
+    period: 1 min
+    window_type: fixed
+  quota_standard_filtered:
+    value: 500
+    unit: requests
+    period: 1 min
+    window_type: fixed
+
+  quota_advanced:
+    value: 750
+    unit: requests
+    period: 1 min
+    window_type: fixed
+  quota_advanced_filtered:
+    value: 1500
+    unit: requests
+    period: 1 min
+    window_type: fixed
+
+  quota_enterprise:
+    value: 2500
+    unit: requests
+    period: 1 min
+    window_type: fixed
+  quota_enterprise_filtered:
+    value: 5000
+    unit: requests
+    period: 1 min
+    window_type: fixed
+
+max_power:
+  rate_free:
+    value: 25
+    unit: requests
+    period: 1 min
+  rate_free_filtered:
+    value: 50
+    unit: requests
+    period: 1 min
+
+  rate_starter:
+    value: 125
+    unit: requests
+    period: 1 min
+  rate_starter_filtered:
+    value: 250
+    unit: requests
+    period: 1 min
+
+  rate_standard:
+    value: 250
+    unit: requests
+    period: 1 min
+  rate_standard_filtered:
+    value: 500
+    unit: requests
+    period: 1 min
+
+  rate_advanced:
+    value: 750
+    unit: requests
+    period: 1 min
+  rate_advanced_filtered:
+    value: 1500
+    unit: requests
+    period: 1 min
+
+  rate_enterprise:
+    value: 2500
+    unit: requests
+    period: 1 min
+  rate_enterprise_filtered:
+    value: 5000
+    unit: requests
+    period: 1 min
+
+throttling: {}
+
+policies:
+  segmentation:
+    - name: Unauthenticated Token
+      description: "The end user is the owner of the app. All requests count as coming from this person. Cooldown kicks in if total requests exceed the quota corresponding to the app owner's membership level."
+    - name: Authenticated Token (per user)
+      description: "The end user is the person identified by the token. Each authenticated end user has their own independent quota, which doesn't impact any other user's quota."
+    - name: Field Filtering
+      description: "Field filtering effectively doubles the maximum rate. Use the `fields` query parameter to specify which data fields to return."
+
+cooling_period:
+  description: "Remainder of the current 60-second period. HTTP 429 (error code 9000) returned until X-RateLimit-Reset datetime."
+
+plans:
+  free:
+    price: 0 €
+    endpoints:
+      general:
+        rate: rate_free
+        quota: quota_free
+      with_field_filtering:
+        rate: rate_free_filtered
+        quota: quota_free_filtered
+
+  starter:
+    price: 8 €
+    billing_period: 1 month
+    endpoints:
+      general:
+        rate: rate_starter
+        quota: quota_starter
+      with_field_filtering:
+        rate: rate_starter_filtered
+        quota: quota_starter_filtered
+
+  standard:
+    price: 19 €
+    billing_period: 1 month
+    endpoints:
+      general:
+        rate: rate_standard
+        quota: quota_standard
+      with_field_filtering:
+        rate: rate_standard_filtered
+        quota: quota_standard_filtered
+
+  advanced:
+    price: 69 €
+    billing_period: 1 month
+    endpoints:
+      general:
+        rate: rate_advanced
+        quota: quota_advanced
+      with_field_filtering:
+        rate: rate_advanced_filtered
+        quota: quota_advanced_filtered
+
+  enterprise:
+    endpoints:
+      general:
+        rate: rate_enterprise
+        quota: quota_enterprise
+      with_field_filtering:
+        rate: rate_enterprise_filtered
+        quota: quota_enterprise_filtered
