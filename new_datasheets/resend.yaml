@@ -1,0 +1,211 @@
+associated_saas: resend
+type: partial_saas
+url: https://resend.com/pricing
+syntax_version: 0.1
+date: 2026-02-24
+
+capacity:
+  # Cuotas Transaccionales (Volumen Total)
+  quota_email_transactional_monthly_free:
+    value: 3000
+    unit: emails
+    period: 1 month
+    window_type: rolling
+  quota_email_transactional_daily_free:
+    value: 100
+    unit: emails
+    period: 1 day
+    window_type: fixed_utc_midnight
+  quota_email_transactional_monthly_pro:
+    value: 50000
+    unit: emails
+    period: 1 month
+    window_type: fixed_billing_cycle
+    overage_cost:
+      price: 0.90
+      value: 1000
+  quota_email_transactional_monthly_scale:
+    value: 100000
+    unit: emails
+    period: 1 month
+    window_type: fixed_billing_cycle
+    overage_cost:
+      price: 0.90
+      value: 1000
+  quota_email_transactional_monthly_enterprise:
+    value: custom
+    unit: emails
+    period: 1 month
+    window_type: fixed_billing_cycle
+
+  # Cuotas de Marketing (Basadas en Contactos)
+  quota_contact_marketing_storage_free:
+    value: 1000
+    unit: records
+    period: 1 month
+    window_type: fixed_billing_cycle
+  quota_contact_marketing_storage_pro:
+    value: 5000
+    unit: records
+    period: 1 month
+    window_type: fixed_billing_cycle
+  quota_contact_marketing_storage_enterprise:
+    value: custom
+    unit: records
+    period: 1 month
+    window_type: fixed_billing_cycle
+
+  # Límites de Recursos de Infraestructura
+  quota_domain_verification_limit_free:
+    value: 1
+    unit: records
+    period: 1 month
+    window_type: rolling
+  quota_domain_verification_limit_pro:
+    value: 10
+    unit: records
+    period: 1 month
+    window_type: rolling
+  quota_domain_verification_limit_scale:
+    value: 1000
+    unit: records
+    period: 1 month
+    window_type: rolling
+
+  quota_webhook_endpoint_limit_free:
+    value: 1
+    unit: records
+    period: 1 month
+    window_type: rolling
+  quota_webhook_endpoint_limit_pro:
+    value: 10
+    unit: records
+    period: 1 month
+    window_type: rolling
+
+  quota_log_retention_days_free:
+    value: 1
+    unit: records
+    period: 1 month
+    window_type: rolling
+  quota_log_retention_days_pro:
+    value: 3
+    unit: records
+    period: 1 month
+    window_type: rolling
+  quota_log_retention_days_scale:
+    value: 7
+    unit: records
+    period: 1 month
+    window_type: rolling
+
+max_power:
+  # Caudal de Peticiones (Caudal/RPS)
+  rate_api_request_team_pool_free:
+    value: 2
+    unit: requests
+    period: 1 second
+  rate_api_request_team_pool_pro:
+    value: 2
+    unit: requests
+    period: 1 second
+  rate_api_request_team_pool_scale:
+    value: 2
+    unit: requests
+    period: 1 second
+  rate_api_request_team_pool_enterprise:
+    value: custom
+    unit: requests
+    period: 1 second
+
+  # Caudales Específicos por Comportamiento
+  rate_email_batch_processing_standard:
+    value: 100
+    unit: emails
+    period: 1 requests
+  rate_email_recipient_limit_single:
+    value: 50
+    unit: records
+    period: 1 requests
+
+plans:
+  free:
+    price: 0
+    billing_period: 1 month
+    quota: quota_email_transactional_daily_free
+    endpoints:
+      v1/emails:
+        rate: rate_api_request_team_pool_free
+        quota: quota_email_transactional_monthly_free
+        cost_per_request: "1 unit per recipient (to/cc/bcc)"
+      v1/emails/batch:
+        rate: rate_api_request_team_pool_free
+        quota: quota_email_transactional_monthly_free
+        cost_per_request: "1 unit per nested recipient"
+      v1/marketing/broadcasts:
+        rate: rate_api_request_team_pool_free
+        quota: quota_contact_marketing_storage_free
+        cost_per_request: "blocked if records exceed quota"
+      v1/domains:
+        rate: rate_api_request_team_pool_free
+        quota: quota_domain_verification_limit_free
+      general:
+        rate: rate_api_request_team_pool_free
+
+  pro:
+    price: 20
+    billing_period: 1 month
+    quota: quota_email_transactional_monthly_pro
+    endpoints:
+      v1/emails:
+        rate: rate_api_request_team_pool_pro
+        quota: quota_email_transactional_monthly_pro
+        cost_per_request: "1 unit per recipient (to/cc/bcc)"
+      v1/emails/batch:
+        rate: rate_api_request_team_pool_pro
+        quota: quota_email_transactional_monthly_pro
+        cost_per_request: "1 unit per nested recipient"
+      v1/marketing/broadcasts:
+        rate: rate_api_request_team_pool_pro
+        quota: quota_contact_marketing_storage_pro
+        cost_per_request: "blocked if records exceed quota"
+      v1/domains:
+        rate: rate_api_request_team_pool_pro
+        quota: quota_domain_verification_limit_pro
+      general:
+        rate: rate_api_request_team_pool_pro
+
+  scale:
+    price: 90
+    billing_period: 1 month
+    quota: quota_email_transactional_monthly_scale
+    endpoints:
+      v1/emails:
+        rate: rate_api_request_team_pool_scale
+        quota: quota_email_transactional_monthly_scale
+        cost_per_request: "1 unit per recipient (to/cc/bcc)"
+      v1/emails/batch:
+        rate: rate_api_request_team_pool_scale
+        quota: quota_email_transactional_monthly_scale
+        cost_per_request: "1 unit per nested recipient"
+      v1/marketing/broadcasts:
+        rate: rate_api_request_team_pool_scale
+        quota: quota_contact_marketing_storage_pro
+        cost_per_request: "blocked if records exceed quota"
+      v1/domains:
+        rate: rate_api_request_team_pool_scale
+        quota: quota_domain_verification_limit_scale
+      general:
+        rate: rate_api_request_team_pool_scale
+
+  enterprise:
+    price: custom
+    billing_period: 1 month
+    quota: quota_email_transactional_monthly_enterprise
+    endpoints:
+      v1/emails:
+        rate: rate_api_request_team_pool_enterprise
+        quota: quota_email_transactional_monthly_enterprise
+      v1/marketing/broadcasts:
+        rate: rate_api_request_team_pool_enterprise
+        quota: quota_contact_marketing_storage_enterprise
