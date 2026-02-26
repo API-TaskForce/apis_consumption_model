@@ -127,13 +127,6 @@ Cada plan agrupa un precio, un periodo de facturación y la asignación concreta
 | `quota` | Referencia a una cuota definida en `capacity` |
 | `cost_per_request` | _(opcional)_ Descripción del coste por petición en texto libre |
 
-### 3.5 `metadata` — Fuentes y Provenance
-
-| Campo | Descripción |
-|---|---|
-| `sources_visited` | Lista de URLs consultadas |
-| `data_provenance` | Lista de afirmaciones clave extraídas, con referencia a la fuente entre corchetes cuando sea posible |
-
 ---
 
 ## 4. Convenciones de nombres y formatos
@@ -218,6 +211,5 @@ plans:
 - Si una característica aparece tanto en Pricing2YAML como en la Datasheet, **no es ningún inconveniente** — es esperable en APIs de tipo Partial SaaS / API-First.
 - Se genera **una Datasheet por cada plan** del proveedor, facilitando la comparación de los diferentes casos de consumo.
 - El esquema es **preliminar (v0.1)**: hay APIs donde habrá que adaptar o extender los campos según lo que se descubra en la documentación.
-- Documentad siempre las **fuentes** en `metadata` — es clave para la trazabilidad y para futuras revisiones.
 
 ---
