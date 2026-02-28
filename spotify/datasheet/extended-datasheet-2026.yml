@@ -1,0 +1,29 @@
+associatedSaaS:
+  name: Spotify API (Extended Quota Mode)
+  url: https://developer.spotify.com/documentation/web-api/concepts/rate-limits
+  type: SaaS
+capacity:
+  value: Unlimited Users
+  autoRecharge: dynamic
+  extraCharge: None (Hard Limit / 429 Error)
+maxPower:
+  value: High Rate Limit (Calculated on 30s rolling window)
+  throttling: Sliding Window (30 seconds)
+  policies: 
+    - User Limit: Unlimited users.
+    - Rate Limit: Increased limits tailored for scale.
+perRequestCost: 0.00
+coolingPeriod: 
+  value: Defined by 'Retry-After' header in 429 response.
+segmentation:
+  rateLimitLevel: Application (Client ID)
+  quotaLevel: Application (Client ID)
+sharedLimits: Rate limit is calculated per app, across all its users.
+extraFields:
+  requisitos:
+    - Aplicación y aprobación requerida.
+    - Entidad legal (empresa).
+    - Mínimo 250k MAUs.
+    - Servicio activo en mercados clave.
+  bestPractices: Backoff-retry, Batch APIs, use snapshot_id, Lazy Loading.
+  errorResponses: 429 Too Many Requests.
