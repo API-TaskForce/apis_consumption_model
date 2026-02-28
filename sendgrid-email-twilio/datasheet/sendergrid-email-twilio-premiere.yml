@@ -1,0 +1,19 @@
+associatedSaaS: Twilio SendGrid
+url: "https://sendgrid.com/en-us/solutions/email-api/pricing"
+planReference: PREMIER
+type: Partial SaaS
+capacity:
+  - value: .inf
+    type: QUOTA
+    windowType: MONTHLY
+    description: "Customized volume based on business requirements."
+  - value: 5000 validations
+    type: QUOTA
+    windowType: MONTHLY
+maxPower:
+  value: 5 webhooks
+  type: RATE_LIMIT
+coolingPeriod: "Immediate"
+segmentation:
+  - Strategic Gating: Includes Expert Email Program Management as a core feature.
+  - Data Residency: Full compliance and processing options within Europe/USA.

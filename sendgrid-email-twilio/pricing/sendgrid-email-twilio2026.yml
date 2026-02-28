@@ -1,0 +1,820 @@
+saasName: Twilio SendGrid
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://sendgrid.com/en-us/solutions/email-api/pricing"
+createdAt: "2026-01-22"
+currency: "USD"
+tags: 
+  - Straightforward Integration
+  - Trusted Deliverability and Performance
+  - Privacy and Security
+  - Actionable Analytics
+  - Expertise and Support
+  - Productive Collaboration
+
+
+features:
+  #Main Features
+  emails:
+    description: "Amount of email sending allowence."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  additionalTeammates:
+    description: "Amount of additional teammates."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  emailValidation:
+    description: "Access to email validation."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  upgradeAccess:
+    description: "Access to plan upgrade."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  overageCharges:
+    description: "Access to overage charges."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  
+  #Straightfoward integration, all included in every plan.  
+  smtpAPI:
+    tag: Straightforward Integration
+    description: "Use our RESTful APIs that are built on HTTP and return JSON for clear implementation."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  comprenhensiveClientLibraries:
+    tag: Straightforward Integration
+    description: "Code in your preferred language with open source libraries and use cases in Node.JS, Ruby, Python, Go, PHP, Java, and C#."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  setupGuide:
+    tag: Straightforward Integration
+    description: "Follow a step-by-step setup guide to integrate and test via SMTP or API including each of our 7 code language snippets."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  interactiveApiDocs:
+    tag: Straightforward Integration
+    description: "Expedite end-to-end integration time with our robust and interactive API documentation."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  knowledgeCenter:
+    tag: Straightforward Integration
+    description: "Learn how to use Twilio SendGrid products quickly with concise how-to articles, step-by-step instructions, and quick videos."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  
+  #Trusted Deliverability and Performance
+  purposeMailAgent:
+    tag: Trusted Deliverability and Performance
+    description: "Expand your reach with powerful performance from our custom MTA, proven at scale."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  domainAuth:
+    tag: Trusted Deliverability and Performance
+    description: "Show email providers that Twilio SendGrid has permission to send emails on your behalf with SPF record and custom DKIM creation."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  dedicatedIpAddr:
+    tag: Trusted Deliverability and Performance
+    description: "Own your reputation with a dedicated IP address, and then automate your IP warmup and manage additional IP addresses with ease."
+    valueType: TEXT
+    defaultValue: No available
+    type: DOMAIN
+  dedicatedIpPooling:
+    tag: Trusted Deliverability and Performance
+    description: "Control your sending across multiple dedicated IP addresses by grouping them together."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  autoDedicatedIpWarmUp:
+    tag: Trusted Deliverability and Performance
+    description: "Automate the gradual increase of email traffic on your dedicated IP address to promote higher delivery rates."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  emailAddrValidationApi:
+    tag: Trusted Deliverability and Performance
+    description: "Protect your sending reputation by validating email addresses before you send to them with SendGrid’s real-time Email Validation API."
+    valueType: TEXT
+    defaultValue: No available
+    type: DOMAIN
+  reputationDeliveryVisibility:
+    tag: Trusted Deliverability and Performance
+    description: "Know where your program stands with reputation monitoring, delivery event data, and engagement analytics."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  suppressionManagement:
+    tag: Trusted Deliverability and Performance
+    description: "Show recipient mailbox providers that you’re a whitehat sender by managing recipients who no longer want to receive your emails."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  globallyDistributedArchitecture:
+    tag: Trusted Deliverability and Performance
+    description: "Rely on our cloud-based, redundant infrastructure with a 99.999% uptime."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  linkBranding:
+    tag: Trusted Deliverability and Performance
+    description: "Customize link URLs to maintain tracking and ensure proper branding."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  reverseDNS:
+    tag: Trusted Deliverability and Performance
+    description: "Improve email deliverability by verifying the IP address you are sending from is connected to your domain."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  universalLinks:
+    tag: Trusted Deliverability and Performance
+    description: "Enhance email recipients' mobile experience and maintain click tracking with deep link configuration."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  
+  #Privacy and Security
+  ipAccessManagment:
+    tag: Privacy and Security
+    description: "Whitelist IP addresses so only your account users can access your account."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  singleSignOn:
+    tag: Privacy and Security
+    description: "Integrate Twilio SendGrid into your established and secure SSO platform to centrally manage user permissions."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  TFA:
+    tag: Privacy and Security
+    description: "Require authentication beyond a username and password when logging into your Twilio SendGrid account."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  TLSEncryption:
+    tag: Privacy and Security
+    description: "Increase the security of your emails by using opportunistic or enforced TLS secure protocols."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  SOC2T2Cert:
+    tag: Privacy and Security
+    description: "Safeguard your data with Twilio SendGrid, which has been certified by recognized industry organizations for its rigorous controls."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  GDPR:
+    tag: Privacy and Security
+    description: "Maintain the highest privacy and data protection with our GDPR compliance."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  dataResidency:
+    tag: Privacy and Security
+    description: "Includes email events, from sending and tracking, primarily processed within Europe."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  eventWebhookSec:
+    tag: Privacy and Security
+    description: "Secure your data ingest with signed requests or OAuth 2.0 authorization."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+  #Actionable analytics
+  eventWebhook:
+    tag: Actionable Analytics
+    description: "Absorb events from your Twilio SendGrid account to create a customized analytics dashboard, set up triggered email campaigns, and insert dynamic data."
+    valueType: TEXT
+    defaultValue: No available
+    type: DOMAIN
+  deliverabilityInsights:
+    tag: Actionable Analytics
+    description: "Gain actionable insights to optimize your email program with the Deliverability Insights dashboard."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  realTimeAnalytics:
+    tag: Actionable Analytics
+    description: "See how your emails perform with comprehensive email analytics, available in your personal dashboard or via API."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  advancedStatistics:
+    tag: Actionable Analytics
+    description: "Compare email data by device, browser, ISP, geolocation, and email categories."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  inboundParseWebhook:
+    tag: Actionable Analytics
+    description: "Parse the contents and attachments of incoming emails to manage 2-way conversations, or receive uploads from email replies."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  bounceBlockClassifications:
+    tag: Actionable Analytics
+    description: "Categorization of cryptic bounce responses into 7 classifications that you can understand and take action upon."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  engagementTracking:
+    tag: Actionable Analytics
+    description: "Categorization of cryptic bounce responses into 7 classifications that you can understand and take action upon."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  IPSFeedbackLoopData:
+    tag: Actionable Analytics
+    description: "See data on bounce rate, spam, and blocked reporting."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  subuserComparisonStatistics:
+    tag: Actionable Analytics
+    description: "Compare statistics by subuser to understand how your audience is engaging with your email."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  searchableEmailActivity:
+    tag: Actionable Analytics
+    description: "Expedite the email delivery troubleshooting process with sequential event organization by message, advanced search and filtering, and CSV exporting."
+    valueType: TEXT
+    defaultValue: No available
+    type: DOMAIN
+  additionalEmailActivityHistory:
+    tag: Actionable Analytics
+    description: "Search and filter your email activity up to 30 days in the past with the purchase of additional email activity history."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  senderEngagementQualityScore:
+    tag: Actionable Analytics
+    description: "Access to the email sender quality score value."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  emailLogs:
+    tag: Actionable Analytics
+    description: "Acces to all email logs."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+  #Expertise and Support
+  expertServicesAccess:
+    tag: Expertise and Support
+    description: "Add an email expert to your team to help you build a strong sender reputation and optimize your strategy as you grow."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  personalizedSupportAccess:
+    tag: Expertise and Support
+    description: "Add a technical account manager to your team for the highest level of proactive technical support."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  expertEmailProgramManagement:
+    tag: Expertise and Support
+    description: "Partner with email pros to offer product expertise and act as an extension of your program."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+  #Productive Collaboration
+  dynamicTemplates:
+    tag: Productive Collaboration
+    description: "Send personalized content with real-time design editing, point-to-click HTML rendering, and conditional testing."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  emailContentTesting:
+    tag: Productive Collaboration
+    description: "Test your Dynamic Templates for inbox rendering, link validity, and performance against spam filters."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  teammatePermissions:
+    tag: Productive Collaboration
+    description: "Invite additional users to your account with specific predefined access."
+    valueType: TEXT
+    defaultValue: 1 teammate
+    type: DOMAIN
+  APIKeyPermissions:
+    tag: Productive Collaboration
+    description: "Uniquely set API keys with admin, read-only, or precise access settings by feature to limit your exposure to risk."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  subuserManagement:
+    tag: Productive Collaboration
+    description: "Segment your sending, assign permissions and credit limits, as well as view separate statistics programmatically or in the UI."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  maxEmailsMonthLimit:
+    description: "Monthly email sending quota (Starts at the indicated value)."
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: email
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+    - emails
+  maxEmailsDailyLimit:
+    description: "Daily email sending limit."
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: email
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+    - emails
+  additionalTeammatesLimit:
+    description: "Number of additional teammates allowed."
+    valueType: NUMERIC
+    defaultValue: 1
+    unit: user
+    type: NON_RENEWABLE
+    linkedFeatures:
+    - additionalTeammates
+  maxEventWebhooksLimit:
+    description: "Number of event webhooks allowed."
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: webhook
+    type: NON_RENEWABLE
+    linkedFeatures:
+    - eventWebhook
+  maxEmailValidationLimit:
+    description: "Monthly email validation credits."
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: validation
+    type: NON_RENEWABLE
+    linkedFeatures:
+    - emailValidation
+  emailContentTestingLimit:
+    description: "Monthly email content testing allowence."
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: validation
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+    - emailContentTesting
+
+plans:
+  FREE_TRIAL:
+    price: 0.00
+    unit: user/month
+    description: "Free for 60 days to test the platform."
+    features:
+      smtpAPI:
+        value: true
+      comprenhensiveClientLibraries:
+        value: true
+      setupGuide:
+        value: true
+      interactiveApiDocs:
+        value: true
+      knowledgeCenter:
+        value: true
+      domainAuth:
+        value: true
+      dedicatedIpAddr:
+        value: No available
+      dedicatedIpPooling:
+        value: false
+      autoDedicatedIpWarmUp:
+        value: false
+      emailAddrValidationApi:
+        value: No available
+      reputationDeliveryVisibility:
+        value: true
+      suppressionManagement:
+        value: true
+      globallyDistributedArchitecture:
+        value: true
+      linkBranding:
+        value: true
+      reverseDNS:
+        value: false
+      universalLinks:
+        value: true
+      ipAccessManagment:
+        value: true
+      singleSignOn:
+        value: false
+      TFA:
+        value: true
+      TLSEncryption:
+        value: true
+      SOC2T2Cert:
+        value: true
+      GDPR:
+        value: true
+      dataResidency:
+        value: false
+      eventWebhookSec:
+        value: true
+      eventWebhook:
+        value: 1 included
+      deliverabilityInsights:
+        value: true
+      realTimeAnalytics:
+        value: true
+      advancedStatistics:
+        value: true
+      inboundParseWebhook:
+        value: true
+      bounceBlockClassifications:
+        value: false
+      engagementTracking:
+        value: true
+      IPSFeedbackLoopData:
+        value: true
+      subuserComparisonStatistics:
+        value: false
+      searchableEmailActivity:
+        value: 3 days included
+      additionalEmailActivityHistory:
+        value: false
+      senderEngagementQualityScore:
+        value: true
+      emailLogs:
+        value: true
+      expertServicesAccess:
+        value: true
+      personalizedSupportAccess:
+        value: true
+      expertEmailProgramManagement:
+        value: true
+      dynamicTemplates:
+        value: true
+      emailContentTesting:
+        value: false
+      teammatePermissions:
+        value: 1 teammate
+      APIKeyPermissions:
+        value: true
+      subuserManagement:
+        value: false
+    usageLimits:
+      maxEmailsDailyLimit:
+        value: 100
+      additionalTeammatesLimit:
+        value: 1
+      maxEventWebhooksLimit:
+        value: 1
+      maxEmailValidationLimit:
+        value: 0
+
+  ESSENTIALS:
+    price: 19.95
+    unit: user/month
+    description: "Starting price for 50k - 100k emails per month."
+    features:
+      smtpAPI:
+        value: true
+      comprenhensiveClientLibraries:
+        value: true
+      setupGuide:
+        value: true
+      interactiveApiDocs:
+        value: true
+      knowledgeCenter:
+        value: true
+      purposeMailAgent:
+        value: true
+      domainAuth:
+        value: true
+      dedicatedIpAddr:
+        value: No available
+      dedicatedIpPooling:
+        value: false
+      autoDedicatedIpWarmUp:
+        value: false
+      emailAddrValidationApi:
+        value: No available
+      reputationDeliveryVisibility:
+        value: true
+      suppressionManagement:
+        value: true
+      globallyDistributedArchitecture:
+        value: true
+      linkBranding:
+        value: true
+      reverseDNS:
+        value: false
+      universalLinks:
+        value: true
+      ipAccessManagment:
+        value: true
+      singleSignOn:
+        value: false
+      TFA:
+        value: true
+      TLSEncryption:
+        value: true
+      SOC2T2Cert:
+        value: true
+      GDPR:
+        value: true
+      dataResidency:
+        value: false
+      eventWebhookSec:
+        value: true
+      eventWebhook:
+        value: 2 included
+      deliverabilityInsights:
+        value: true
+      realTimeAnalytics:
+        value: true
+      advancedStatistics:
+        value: true
+      inboundParseWebhook:
+        value: true
+      bounceBlockClassifications:
+        value: false
+      engagementTracking:
+        value: true
+      IPSFeedbackLoopData:
+        value: true
+      subuserComparisonStatistics:
+        value: false
+      searchableEmailActivity:
+        value: 3 days included
+      additionalEmailActivityHistory:
+        value: true
+      senderEngagementQualityScore:
+        value: true
+      emailLogs:
+        value: true
+      expertServicesAccess:
+        value: true
+      personalizedSupportAccess:
+        value: true
+      expertEmailProgramManagement:
+        value: false
+      dynamicTemplates:
+        value: true
+      emailContentTesting:
+        value: false
+      teammatePermissions:
+        value: 1 teammate
+      APIKeyPermissions:
+        value: true
+      subuserManagement:
+        value: false
+    usageLimits:
+      maxEmailsMonthLimit:
+        value: 100000
+      additionalTeammatesLimit:
+        value: 1
+      maxEventWebhooksLimit:
+        value: 2
+      maxEmailValidationLimit:
+        value: 0
+
+  PRO:
+    price: 89.95
+    unit: user/month
+    description: "Starting price for 100k - 2.5M emails per month."
+    features:
+      smtpAPI:
+        value: true
+      comprenhensiveClientLibraries:
+        value: true
+      setupGuide:
+        value: true
+      interactiveApiDocs:
+        value: true
+      knowledgeCenter:
+        value: true
+      purposeMailAgent:
+        value: true
+      domainAuth:
+        value: true
+      dedicatedIpAddr:
+        value: 1 included*
+      dedicatedIpPooling:
+        value: true
+      autoDedicatedIpWarmUp:
+        value: true
+      emailAddrValidationApi:
+        value: 2,500 free validations included
+      reputationDeliveryVisibility:
+        value: true
+      suppressionManagement:
+        value: true
+      globallyDistributedArchitecture:
+        value: true
+      linkBranding:
+        value: true
+      reverseDNS:
+        value: false
+      universalLinks:
+        value: true
+      ipAccessManagment:
+        value: true
+      singleSignOn:
+        value: false
+      TFA:
+        value: true
+      TLSEncryption:
+        value: true
+      SOC2T2Cert:
+        value: true
+      GDPR:
+        value: true
+      dataResidency:
+        value: true
+      eventWebhookSec:
+        value: true
+      eventWebhook:
+        value: 5 included
+      deliverabilityInsights:
+        value: true
+      realTimeAnalytics:
+        value: true
+      advancedStatistics:
+        value: true
+      inboundParseWebhook:
+        value: true
+      bounceBlockClassifications:
+        value: false
+      engagementTracking:
+        value: true
+      IPSFeedbackLoopData:
+        value: true
+      subuserComparisonStatistics:
+        value: false
+      searchableEmailActivity:
+        value: 7 days included
+      additionalEmailActivityHistory:
+        value: true
+      senderEngagementQualityScore:
+        value: true
+      emailLogs:
+        value: true
+      expertServicesAccess:
+        value: true
+      personalizedSupportAccess:
+        value: true
+      expertEmailProgramManagement:
+        value: false
+      dynamicTemplates:
+        value: true
+      emailContentTesting:
+        value: true
+      teammatePermissions:
+        value: 1,000 teammates
+      APIKeyPermissions:
+        value: true
+      subuserManagement:
+        value: true
+    usageLimits:
+      maxEmailsDailyLimit:
+        value: 2500000
+      additionalTeammatesLimit:
+        value: 1000
+      maxEventWebhooksLimit:
+        value: 5
+      maxEmailValidationLimit:
+        value: 2500
+      emailContentTestingLimit:
+        value: 60
+
+  PREMIER: #El plan premiere es customizable, con lo que hay métricas que no se pueden generalizar
+    price: .inf
+    unit: user/month
+    description: "Custom pricing for high-volume senders."
+    features:
+      smtpAPI:
+        value: true
+      comprenhensiveClientLibraries:
+        value: true
+      setupGuide:
+        value: true
+      interactiveApiDocs:
+        value: true
+      knowledgeCenter:
+        value: true
+      purposeMailAgent:
+        value: true
+      domainAuth:
+        value: true
+      dedicatedIpAddr:
+        value: 1 included*
+      dedicatedIpPooling:
+        value: true
+      autoDedicatedIpWarmUp:
+        value: true
+      emailAddrValidationApi:
+        value: 5,000 free validations included
+      reputationDeliveryVisibility:
+        value: true
+      suppressionManagement:
+        value: true
+      globallyDistributedArchitecture:
+        value: true
+      linkBranding:
+        value: true
+      reverseDNS:
+        value: false
+      universalLinks:
+        value: true
+      ipAccessManagment:
+        value: true
+      singleSignOn:
+        value: false
+      TFA:
+        value: true
+      TLSEncryption:
+        value: true
+      SOC2T2Cert:
+        value: true
+      GDPR:
+        value: true
+      dataResidency:
+        value: true
+      eventWebhookSec:
+        value: true
+      eventWebhook:
+        value: 5 included
+      deliverabilityInsights:
+        value: true
+      realTimeAnalytics:
+        value: true
+      advancedStatistics:
+        value: true
+      inboundParseWebhook:
+        value: true
+      bounceBlockClassifications:
+        value: false
+      engagementTracking:
+        value: true
+      IPSFeedbackLoopData:
+        value: true
+      subuserComparisonStatistics:
+        value: false
+      searchableEmailActivity:
+        value: 7 days included
+      additionalEmailActivityHistory:
+        value: true
+      senderEngagementQualityScore:
+        value: true
+      emailLogs:
+        value: true
+      expertServicesAccess:
+        value: true
+      personalizedSupportAccess:
+        value: true
+      expertEmailProgramManagement:
+        value: true
+      dynamicTemplates:
+        value: true
+      emailContentTesting:
+        value: true
+      teammatePermissions:
+        value: 1,000 teammates
+      APIKeyPermissions:
+        value: true
+      subuserManagement:
+        value: true
+    usageLimits:
+      maxEmailsDailyLimit:
+        value: .inf
+      additionalTeammatesLimit:
+        value: 1000
+      maxEventWebhooksLimit:
+        value: 5
+      maxEmailValidationLimit:
+        value: 5000
+      emailContentTestingLimit:
+        value: 60
