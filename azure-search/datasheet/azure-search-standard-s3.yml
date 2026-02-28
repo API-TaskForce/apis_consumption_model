@@ -1,0 +1,43 @@
+associatedSaaS: Azure AI Search
+url: "https://azure.microsoft.com/en-us/pricing/details/search/"
+planReference: STANDARD_S3
+type: Partial SaaS
+capacity:
+  - value: 1 TB per partition
+    type: QUOTA
+    windowType: STATIC
+    autoRecharge: monthly
+    description: "Maximum 12 TB per service (using 12 partitions)"
+    extraCharge: SCALE_BY_UNIT
+  - value: 200 indexes
+    type: ENTITY_LIMIT
+    windowType: STATIC
+    autoRecharge: fixed
+    description: "Standard mode: limit per service instance"
+  - value: 1000 indexes per partition
+    type: ENTITY_LIMIT
+    windowType: STATIC
+    description: "High Density (HD) mode: up to 3000 indexes total with 3 partitions"
+maxPower:
+  value: Up to 36 Search Units (SU)
+  type: SCALABLE_CAPACITY
+  scaleOutLimits:
+    - value: 12 partitions
+      description: "Scale for massive datasets (1 TB x N). S3 HD is limited to 3 partitions."
+    - value: 12 replicas
+      description: "Scale for maximum concurrency and sub-second query latency"
+  rateLimits:
+    - value: 200 requests/minute
+      type: MANAGEMENT_OPERATIONS
+      windowType: FIXED_WINDOW
+      resetCondition: "Per-minute rolling window"
+      description: "Applies to index schema management and service configuration"
+    - value: Scalable
+      type: DATA_PLANE_OPERATIONS
+      windowType: CONCURRENT_REQUESTS
+      description: "Search and indexing throughput scales with replicas; dynamic throttling via 429/503"
+  reference: "https://learn.microsoft.com/en-us/azure/search/search-limits-quotas-capacity"
+coolingPeriod: "Dynamic (Optimizado para latencias críticas. Requiere 2+ réplicas para SLA de lectura)"
+segmentation:
+  - High Density Support: Permite multi-tenancy masivo mediante el empaquetado de miles de índices pequeños en una infraestructura dedicada.
+  - Performance: Tier de latencia más baja para búsquedas vectoriales y de texto a gran escala.
