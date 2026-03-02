@@ -1,4 +1,4 @@
-# API Datasheets — v0.2
+# API Datasheets — v0.1
 
 > Esquema de trabajo para modelar el consumo de APIs, combinando **Pricing2YAML** y **Datasheet YAML**.
 
@@ -70,7 +70,6 @@ La Datasheet se estructura en **cuatro bloques principales**:
 ├─────────────────────────────────────┤
 │  plans      → Asignación por plan   │
 │    └ endpoints → Detalle por ruta   │
-│        └ aliases → Modos de consumo │
 ├─────────────────────────────────────┤
 │  metadata   → Fuentes y provenance  │
 └─────────────────────────────────────┘
@@ -83,7 +82,7 @@ La Datasheet se estructura en **cuatro bloques principales**:
 | `associated_saas` | Nombre del servicio | Texto libre |
 | `type` | Clasificación según § 2 | `full_saas` · `partial_saas` · `api_first` |
 | `url` | URL de referencia del pricing / documentación | URL |
-| `syntax_version` | Versión del esquema | `0.2` |
+| `syntax_version` | Versión del esquema | `0.1` |
 | `date` | Fecha de extracción | `YYYY-MM-DD` |
 
 ### 3.2 `capacity` — Cuotas (Volumen)
@@ -108,7 +107,7 @@ Define los **límites de frecuencia** (velocidad de acceso). Misma estructura qu
 | `unit` | Unidad | `requests` · `records` |
 | `period` | Ventana temporal | `1 min` · `1 second` · `1 hour` |
 
-### 3.4 `plans` — Planes y Endpoints
+### 3.4 `plans` — Planes
 
 Cada plan agrupa un precio, un periodo de facturación y la asignación concreta de cuotas/caudales a nivel global y por endpoint.
 
@@ -120,76 +119,13 @@ Cada plan agrupa un precio, un periodo de facturación y la asignación concreta
 | `rate` | _(opcional)_ Caudal global del plan (referencia a clave de `max_power`) |
 | `endpoints` | Mapa de endpoints con detalle individual |
 
-#### 3.4.1 Wildcard `/*` — Límites por defecto
-
-Cuando la mayoría de endpoints comparten los mismos límites, se usa la clave especial **`/*`** para definir los valores por defecto. Solo los endpoints que se diferencien necesitan su propia entrada.
-
-```yaml
-endpoints:
-  /*:                          # Límites por defecto para todos los endpoints
-    rate: rate_general
-  v1/email:                    # Este endpoint tiene límites propios
-    rate: rate_email_alta
-    quota: quota_emails
-```
-
-> **Regla:** `/*` actúa como "catch-all". Cualquier endpoint que no aparezca explícitamente hereda los valores de `/*`.
-
-#### 3.4.2 Aliases — Modos de consumo dentro de un endpoint
-
-Un mismo endpoint puede tener **diferentes comportamientos o límites** según la forma en que el usuario lo consume. Estos se modelan como **aliases** (subniveles) dentro del endpoint.
-
-Casos de uso típicos:
-
-| Escenario | Aliases |
-|---|---|
-| Estado de reputación de la cuenta | `healthy_reputation` · `under_review_reputation` |
-| Método HTTP | `GET` · `POST` · `PUT` · `DELETE` |
-| Modo de operación | `sync` · `async` · `batch` |
-
-Cuando un endpoint tiene aliases, los campos `rate`, `quota` y `cost_per_request` se definen **dentro de cada alias**, no directamente en el endpoint:
-
-```yaml
-v1/email:
-  healthy_reputation:           # Alias 1
-    rate: rate_email_healthy
-    quota: quota_emails
-    cost_per_request:
-      value: "1 per to_ header"
-      unit: email
-  under_review_reputation:      # Alias 2
-    rate: rate_email_review
-    quota: quota_emails
-    cost_per_request:
-      value: "1 per to_ header"
-      unit: email
-```
-
-> **Sin aliases:** Si el endpoint no tiene modos diferenciados, los campos van directamente bajo la clave del endpoint (como en v0.1).
-
-#### 3.4.3 `cost_per_request` — Coste por petición
-
-El coste por petición se modela como un **objeto** con dos campos:
-
-| Campo | Tipo | Descripción |
-|---|---|---|
-| `value` | `string` | Descripción del coste (texto libre, pendiente de formalizar) |
-| `unit` | `string` | Unidad que se consume (`email` · `sms` · `token` · `request`) |
-
-```yaml
-cost_per_request:
-  value: "depends on the number of emails you send"
-  unit: email
-```
-
-> **Nota:** El campo `value` es de tipo `string` porque aún no tenemos clara la forma óptima de modelar la relación entre peticiones y unidades consumidas. En futuras versiones se formalizará.
-
-### 3.5 `metadata` — Fuentes y Provenance
+**Cada endpoint** puede contener:
 
 | Campo | Descripción |
 |---|---|
-| `sources_visited` | Lista de URLs consultadas |
-| `data_provenance` | Lista de afirmaciones clave extraídas, con referencia a la fuente entre corchetes cuando sea posible |
+| `rate` | Referencia a un caudal definido en `max_power` |
+| `quota` | Referencia a una cuota definida en `capacity` |
+| `cost_per_request` | _(opcional)_ Descripción del coste por petición en texto libre |
 
 ---
 
@@ -203,7 +139,7 @@ cost_per_request:
 [tipo]_[recurso]_[contexto]_[plan]
 ```
 
-| Segmento | Valores típicos |
+| Segmento | Valores típicos | 
 |---|---|
 | `tipo` | `quota` · `rate` |
 | `recurso` | `email` · `sms` · `requests` · `bandwidth` · `storage` · `encoding` |
@@ -228,7 +164,7 @@ Copiar este fichero como punto de partida al crear una nueva Datasheet:
 associated_saas: # Nombre del servicio
 type: # full_saas | partial_saas | api_first
 url: # URL de referencia
-syntax_version: 0.2
+syntax_version: 0.1
 date: # YYYY-MM-DD
 
 capacity:
@@ -262,38 +198,18 @@ plans:
   #   quota:               # opcional — cuota global del plan
   #   rate:                # opcional — caudal global del plan
   #   endpoints:
-  #
-  #     /*:                # wildcard — límites por defecto para todos los endpoints
-  #       rate:
-  #
-  #     ruta/del/endpoint: # endpoint sin aliases (forma simple)
-  #       rate:
-  #       quota:
-  #       cost_per_request:
-  #         value:         # string — pendiente de formalizar
-  #         unit:
-  #
-  #     ruta/con/aliases:  # endpoint con aliases (modos de consumo)
-  #       alias_1:
-  #         rate:
-  #         quota:
-  #         cost_per_request:
-  #           value:
-  #           unit:
-  #       alias_2:
-  #         rate:
-  #         quota:
-  #         cost_per_request:
-  #           value:
-  #           unit:
+  #     ruta/del/endpoint:
+  #       rate:            # referencia a clave de max_power
+  #       quota:           # referencia a clave de capacity
+  #       cost_per_request: # opcional — descripción libre
 
 ```
-
----
 
 ## 6. Consejos adicionales
 
 - Al modelar **Pricing2YAML**, podéis obviar los campos `expression`, `serverExpression` y, en caso de duda, poner `DOMAIN` en el campo `type` de las Features.
 - Si una característica aparece tanto en Pricing2YAML como en la Datasheet, **no es ningún inconveniente** — es esperable en APIs de tipo Partial SaaS / API-First.
-- El esquema es **preliminar (v0.2)**: hay APIs donde habrá que adaptar o extender los campos según lo que se descubra en la documentación.
+- Se genera **una Datasheet por cada plan** del proveedor, facilitando la comparación de los diferentes casos de consumo.
+- El esquema es **preliminar (v0.1)**: hay APIs donde habrá que adaptar o extender los campos según lo que se descubra en la documentación.
 
+---
