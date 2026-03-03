@@ -2,7 +2,7 @@ associated_saas: amadeus
 type: partial_saas
 url: https://developers.amadeus.com/pricing
 syntax_version: 0.2
-date: 2026-02-23
+date: 2026-03-03
 
 capacity:
   # Flights quotas
