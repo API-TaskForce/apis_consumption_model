@@ -2,7 +2,7 @@ associated_saas: mailersend
 type: partial_saas
 url: https://www.mailersend.com/pricing
 syntax_version: 0.2
-date: 2026-02-23
+date: 2026-03-03
 
 capacity:
   quota_500_emails_month:
