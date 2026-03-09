@@ -1,0 +1,175 @@
+associated_saas: dailymotion
+type: partial_saas
+url: https://pro.dailymotion.com/en/pricing/
+syntax_version: 0.1
+date: 2025-05-20
+
+capacity:
+  # Límites de Volumen (Cuotas)
+  
+  # PLAN STARTER - CAPACIDAD FIJA
+  quota_bandwidth_vod_monthly_starter:
+    value: 2000
+    unit: gb
+    period: 1 month
+    window_type: fixed_billing_cycle
+    
+  quota_storage_persistence_starter:
+    value: 100
+    unit: gb
+    period: 1 month
+    window_type: rolling
+    
+  quota_encoding_transcoding_starter:
+    value: 10
+    unit: hours
+    period: 1 month
+    window_type: fixed_billing_cycle
+    
+  quota_plays_viewer_starter:
+    value: 25000
+    unit: records
+    period: 1 month
+    window_type: fixed_billing_cycle
+
+  # PLAN ADVANCED - CAPACIDAD CONFIGURABLE Y EXCEDENTES
+  quota_bandwidth_vod_monthly_pro:
+    value: 2000
+    unit: gb
+    period: 1 month
+    window_type: fixed_billing_cycle
+    overage_cost:
+      price: 0.0000072
+      unit: mb
+      
+  quota_storage_persistence_pro:
+    value: 1000
+    unit: gb
+    period: 1 month
+    window_type: rolling
+    overage_cost:
+      price: 0.0000384
+      unit: mb
+      
+  quota_encoding_transcoding_pro:
+    value: 80
+    unit: hours
+    period: 1 month
+    window_type: fixed_billing_cycle
+    overage_cost:
+      price: 0.0017
+      unit: minute
+
+  # PLAN ENTERPRISE - CAPACIDAD PERSONALIZADA
+  quota_bandwidth_vod_monthly_enterprise:
+    value: 0 # Definido por contrato custom
+    unit: gb
+    period: 1 month
+    window_type: fixed_billing_cycle
+    
+  quota_storage_persistence_enterprise:
+    value: 0 # Definido por contrato custom
+    unit: gb
+    period: 1 month
+    window_type: rolling
+
+max_power:
+  # Límites de Frecuencia (Caudales)
+  
+  # PETICIONES API GENERALES
+  rate_requests_api_global_starter:
+    value: 1000
+    unit: requests
+    period: 1 hour
+    
+  rate_requests_api_global_pro:
+    value: 1000
+    unit: requests
+    period: 1 hour
+    
+  # OPERACIONES DE CARGA (UPLOAD)
+  rate_upload_video_daily_starter:
+    value: 15
+    unit: records
+    period: 1 day
+    
+  rate_upload_video_daily_pro:
+    value: 96
+    unit: records
+    period: 1 day
+    
+  rate_upload_video_hourly_global:
+    value: 4
+    unit: records
+    period: 1 hour
+
+  # ACCESO A RECURSOS DE STREAMING
+  rate_stream_url_retrieval_global:
+    value: 50
+    unit: requests
+    period: 1 day
+    
+  # LÍMITES DE RESPUESTA Y PAGINACIÓN
+  rate_search_results_batch_global:
+    value: 1000
+    unit: records
+    period: 1 request
+    
+  rate_pagination_items_page_global:
+    value: 100
+    unit: records
+    period: 1 request
+
+plans:
+  starter:
+    price: 10
+    billing_period: 1 month
+    quota: quota_plays_viewer_starter
+    rate: rate_requests_api_global_starter
+    endpoints:
+      /videos:
+        rate: rate_requests_api_global_starter
+        quota: quota_bandwidth_vod_monthly_starter
+      /file/upload:
+        rate: rate_upload_video_hourly_global
+        quota: quota_encoding_transcoding_starter
+      /user/me:
+        rate: rate_requests_api_global_starter
+      stream_url_fields:
+        rate: rate_stream_url_retrieval_global
+        quota: quota_storage_persistence_starter
+        cost_per_request: "1 request per field accessed"
+
+  pro:
+    price: 99
+    billing_period: 1 month
+    quota: quota_bandwidth_vod_monthly_pro
+    rate: rate_requests_api_global_pro
+    endpoints:
+      /videos:
+        rate: rate_requests_api_global_pro
+        quota: quota_bandwidth_vod_monthly_pro
+      /file/upload:
+        rate: rate_upload_video_daily_pro
+        quota: quota_encoding_transcoding_pro
+      /user/me:
+        rate: rate_requests_api_global_pro
+      stream_url_fields:
+        rate: rate_stream_url_retrieval_global
+        quota: quota_storage_persistence_pro
+        cost_per_request: "1 request per field accessed"
+
+  enterprise:
+    price: 0 # Contact Sales
+    billing_period: 1 month
+    quota: quota_bandwidth_vod_monthly_enterprise
+    rate: rate_requests_api_global_pro
+    endpoints:
+      /videos:
+        rate: rate_requests_api_global_pro
+        quota: quota_bandwidth_vod_monthly_enterprise
+      /file/upload:
+        rate: rate_upload_video_daily_pro
+      stream_url_fields:
+        rate: rate_stream_url_retrieval_global
+        quota: quota_storage_persistence_enterprise
