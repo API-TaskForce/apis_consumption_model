@@ -1,160 +1,236 @@
 associated_saas: mailersend
 type: partial_saas
 url: https://www.mailersend.com/pricing
-syntax_version: 0.1
-date: 2026-02-23
+syntax_version: 0.2
+date: 2026-03-03
 
 capacity:
-  quota_free_emails:
+  quota_500_emails_month:
     value: 500
     unit: emails
     period: 1 month
     window_type: rolling
-  quota_free_requests:
+  quota_5k_emails_month:
+    value: 5000
+    unit: emails
+    period: 1 month
+    overage_cost:
+      price: 1.20
+      value: 1000
+    window_type: rolling
+  quota_50k_emails_month:
+    value: 50000
+    unit: emails
+    period: 1 month
+    overage_cost:
+      price: 0.95
+      value: 1000
+    window_type: rolling
+  quota_100_req_day:
     value: 100
     unit: requests
     period: 1 day
     window_type: fixed_utc_midnight
-
-  quota_hobby_emails:
-    value: 5000
-    unit: emails
-    period: 1 month
-    window_type: rolling
-  quota_hobby_requests:
+  quota_1k_req_day:
     value: 1000
     unit: requests
     period: 1 day
     window_type: fixed_utc_midnight
-
-  quota_starter_emails:
-    value: 50000
-    unit: emails
-    period: 1 month
-    window_type: rolling
-  quota_starter_requests:
+  quota_100k_req_day:
     value: 100000
     unit: requests
     period: 1 day
     window_type: fixed_utc_midnight
-  quota_starter_sms:
-    value: 100
-    unit: sms
-    period: 1 month
-    window_type: rolling
-
-  quota_professional_emails:
-    value: 50000
-    unit: emails
-    period: 1 month
-    window_type: rolling
-  quota_professional_requests:
+  quota_500k_req_day:
     value: 500000
     unit: requests
     period: 1 day
     window_type: fixed_utc_midnight
-  quota_professional_sms:
+  quota_100_sms_month:
+    value: 100
+    unit: sms
+    period: 1 month
+    overage_cost:
+      price: 1.40
+      value: 100
+    window_type: rolling
+  quota_150_sms_month:
     value: 150
     unit: sms
     period: 1 month
+    overage_cost:
+      price: 1.40
+      value: 100
     window_type: rolling
-
 max_power:
-  healthy_reputation_rate:
-    value: 60
-    unit: requests
-    period: 1 min
-  healthy_reputation_rate_for_email:
+  rate_120_min:
     value: 120
     unit: requests
     period: 1 min
-  healthy_reputation_rate_for_bulk:
-    value: 10
+  rate_60_min:
+    value: 60
     unit: requests
     period: 1 min
-  healthy_reputation_rate_for_bulk_starter:
-    value: 15
-    unit: requests
-    period: 1 min
-  healthy_reputation_rate_for_bulk_professional:
+  rate_30_min:
     value: 30
     unit: requests
     period: 1 min
-
-  under_review_reputation_rate_for_email:
+  rate_15_min:
+    value: 15
+    unit: requests
+    period: 1 min
+  rate_10_min:
     value: 10
     unit: requests
     period: 1 min
-  under_review_reputation_rate_for_bulk:
+  rate_1_min:
     value: 1
     unit: requests
     period: 1 min
-
-throttling: {}
-policies: {}
-cooling_period: {}
-
 plans:
   free:
-    price: 0 $
+    price: 0
     billing_period: 1 month
-    quota: quota_free_requests
+    quota: quota_100_req_day
     endpoints:
-      v1/email-healthy:
-        rate: healthy_reputation_rate_for_email
-        quota: quota_free_emails
-        cost_per_request: "1email per to_ header"
-      v1/email-under-review:
-        rate: under_review_reputation_rate_for_email
-        quota: quota_free_emails
-        cost_per_request: "1email per to_ header"
-      general:
-        rate: healthy_reputation_rate
+      /*:
+        rate: rate_60_min
+      v1/email:
+        healthy_reputation:
+          rate: rate_120_min
+          quota: quota_500_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+        under_review_reputation:
+          rate: rate_10_min
+          quota: quota_500_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+      v1/bulk:
+        healthy_reputation:
+          rate: rate_10_min
+          quota: quota_500_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+        under_review_reputation:
+          rate: rate_1_min
+          quota: quota_500_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
 
   hobby:
-    price: 5.60 $
+    price: 5.60
     billing_period: 1 month
-    quota: quota_hobby_requests
+    quota: quota_1k_req_day
     endpoints:
-      v1/email-healthy:
-        rate: healthy_reputation_rate_for_email
-        quota: quota_hobby_emails
-        cost_per_request: "1email per to_ header"
-      v1/email-under-review:
-        rate: under_review_reputation_rate_for_email
-        quota: quota_hobby_emails
-        cost_per_request: "1email per to_ header"
-      general:
-        rate: healthy_reputation_rate
+      /*:
+        rate: rate_60_min
+      v1/email:
+        healthy_reputation:
+          rate: rate_120_min
+          quota: quota_5k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
 
+        under_review_reputation:
+          rate: rate_10_min
+          quota: quota_5k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+      v1/bulk:
+        healthy_reputation:
+          rate: rate_10_min
+          quota: quota_5k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+        under_review_reputation:
+          rate: rate_1_min
+          quota: quota_5k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
   starter:
-    price: 28 $
+    price: 28
     billing_period: 1 month
-    quota: quota_starter_requests
+    quota: quota_100k_req_day
     endpoints:
-      v1/email-healthy:
-        rate: healthy_reputation_rate_for_email
-        quota: quota_starter_emails
-        cost_per_request: "1email per to_ header"
-      v1/email-under-review:
-        rate: under_review_reputation_rate_for_email
-        quota: quota_starter_emails
-        cost_per_request: "1email per to_ header"
-      general:
-        rate: healthy_reputation_rate
-
+      /*:
+        rate: rate_60_min
+      v1/email:
+        healthy_reputation:
+          rate: rate_120_min
+          quota: quota_50k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+        under_review_reputation:
+          rate: rate_10_min
+          quota: quota_50k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+      v1/bulk:
+        healthy_reputation:
+          rate: rate_10_min
+          quota: quota_50k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+        under_review_reputation:
+          rate: rate_1_min
+          quota: quota_50k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+      v1/sms:
+        rate: rate_60_min
+        quota: quota_100_sms_month
+        cost_per_request: 
+          value: "depends on the number of sms you send"
+          unit: sms
   professional:
-    price: 88 $
+    price: 88
     billing_period: 1 month
-    quota: quota_professional_requests
+    quota: quota_500k_req_day
     endpoints:
-      v1/email-healthy:
-        rate: healthy_reputation_rate_for_email
-        quota: quota_professional_emails
-        cost_per_request: "1email per to_ header"
-      v1/email-under-review:
-        rate: under_review_reputation_rate_for_email
-        quota: quota_professional_emails
-        cost_per_request: "1email per to_ header"
-      general:
-        rate: healthy_reputation_rate
+      /*:
+        rate: rate_60_min
+      v1/email:
+        healthy_reputation:
+          rate: rate_120_min
+          quota: quota_50k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+        under_review_reputation:
+          rate: rate_10_min
+          quota: quota_50k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+      v1/bulk:
+        healthy_reputation:
+          rate: rate_10_min
+          quota: quota_50k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+        under_review_reputation:
+          rate: rate_1_min
+          quota: quota_50k_emails_month
+          cost_per_request:
+            value: "depends on the number of emails you send"
+            unit: email
+      v1/sms:
+        rate: rate_60_min
+        quota: quota_150_sms_month
+        cost_per_request: 
+          value: "depends on the number of sms you send"
+          unit: sms
