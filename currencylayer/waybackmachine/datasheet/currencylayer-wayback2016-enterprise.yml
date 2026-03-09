@@ -1,0 +1,16 @@
+associatedSaaS: currencylayer (2016)
+planReference: ENTERPRISE
+type: Partial SaaS
+capacity:
+  - value: .inf
+    type: QUOTA
+    unit: requests
+    windowType: MONTHLY
+    description: "Unlimited monthly requests."
+maxPower:
+  value: TBD
+  type: RATE_LIMIT
+coolingPeriod: "None"
+segmentation:
+  - Data Gating: Real-time 60-second update frequency.
+  - Tier Gating: Enterprise Functionality level (All-Inclusive).

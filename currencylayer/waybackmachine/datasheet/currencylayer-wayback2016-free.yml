@@ -1,0 +1,16 @@
+associatedSaaS: currencylayer (2016)
+planReference: FREE
+type: Partial SaaS
+capacity:
+  - value: 1000
+    type: QUOTA
+    unit: requests
+    windowType: MONTHLY
+    resetCondition: "Monthly"
+maxPower:
+  value: TBD
+  type: RATE_LIMIT
+  unit: req/s
+coolingPeriod: TBD
+segmentation:
+  - Data Gating: Update frequency limited to Hourly.
