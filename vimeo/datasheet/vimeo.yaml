@@ -1,107 +1,107 @@
 associated_saas: vimeo
 type: partial_saas
 url: https://developer.vimeo.com/guidelines/rate-limiting
-syntax_version: 0.1
-date: 2026-02-24
+syntax_version: 0.2
+date: 2026-03-09
 
 capacity:
-  quota_free:
+  quota_requests_general_free:
     value: 25
     unit: requests
     period: 1 min
     window_type: fixed
-  quota_free_filtered:
+  quota_requests_filtered_free:
     value: 50
     unit: requests
     period: 1 min
     window_type: fixed
 
-  quota_starter:
+  quota_requests_general_starter:
     value: 125
     unit: requests
     period: 1 min
     window_type: fixed
-  quota_starter_filtered:
+  quota_requests_filtered_starter:
     value: 250
     unit: requests
     period: 1 min
     window_type: fixed
 
-  quota_standard:
+  quota_requests_general_standard:
     value: 250
     unit: requests
     period: 1 min
     window_type: fixed
-  quota_standard_filtered:
+  quota_requests_filtered_standard:
     value: 500
     unit: requests
     period: 1 min
     window_type: fixed
 
-  quota_advanced:
+  quota_requests_general_advanced:
     value: 750
     unit: requests
     period: 1 min
     window_type: fixed
-  quota_advanced_filtered:
+  quota_requests_filtered_advanced:
     value: 1500
     unit: requests
     period: 1 min
     window_type: fixed
 
-  quota_enterprise:
+  quota_requests_general_enterprise:
     value: 2500
     unit: requests
     period: 1 min
     window_type: fixed
-  quota_enterprise_filtered:
+  quota_requests_filtered_enterprise:
     value: 5000
     unit: requests
     period: 1 min
     window_type: fixed
 
 max_power:
-  rate_free:
+  rate_requests_general_free:
     value: 25
     unit: requests
     period: 1 min
-  rate_free_filtered:
+  rate_requests_filtered_free:
     value: 50
     unit: requests
     period: 1 min
 
-  rate_starter:
+  rate_requests_general_starter:
     value: 125
     unit: requests
     period: 1 min
-  rate_starter_filtered:
+  rate_requests_filtered_starter:
     value: 250
     unit: requests
     period: 1 min
 
-  rate_standard:
+  rate_requests_general_standard:
     value: 250
     unit: requests
     period: 1 min
-  rate_standard_filtered:
+  rate_requests_filtered_standard:
     value: 500
     unit: requests
     period: 1 min
 
-  rate_advanced:
+  rate_requests_general_advanced:
     value: 750
     unit: requests
     period: 1 min
-  rate_advanced_filtered:
+  rate_requests_filtered_advanced:
     value: 1500
     unit: requests
     period: 1 min
 
-  rate_enterprise:
+  rate_requests_general_enterprise:
     value: 2500
     unit: requests
     period: 1 min
-  rate_enterprise_filtered:
+  rate_requests_filtered_enterprise:
     value: 5000
     unit: requests
     period: 1 min
@@ -122,53 +122,61 @@ cooling_period:
 
 plans:
   free:
-    price: 0 €
+    price: 0
+    billing_period: 1 month
     endpoints:
-      general:
-        rate: rate_free
-        quota: quota_free
-      with_field_filtering:
-        rate: rate_free_filtered
-        quota: quota_free_filtered
+      /*:
+        general:
+          rate: rate_requests_general_free
+          quota: quota_requests_general_free
+        filtered:
+          rate: rate_requests_filtered_free
+          quota: quota_requests_filtered_free
 
   starter:
-    price: 8 €
+    price: 8
     billing_period: 1 month
     endpoints:
-      general:
-        rate: rate_starter
-        quota: quota_starter
-      with_field_filtering:
-        rate: rate_starter_filtered
-        quota: quota_starter_filtered
+      /*:
+        general:
+          rate: rate_requests_general_starter
+          quota: quota_requests_general_starter
+        filtered:
+          rate: rate_requests_filtered_starter
+          quota: quota_requests_filtered_starter
 
   standard:
-    price: 19 €
+    price: 19
     billing_period: 1 month
     endpoints:
-      general:
-        rate: rate_standard
-        quota: quota_standard
-      with_field_filtering:
-        rate: rate_standard_filtered
-        quota: quota_standard_filtered
+      /*:
+        general:
+          rate: rate_requests_general_standard
+          quota: quota_requests_general_standard
+        filtered:
+          rate: rate_requests_filtered_standard
+          quota: quota_requests_filtered_standard
 
   advanced:
-    price: 69 €
+    price: 69
     billing_period: 1 month
     endpoints:
-      general:
-        rate: rate_advanced
-        quota: quota_advanced
-      with_field_filtering:
-        rate: rate_advanced_filtered
-        quota: quota_advanced_filtered
+      /*:
+        general:
+          rate: rate_requests_general_advanced
+          quota: quota_requests_general_advanced
+        filtered:
+          rate: rate_requests_filtered_advanced
+          quota: quota_requests_filtered_advanced
 
   enterprise:
+    price: custom
+    billing_period: 1 month
     endpoints:
-      general:
-        rate: rate_enterprise
-        quota: quota_enterprise
-      with_field_filtering:
-        rate: rate_enterprise_filtered
-        quota: quota_enterprise_filtered
+      /*:
+        general:
+          rate: rate_requests_general_enterprise
+          quota: quota_requests_general_enterprise
+        filtered:
+          rate: rate_requests_filtered_enterprise
+          quota: quota_requests_filtered_enterprise
