@@ -1,0 +1,270 @@
+associated_saas: mailersend
+type: partial_saas
+url: https://www.mailersend.com/pricing
+syntax_version: 0.3
+date: 2026-03-19
+currency: USD
+consumption_units:
+  - emails
+  - requests
+  - sms
+
+capacity:
+  quota_500_emails_month:
+    value: 500
+    unit: emails
+    period:
+      value: 1
+      unit: MONTH
+    window_type: rolling
+  quota_5k_emails_month:
+    value: 5000
+    unit: emails
+    period:
+      value: 1
+      unit: MONTH
+    overage_cost:
+      price: 1.20
+      value: 1000
+    window_type: rolling
+  quota_50k_emails_month:
+    value: 50000
+    unit: emails
+    period:
+      value: 1
+      unit: MONTH
+    overage_cost:
+      price: 0.95
+      value: 1000
+    window_type: rolling
+  quota_100_req_day:
+    value: 100
+    unit: requests
+    period:
+      value: 1
+      unit: DAY
+    window_type: fixed_utc_midnight
+  quota_1k_req_day:
+    value: 1000
+    unit: requests
+    period:
+      value: 1
+      unit: DAY
+    window_type: fixed_utc_midnight
+  quota_100k_req_day:
+    value: 100000
+    unit: requests
+    period:
+      value: 1
+      unit: DAY
+    window_type: fixed_utc_midnight
+  quota_500k_req_day:
+    value: 500000
+    unit: requests
+    period:
+      value: 1
+      unit: DAY
+    window_type: fixed_utc_midnight
+  quota_100_sms_month:
+    value: 100
+    unit: sms
+    period:
+      value: 1
+      unit: MONTH
+    overage_cost:
+      price: 1.40
+      value: 100
+    window_type: rolling
+  quota_150_sms_month:
+    value: 150
+    unit: sms
+    period:
+      value: 1
+      unit: MONTH
+    overage_cost:
+      price: 1.40
+      value: 100
+    window_type: rolling
+
+max_power:
+  rate_120_min:
+    value: 120
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+  rate_60_min:
+    value: 60
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+  rate_30_min:
+    value: 30
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+  rate_15_min:
+    value: 15
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+  rate_10_min:
+    value: 10
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+  rate_1_min:
+    value: 1
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+
+plans:
+  free:
+    price: 0.0
+    period:
+      value: 1
+      unit: MONTH
+    quota: quota_100_req_day
+    endpoints:
+      /*:
+        rate: rate_60_min
+      v1/email:
+        quota: quota_500_emails_month
+        workload:
+          unit: emails
+          min: 1
+          max: 70
+          description: "depends on the params you use, cc, to, bcc"
+        healthy_reputation:
+          rate: rate_120_min
+        under_review_reputation:
+          rate: rate_10_min
+      v1/bulk:
+        quota: quota_500_emails_month
+        workload:
+          unit: emails
+          min: 1
+          max: 35000
+          description: "depends on the number of emails you send and the params you use, cc, to, bcc"
+        healthy_reputation:
+          rate: rate_10_min
+        under_review_reputation:
+          rate: rate_1_min
+
+  hobby:
+    price: 5.60
+    period:
+      value: 1
+      unit: MONTH
+    quota: quota_1k_req_day
+    endpoints:
+      /*:
+        rate: rate_60_min
+      v1/email:
+        quota: quota_5k_emails_month
+        workload:
+          unit: emails
+          min: 1
+          max: 70
+          description: "depends on the params you use, cc, to, bcc"
+        healthy_reputation:
+          rate: rate_120_min
+        under_review_reputation:
+          rate: rate_10_min
+      v1/bulk:
+        quota: quota_5k_emails_month
+        workload:
+          unit: emails
+          min: 1
+          max: 35000
+          description: "depends on the number of emails you send and the params you use, cc, to, bcc"
+        healthy_reputation:
+          rate: rate_10_min
+        under_review_reputation:
+          rate: rate_1_min
+
+  starter:
+    price: 28.00 
+    period:
+      value: 1
+      unit: MONTH
+    quota: quota_100k_req_day
+    endpoints:
+      /*:
+        rate: rate_60_min
+      v1/email:
+        quota: quota_50k_emails_month
+        workload:
+          unit: emails
+          min: 1
+          max: 70
+          description: "depends on the params you use, cc, to, bcc"
+        healthy_reputation:
+          rate: rate_120_min
+        under_review_reputation:
+          rate: rate_10_min
+      v1/bulk:
+        quota: quota_50k_emails_month
+        workload:
+          unit: emails
+          min: 1
+          max: 35000
+          description: "depends on the number of emails you send and the params you use, cc, to, bcc"
+        healthy_reputation:
+          rate: rate_10_min
+        under_review_reputation:
+          rate: rate_1_min
+      v1/sms:
+        rate: rate_60_min
+        quota: quota_100_sms_month
+        workload:
+          unit: sms
+          min: 1
+          max: 50
+          description: "depends on the number of people you send sms to"
+
+  professional:
+    price: 88.00
+    period:
+      value: 1
+      unit: MONTH
+    quota: quota_500k_req_day
+    endpoints:
+      /*:
+        rate: rate_60_min
+      v1/email:
+        quota: quota_50k_emails_month
+        workload:
+          unit: emails
+          min: 1
+          max: 70
+          description: "depends on the params you use, cc, to, bcc"
+        healthy_reputation:
+          rate: rate_120_min
+        under_review_reputation:
+          rate: rate_10_min
+      v1/bulk:
+        quota: quota_50k_emails_month
+        workload:
+          unit: emails
+          min: 1
+          max: 35000
+          description: "depends on the number of emails you send and the params you use, cc, to, bcc"
+        healthy_reputation:
+          rate: rate_10_min
+        under_review_reputation:
+          rate: rate_1_min
+      v1/sms:
+        rate: rate_60_min
+        quota: quota_150_sms_month
+        workload:
+          unit: sms
+          min: 1
+          max: 50
+          description: "depends on the number of people you send sms to"
