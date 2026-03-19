@@ -1,0 +1,40 @@
+associated_saas: peertube
+type: partial_saas
+url: https://docs.joinpeertube.org/api-rest-reference.html
+syntax_version: 0.3
+date: 2026-04-13
+currency: USD #No aplica, se deja por defecto.
+base_uri: peertube.tv # new_field
+consumption_units:
+  - requests
+
+capacity:
+
+max_power:
+  default_rate:
+    value: 50
+    unit: requests
+    period:
+      value: 10
+      unit: SECOND
+
+plans:
+  free:
+    price: 0.0
+    period:
+      value: 1
+      unit: MONTH
+    rate: default_rate
+    endpoints:
+      # VIDEOS ENDPOINTS
+      /api/v1/videos/:
+      /api/v1/videos/{id}:
+      /api/V1/videos/{videoId}/captions:   # ESTE ENDPOINT
+      /api/v1/videos/{videoId}/comment-threads: # ESTE ENDPOINT PRESENTE EN SOLUCIÓN
+      # CHANNELS ENDPOINTS
+      /api/v1/video-channels/{channelId}:  # ESTE ENDPOINT
+      /api/v1/video-channels/{channelId}/videos: # ESTE ENDPOINT
+      # PLAYLISTS ENDPOINTS
+      /api/v1/video-playlists:
+      /api/v1/video-playlists/{id}/videos:
+

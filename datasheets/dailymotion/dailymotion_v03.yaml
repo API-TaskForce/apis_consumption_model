@@ -1,0 +1,142 @@
+associated_saas: dailymotion
+type: partial_saas
+url: https://pro.dailymotion.com/en/pricing/
+syntax_version: 0.3
+date: 2026-04-13
+currency: USD
+consumption_units:
+  - gb
+  - tb
+  - mb
+  - hours
+  - records
+  - requests
+
+capacity:
+  # PLAN STARTER — cuotas fijas, sin overages
+  quota_25k_plays_month_starter:
+    value: 25000
+    unit: records
+    period:
+      value: 1
+      unit: MONTH
+    window_type: fixed_billing_cycle
+
+  quota_2_tb_bandwidth_month_starter:
+    value: 2
+    unit: tb
+    period:
+      value: 1
+      unit: MONTH
+    window_type: fixed_billing_cycle
+
+  quota_100_gb_storage_month_starter:
+    value: 100
+    unit: gb
+    period:
+      value: 1
+      unit: MONTH
+    window_type: rolling
+
+  quota_10_hours_encoding_month_starter:
+    value: 10
+    unit: hours
+    period:
+      value: 1
+      unit: MONTH
+    window_type: fixed_billing_cycle
+
+  # PLAN ADVANCED — cuotas con overages
+  quota_2_tb_bandwidth_month_pro:
+    value: 2
+    unit: tb
+    period:
+      value: 1
+      unit: MONTH
+    window_type: fixed_billing_cycle
+    overage_cost:
+      price: 0.0000072
+      value: 1
+      unit: mb
+
+  quota_1_tb_storage_month_pro:
+    value: 1
+    unit: tb
+    period:
+      value: 1
+      unit: MONTH
+    window_type: rolling
+    overage_cost:
+      price: 0.0000384
+      value: 1 
+      unit: mb
+
+  quota_80_hours_encoding_month_pro:
+    value: 80
+    unit: hours
+    period:
+      value: 1
+      unit: MONTH
+    window_type: fixed_billing_cycle
+    overage_cost:
+      price: 0.0017
+      value: 1
+      unit: minute
+
+max_power:
+
+
+plans:
+  starter:
+    price: 9.00
+    period:
+      value: 1
+      unit: MONTH
+    quota:
+      - quota_25k_plays_month_starter
+      - quota_2_tb_bandwidth_month_starter
+      - quota_10_hours_encoding_month_starter
+      - quota_100_gb_storage_month_starter
+    endpoints:
+      playlist/{playlist_id}:
+        rate: TBD
+        quota: TBD
+      /video/{video_id}:
+        rate: TBD
+        quota: TBD
+      /video/{video_id}/subtitles:
+        rate: TBD
+        quota: TBD
+      /channel/{channel_id}:
+        rate: TBD
+        quota: TBD
+      /channel/{channel_id}/videos:
+        rate: TBD
+        quota: TBD
+      
+
+  advanced:
+    price: 84.00
+    period:
+      value: 1
+      unit: MONTH
+    quota:
+      - quota_2_tb_bandwidth_month_pro
+      - quota_1_tb_storage_month_pro
+      - quota_80_hours_encoding_month_pro
+    endpoints:
+      playlist/{playlist_id}:
+        rate: TBD
+        quota: TBD
+      /video/{video_id}:
+        rate: TBD
+        quota: TBD
+      /video/{video_id}/subtitles:
+        rate: TBD
+        quota: TBD
+      /channel/{channel_id}:
+        rate: TBD
+        quota: TBD
+      /channel/{channel_id}/videos:
+        rate: TBD
+        quota: TBD
