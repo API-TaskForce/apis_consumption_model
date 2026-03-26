@@ -1,0 +1,99 @@
+saasName: currencylayer (Legacy 2016)
+syntaxVersion: "3.0"
+version: "2016-03"
+url: "https://web.archive.org/web/20161112030413/https://currencylayer.com/"
+createdAt: "2026-01-27"
+currency: "USD"
+
+features:
+  apiCalls:
+    description: "Amount of allowed api calls."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  jsonFormat:
+    description: "Access to real-time exchange rate data in JSON format."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  worldCurrencies:
+    description: "Number of world currencies and precious metals supported."
+    valueType: NUMERIC
+    defaultValue: 168
+    type: DOMAIN
+  updateFrequency:
+    description: "Frequency of data updates."
+    valueType: TEXT
+    defaultValue: Hourly data updates
+    type: DOMAIN
+  functionalityLevel:
+    description: "Level of access to API features and endpoints."
+    valueType: TEXT
+    defaultValue: No available
+    type: DOMAIN
+
+usageLimits:
+  maxRequestsMonth:
+    description: "Monthly API request allowance."
+    valueType: NUMERIC
+    defaultValue: 1000
+    unit: requests
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      -apiCalls
+
+plans:
+  FREE:
+    price: 0.00
+    unit: user/month
+    description: "Free plan for personal use and testing."
+    features:
+      updateFrequency:  
+        value: "Hourly data updates" 
+      functionalityLevel:  
+        value: "TBD" 
+    usageLimits:
+      maxRequestsMonth:  
+        value: 1000 
+
+  BASIC:
+    price: 9.99
+    unit: user/month
+    description: "Standard Kit for small projects."
+    features:
+      updateFrequency:  
+        value: "Hourly data updates" 
+      functionalityLevel:  
+        value: "Basic Functionality" 
+    usageLimits:
+      maxRequestsMonth:  
+        value: 10000 
+
+  PROFESSIONAL:
+    price: 39.99
+    unit: user/month
+    description: "Professional level with higher frequency updates."
+    features:
+      updateFrequency:  
+        value: "10-minute data updates" 
+      functionalityLevel:  
+        value: "Professional Functionality" 
+    usageLimits:
+      maxRequestsMonth:  
+        value: 100000 
+
+  ENTERPRISE:
+    price: 79.99
+    unit: user/month
+    description: "The All-Inclusive Suite for high-volume business needs."
+    features:
+      updateFrequency:  
+        value: "60-second data updates" 
+      functionalityLevel:  
+        value: "Enterprise Functionality" 
+    usageLimits:
+      maxRequestsMonth:  
+        value: .inf 
