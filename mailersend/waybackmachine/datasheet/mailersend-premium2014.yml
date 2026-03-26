@@ -1,0 +1,20 @@
+associatedSaaS: MailerSend (2014)
+planReference: PREMIUM
+type: Managed SaaS
+capacity:
+  - value: 1000000
+    type: QUOTA
+    unit: subscribers
+    windowType: STATIC
+  - value: .inf
+    type: QUOTA
+    unit: emails
+    windowType: MONTHLY
+maxPower:
+  value: TBD
+  type: RATE_LIMIT
+coolingPeriod: TBD
+segmentation:
+  - Infrastructure Gating: Includes Dedicated IP.
+  - Support Gating: Monthly Consultation session included.
+  - Professional Services Gating: 2 Days of Design and Creative work per month.

@@ -1,0 +1,18 @@
+associatedSaaS: MailerSend
+planReference: HOBBY
+type: Partial SaaS
+capacity:
+  - value: 5000 emails
+    type: QUOTA
+    windowType: CALENDAR_MONTH
+    autoRecharge: monthly
+    extraCharge: 1.20 USD CPM
+  - value: 1000 requests
+    type: QUOTA
+    windowType: ROLLING_24H
+    throttling: "Daily quota"
+maxPower:
+  value: 60 requests per minute (https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors)
+  type: RATE_LIMIT
+segmentation:
+  - Key Level: Limits applied per account.
