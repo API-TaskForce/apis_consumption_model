@@ -1,0 +1,17 @@
+associatedSaaS: DHL Location Finder
+url: "https://developer.dhl.com/api-reference/location-finder-unified"
+planReference: None
+type: Partial SaaS
+capacity:
+  - value: 500 calls
+    type: QUOTA
+    windowType: ROLLING_24H
+    resetCondition: "Daily reset based on app creation time"
+    extraCharge: "None (Hard Limit: API returns 429/403 when exhausted)"
+maxPower:
+  value: 1 call/second
+  type: RATE_LIMIT
+  description: "Spike arrest protection to ensure platform stability."
+coolingPeriod: "Immediate (Wait until the next second for rate limit or next day for quota)"
+segmentation:
+  - Key Level: Los límites se aplican por API Key única vinculada a la App en el portal.

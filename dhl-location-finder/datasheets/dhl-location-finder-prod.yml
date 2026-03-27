@@ -1,0 +1,17 @@
+associatedSaaS: DHL Location Finder
+url: "https://developer.dhl.com/api-reference/location-finder-unified"
+planReference: None
+type: Partial SaaS
+capacity:
+  - value: Variable
+    type: QUOTA
+    windowType: ROLLING_24H
+    description: "Quota proportional to the customer's shipping volume."
+    extraCharge: "None (Requires DHL account and manual approval)"
+maxPower:
+  value: Custom
+  type: RATE_LIMIT
+  description: "High-throughput access granted upon technical review."
+coolingPeriod: "Immediate"
+segmentation:
+  - Account Level: El límite puede estar vinculado al número de cuenta de DHL (Shipping Account).
