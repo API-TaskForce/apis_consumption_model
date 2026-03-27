@@ -1,0 +1,33 @@
+associatedSaaS:
+  name: Foursquare Places API
+  url: https://docs.foursquare.com/developer/reference/rate-limits
+  type: API-First
+capacity:
+  value: 10,000 Free Pro Calls (Then Pay-as-you-go)
+  autoRecharge: monthly
+  extraCharge: Pay-as-you-go (Volume Tiered)
+maxPower:
+  value: 50 QPS
+  throttling: Calculated across all endpoints in total.
+  policies: 
+    - Pay as You Go & Sandbox Customers: 50 QPS
+perRequestCost:
+  Pro Tier 1 (10k-100k): $0.015
+  Pro Tier 2 (100k-500k): $0.012
+  Pro Tier 3 (500k-1M): $0.009
+  Pro Tier 4 (1M-5M): $0.0045
+  Pro Tier 5 (5M+): $0.00125
+  Premium Tier 1 (0-100k): $0.01875
+  Premium Tier 2 (100k-500k): $0.015
+  Premium Tier 3 (500k-1M): $0.01125
+  Premium Tier 4 (1M-5M): $0.00575
+  Premium Tier 5 (5M+): $0.00175
+coolingPeriod: 
+  value: 1 second (implied by QPS)
+segmentation:
+  rateLimitLevel: Account
+  quotaLevel: Account
+
+extraFields:
+  ProEndpoints: Search, Details, Autocomplete, Geotagging (Default Fields).
+  PremiumEndpoints: Tips, Photos, or Pro endpoints with Premium Fields.
