@@ -1,0 +1,956 @@
+saasName: Amadeus Self-Service
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://developers.amadeus.com/pricing"
+createdAt: "2026-01-20"
+currency: "EUR"
+tags:
+  - Flights
+  - Destination experiences
+  - Market insights
+  - Cars and Transfers
+  - Hotels
+features:
+  freeRequestQuotaPerMonth:
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  testDataCollection:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  fullRealTimeData:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  tps:
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  oneRequestPer100ms:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  fullParallelization:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  unlimitedCalls:
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  
+  # Enterprise Features
+  customSupport:
+    description: 24/7 dedicated support channels.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: SUPPORT
+  extensiveApiCatalog:
+    description: Access to full Enterprise catalog and value-add features.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  productConsulting:
+    description: Product and implementation consulting.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: SUPPORT
+  customPricing:
+    description: Custom pricing to suit needs.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: PAYMENT
+
+  flightOffersSearch:
+    description: POST/GET /v2/shopping/flight-offers
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  flightOffersPrice:
+    description: POST /v1/shopping/flight-offers/pricing
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  flightCreateOrders:
+    description: POST /v1/booking/flight-orders
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  flightOrderManagement:
+    description: GET/DELETE /v1/booking/flight-orders/*
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  seatMapDisplay:
+    description: GET/POST /v1/shopping/seatmaps
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  brandedFaresUpsell:
+    description: POST /v1/shopping/flight-offers/upselling
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  flightInspirationSearch:
+    description: GET /v1/shopping/flight-destinations
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  flightCheapestDateSearch:
+    description: GET /v1/shopping/flight-dates
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  flightAvailabilitiesSearch:
+    description: POST /v1/shopping/availability/flight-availabilities
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  travelRecommendations:
+    description: GET /v1/reference-data/recommended-locations
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Destination experiences
+  onDemandFlightStatus:
+    description: GET /v2/schedule/flights
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  airportCitySearch:
+    description: GET /v1/reference-data/locations
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  airportCitySearchById:
+    description: GET /v1/reference-data/locations/*
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  airportNearestRelevant:
+    description: GET /v1/reference-data/locations/airports
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  airportRoutes:
+    description: GET /v1/airport/direct-destinations
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  flightCheckInLinks:
+    description: GET /v2/reference-data/urls/checkin-links
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  airlineCodeLookup:
+    description: GET /v1/reference-data/airlines
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+  airlineRoutes:
+    description: GET /v1/airline/destinations
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Flights
+
+  # Destination experiences
+  toursAndActivities:
+    description: GET /v1/shopping/activities (400), /by-square (400), /* (200)
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Destination experiences
+  citySearch:
+    description: GET /v1/reference-data/locations/cities
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Destination experiences
+
+  # Market insights
+  flightMostTraveledDestinations:
+    description: GET /v1/travel/analytics/air-traffic/traveled
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Market insights
+  flightMostBookedDestinations:
+    description: GET /v1/travel/analytics/air-traffic/booked
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Market insights
+  flightBusiestTravelingPeriod:
+    description: GET /v1/travel/analytics/air-traffic/busiest-period
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Market insights
+
+  # Cars and Transfers
+  transferBooking:
+    description: POST /v1/ordering/transfer-orders
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Cars and Transfers
+  transferManagement:
+    description: POST /v1/ordering/transfer-orders/*/transfers/cancellation
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Cars and Transfers
+  transferSearch:
+    description: POST /v1/shopping/transfer-offers
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Cars and Transfers
+
+  # Hotels
+  hotelList:
+    description: GET /v1/reference-data/locations/hotels/*
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Hotels
+  hotelSearch:
+    description: GET /v2/shopping/hotel-offers, /v3/shopping/hotel-offers
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Hotels
+  hotelBooking:
+    description: POST /v1/booking/hotel-bookings, /v2/booking/hotel-orders
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Hotels
+  hotelRatings:
+    description: GET /v2/e-reputation/hotel-sentiments
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Hotels
+  hotelNameAutocomplete:
+    description: GET /v1/reference-data/locations/hotel
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+    tag: Hotels
+
+
+
+usageLimits:
+  limitFlightOffersSearch:
+    valueType: NUMERIC
+    defaultValue: 2000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightOffersSearch
+
+  limitFlightOffersPrice:
+    valueType: NUMERIC
+    defaultValue: 3000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightOffersPrice
+
+  limitFlightCreateOrders:
+    valueType: NUMERIC
+    defaultValue: 10000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightCreateOrders
+
+  limitFlightOrderManagement:
+    valueType: NUMERIC
+    defaultValue: 5000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightOrderManagement
+
+  limitSeatMapDisplay:
+    valueType: NUMERIC
+    defaultValue: 1000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - seatMapDisplay
+
+  limitBrandedFaresUpsell:
+    valueType: NUMERIC
+    defaultValue: 3000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - brandedFaresUpsell
+
+  limitFlightInspirationSearch:
+    valueType: NUMERIC
+    defaultValue: 3000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightInspirationSearch
+
+  limitFlightCheapestDateSearch:
+    valueType: NUMERIC
+    defaultValue: 3000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightCheapestDateSearch
+
+  limitFlightAvailabilitiesSearch:
+    valueType: NUMERIC
+    defaultValue: 3000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightAvailabilitiesSearch
+
+  limitTravelRecommendations:
+    valueType: NUMERIC
+    defaultValue: 10000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - travelRecommendations
+
+  limitOnDemandFlightStatus:
+    valueType: NUMERIC
+    defaultValue: 2000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - onDemandFlightStatus
+
+  limitAirportCitySearch:
+    valueType: NUMERIC
+    defaultValue: 7000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - airportCitySearch
+
+  limitAirportCitySearchById:
+    valueType: NUMERIC
+    defaultValue: 3000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - airportCitySearchById
+
+  limitAirportNearestRelevant:
+    valueType: NUMERIC
+    defaultValue: 10000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - airportNearestRelevant
+
+  limitAirportRoutes:
+    valueType: NUMERIC
+    defaultValue: 3000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - airportRoutes
+
+  limitFlightCheckInLinks:
+    valueType: NUMERIC
+    defaultValue: 10000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightCheckInLinks
+
+  limitAirlineCodeLookup:
+    valueType: NUMERIC
+    defaultValue: 10000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - airlineCodeLookup
+
+  limitAirlineRoutes:
+    valueType: NUMERIC
+    defaultValue: 3000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - airlineRoutes
+
+  limitToursAndActivities:
+    valueType: NUMERIC
+    defaultValue: 1000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - toursAndActivities
+
+  limitCitySearch:
+    valueType: NUMERIC
+    defaultValue: 3000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - citySearch
+
+  limitFlightMostTraveledDestinations:
+    valueType: NUMERIC
+    defaultValue: 2000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightMostTraveledDestinations
+
+  limitFlightMostBookedDestinations:
+    valueType: NUMERIC
+    defaultValue: 2000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightMostBookedDestinations
+
+  limitFlightBusiestTravelingPeriod:
+    valueType: NUMERIC
+    defaultValue: 2000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - flightBusiestTravelingPeriod
+
+  limitTransferBooking:
+    valueType: NUMERIC
+    defaultValue: 2000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - transferBooking
+
+  limitTransferManagement:
+    valueType: NUMERIC
+    defaultValue: 2000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - transferManagement
+
+  limitTransferSearch:
+    valueType: NUMERIC
+    defaultValue: 2000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - transferSearch
+
+  limitHotelList:
+    valueType: NUMERIC
+    defaultValue: 5000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - hotelList
+
+  limitHotelSearch:
+    valueType: NUMERIC
+    defaultValue: 10200
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - hotelSearch
+
+  limitHotelBooking:
+    valueType: NUMERIC
+    defaultValue: 6000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - hotelBooking
+
+  limitHotelRatings:
+    valueType: NUMERIC
+    defaultValue: 2000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - hotelRatings
+
+  limitHotelNameAutocomplete:
+    valueType: NUMERIC
+    defaultValue: 10000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - hotelNameAutocomplete
+  
+  transactionsPerSecond:
+    valueType: NUMERIC
+    defaultValue: 10
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: SEC
+    linkedFeatures:
+      - tps
+
+plans:
+  TEST:
+    description: Sandbox environment for testing and prototyping.
+    price: 0.00
+    unit: user/month
+    features:
+      testDataCollection:
+        value: true
+      oneRequestPer100ms:
+        value: true
+      
+    usageLimits:
+      limitFlightOffersSearch:
+        value: 2000
+      limitFlightOffersPrice:
+        value: 3000
+      limitFlightCreateOrders:
+        value: 10000
+      limitFlightOrderManagement:
+        value: 5000
+      limitSeatMapDisplay:
+        value: 1000
+      limitBrandedFaresUpsell:
+        value: 3000
+      limitFlightInspirationSearch:
+        value: 3000
+      limitFlightCheapestDateSearch:
+        value: 3000
+      limitFlightAvailabilitiesSearch:
+        value: 3000
+      limitTravelRecommendations:
+        value: 10000
+      limitOnDemandFlightStatus:
+        value: 2000
+      limitAirportCitySearch:
+        value: 7000
+      limitAirportCitySearchById:
+        value: 3000
+      limitAirportNearestRelevant:
+        value: 10000
+      limitAirportRoutes:
+        value: 3000
+      limitFlightCheckInLinks:
+        value: 10000
+      limitAirlineCodeLookup:
+        value: 10000
+      limitAirlineRoutes:
+        value: 3000
+      limitToursAndActivities:
+        value: 1000
+      limitCitySearch:
+        value: 3000
+      limitFlightMostTraveledDestinations:
+        value: 2000
+      limitFlightMostBookedDestinations:
+        value: 2000
+      limitFlightBusiestTravelingPeriod:
+        value: 2000
+      limitTransferBooking:
+        value: 2000
+      limitTransferManagement:
+        value: 2000
+      limitTransferSearch:
+        value: 2000
+      limitHotelList:
+        value: 5000
+      limitHotelSearch:
+        value: 10200
+      limitHotelBooking:
+        value: 6000
+      limitHotelRatings:
+        value: 2000
+      limitHotelNameAutocomplete:
+        value: 10000
+      transactionsPerSecond:
+        value: 10
+
+  PRODUCTION:
+    description: Live environment for deployed applications. Pay-as-you-go after free quota.
+    price: 0.00
+    unit: user/month
+    features:
+      fullRealTimeData:
+        value: true
+      fullParallelization:
+        value: true
+    usageLimits:
+      limitFlightOffersSearch:
+        value: 2000
+      limitFlightOffersPrice:
+        value: 3000
+      limitFlightCreateOrders:
+        value: 10000
+      limitFlightOrderManagement:
+        value: 5000
+      limitSeatMapDisplay:
+        value: 1000
+      limitBrandedFaresUpsell:
+        value: 3000
+      limitFlightInspirationSearch:
+        value: 3000
+      limitFlightCheapestDateSearch:
+        value: 3000
+      limitFlightAvailabilitiesSearch:
+        value: 3000
+      limitTravelRecommendations:
+        value: 10000
+      limitOnDemandFlightStatus:
+        value: 2000
+      limitAirportCitySearch:
+        value: 7000
+      limitAirportCitySearchById:
+        value: 3000
+      limitAirportNearestRelevant:
+        value: 10000
+      limitAirportRoutes:
+        value: 3000
+      limitFlightCheckInLinks:
+        value: 10000
+      limitAirlineCodeLookup:
+        value: 10000
+      limitAirlineRoutes:
+        value: 3000
+      limitToursAndActivities:
+        value: 1000
+      limitCitySearch:
+        value: 3000
+      limitFlightMostTraveledDestinations:
+        value: 2000
+      limitFlightMostBookedDestinations:
+        value: 2000
+      limitFlightBusiestTravelingPeriod:
+        value: 2000
+      limitTransferBooking:
+        value: 2000
+      limitTransferManagement:
+        value: 2000
+      limitTransferSearch:
+        value: 2000
+      limitHotelList:
+        value: 5000
+      limitHotelSearch:
+        value: 10200
+      limitHotelBooking:
+        value: 6000
+      limitHotelRatings:
+        value: 2000
+      limitHotelNameAutocomplete:
+        value: 10000
+      transactionsPerSecond:
+        value: 40
+
+  ENTERPRISE:
+    description: Build best-in-class solutions with custom support. Designed for scale.
+    price: Contact Sales
+    unit: user/month
+    features:
+      customSupport:
+        value: true
+      extensiveApiCatalog:
+        value: true
+      productConsulting:
+        value: true
+      customPricing:
+        value: true
+    usageLimits:
+      transactionsPerSecond:
+        value: .inf # Custom/Negotiated
+      limitFlightOffersSearch:
+        value: .inf
+      limitFlightOffersPrice:
+        value: .inf
+      limitFlightCreateOrders:
+        value: .inf
+      limitFlightOrderManagement:
+        value: .inf
+      limitSeatMapDisplay:
+        value: .inf
+      limitBrandedFaresUpsell:
+        value: .inf
+      limitFlightInspirationSearch:
+        value: .inf
+      limitFlightCheapestDateSearch:
+        value: .inf
+      limitFlightAvailabilitiesSearch:
+        value: .inf
+      limitTravelRecommendations:
+        value: .inf
+      limitOnDemandFlightStatus:
+        value: .inf
+      limitAirportCitySearch:
+        value: .inf
+      limitAirportCitySearchById:
+        value: .inf
+      limitAirportNearestRelevant:
+        value: .inf
+      limitAirportRoutes:
+        value: .inf
+      limitFlightCheckInLinks:
+        value: .inf
+      limitAirlineCodeLookup:
+        value: .inf
+      limitAirlineRoutes:
+        value: .inf
+      limitToursAndActivities:
+        value: .inf
+      limitCitySearch:
+        value: .inf
+      limitFlightMostTraveledDestinations:
+        value: .inf
+      limitFlightMostBookedDestinations:
+        value: .inf
+      limitFlightBusiestTravelingPeriod:
+        value: .inf
+      limitTransferBooking:
+        value: .inf
+      limitTransferManagement:
+        value: .inf
+      limitTransferSearch:
+        value: .inf
+      limitHotelList:
+        value: .inf
+      limitHotelSearch:
+        value: .inf
+      limitHotelBooking:
+        value: .inf
+      limitHotelRatings:
+        value: .inf
+      limitHotelNameAutocomplete:
+        value: .inf
+
+
+addOns:
+  extraCallsTier1:
+    description: Overage cost for Flight Create Orders (0.04 EUR).
+    price: 0.04
+    unit: request
+    availableFor:
+      - PRODUCTION
+    usageLimitsExtensions:
+      limitFlightCreateOrders:
+        value: 1
+
+  extraCallsTier2:
+    description: Overage cost for High Value APIs (0.025 EUR).
+    price: 0.025
+    unit: request
+    availableFor:
+      - PRODUCTION
+    usageLimitsExtensions:
+      limitFlightOffersSearch:
+        value: 1
+      limitToursAndActivities:
+        value: 1
+      limitFlightMostTraveledDestinations:
+        value: 1
+      limitFlightMostBookedDestinations:
+        value: 1
+      limitHotelRatings:
+        value: 1
+
+  extraCallsTier3:
+    description: Overage cost for Standard APIs (0.015 EUR).
+    price: 0.015
+    unit: request
+    availableFor:
+      - PRODUCTION
+    usageLimitsExtensions:
+      limitFlightOffersPrice:
+        value: 1
+      limitSeatMapDisplay:
+        value: 1
+      limitBrandedFaresUpsell:
+        value: 1
+      limitFlightInspirationSearch:
+        value: 1
+      limitFlightCheapestDateSearch:
+        value: 1
+      limitFlightAvailabilitiesSearch:
+        value: 1
+      limitHotelList:
+        value: 1
+      limitHotelSearch:
+        value: 1
+
+  extraCallsTier4:
+    description: Overage cost for Basic APIs (0.0025 EUR).
+    price: 0.0025
+    unit: request
+    availableFor:
+      - PRODUCTION
+    usageLimitsExtensions:
+      limitFlightOrderManagement:
+        value: 1
+      limitTravelRecommendations:
+        value: 1
+      limitOnDemandFlightStatus:
+        value: 1
+      limitAirportCitySearch:
+        value: 1
+      limitAirportCitySearchById:
+        value: 1
+      limitAirportNearestRelevant:
+        value: 1
+      limitAirportRoutes:
+        value: 1
+      limitFlightCheckInLinks:
+        value: 1
+      limitAirlineCodeLookup:
+        value: 1
+      limitAirlineRoutes:
+        value: 1
+      limitCitySearch:
+        value: 1
+      limitFlightBusiestTravelingPeriod:
+        value: 1
+      limitHotelNameAutocomplete:
+        value: 1
+
+  extraCallsTier5:
+    description: Overage cost for Micro APIs (0.0015 EUR).
+    price: 0.0015
+    unit: request
+    availableFor:
+      - PRODUCTION
+    usageLimitsExtensions:
+      limitTransferSearch:
+        value: 1
+
+  extraCallsFree:
+    description: Free overage for specific Booking APIs.
+    price: 0.00
+    unit: request
+    availableFor:
+      - PRODUCTION
+    usageLimitsExtensions:
+      limitTransferBooking:
+        value: 1
+      limitTransferManagement:
+        value: 1
+      limitHotelBooking:
+        value: 1

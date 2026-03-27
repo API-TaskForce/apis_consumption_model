@@ -1,0 +1,26 @@
+associatedSaaS:
+  name: Amadeus Enterprise
+  url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/api-rate-limits/
+  type: Full SaaS
+capacity:
+  value: Custom / Configurable (Negotiated Quotas)
+  autoRecharge: monthly
+  extraCharge: Negotiated Overage Rate
+maxPower:
+  value: Custom / Configurable
+  throttling: Custom
+  policies: 
+    - Dedicated infrastructure options.
+    - Rate limits tailored to scale (typically > 40 TPS).
+perRequestCost: Custom / Negotiated
+coolingPeriod: 
+  value: Optimized for high scale.
+segmentation:
+  rateLimitLevel: Organization
+  quotaLevel: Organization
+sharedLimits: Organization-wide.
+extraFields:
+  Environment: Production (Live Data)
+  Support: 24/7 Dedicated Support Channels.
+  Services: Product and implementation consulting.
+  Catalog: Full Enterprise catalog access.

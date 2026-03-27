@@ -1,0 +1,33 @@
+associatedSaaS:
+  name: Amadeus Self-Service
+  url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/api-rate-limits/
+  type: Full SaaS
+capacity:
+  value: Monthly Free Quota (Varies by API) + Unlimited Overage
+  autoRecharge: monthly
+  extraCharge: Pay-as-you-go (See perRequestCost)
+maxPower:
+  value: Split Limit
+  throttling: 
+    Standard APIs: Full parallelization
+    AI/Partner APIs: 1 request every 50ms
+  policies: 
+    - Standard APIs: 40 TPS
+    - AI/Partner APIs (Tours, Prediction, etc.): 20 TPS
+perRequestCost:
+  Tier 1 (Flight Create Orders): 0.04 EUR
+  Tier 2 (High Value - Offers, Tours): 0.025 EUR
+  Tier 3 (Standard - Price, SeatMap): 0.015 EUR
+  Tier 4 (Basic - Status, Check-in): 0.0025 EUR
+  Tier 5 (Micro - Transfer Search): 0.0015 EUR
+  Free (Booking APIs): 0.00 EUR
+coolingPeriod: 
+  value: Minimal / 50ms for AI & Partners
+segmentation:
+  rateLimitLevel: User
+  quotaLevel: User
+sharedLimits: Quota is shared across all apps in the account.
+extraFields:
+  Environment: Production (Live Data)
+  Billing: Credit Card / Pay-as-you-go.
+  AI_Partner_APIs: Tours and Activities, Airport On-time Performance, Flight Price Analysis, Flight Delay Prediction, Flight Choice Prediction.
