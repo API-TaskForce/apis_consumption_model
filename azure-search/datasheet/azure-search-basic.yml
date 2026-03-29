@@ -1,0 +1,39 @@
+associatedSaaS: Azure AI Search
+url: "https://azure.microsoft.com/en-us/pricing/details/search/"
+planReference: BASIC
+type: Partial SaaS
+capacity:
+  - value: 15 GB per partition
+    type: QUOTA
+    windowType: STATIC
+    autoRecharge: monthly
+    description: "Maximum 45 GB per service (using 3 partitions)"
+    extraCharge: SCALE_BY_UNIT
+  - value: 15 indexes
+    type: ENTITY_LIMIT
+    windowType: STATIC
+    autoRecharge: fixed
+    description: "Total logical indexes allowed per service instance"
+maxPower:
+  value: Up to 9 Search Units (SU)
+  type: SCALABLE_CAPACITY
+  scaleOutLimits:
+    - value: 3 partitions
+      description: "Scale for storage"
+    - value: 3 replicas
+      description: "Scale for QPS and High Availability"
+  rateLimits:
+    - value: 200 requests/minute
+      type: MANAGEMENT_OPERATIONS
+      windowType: FIXED_WINDOW
+      resetCondition: "Per-minute sliding window"
+      description: "Control plane operations (index definitions, API keys)"
+    - value: Scalable
+      type: DATA_PLANE_OPERATIONS
+      windowType: CONCURRENT_REQUESTS
+      description: "Throughput (QPS) scales linearly with the number of replicas"
+  reference: "https://learn.microsoft.com/en-us/azure/search/search-limits-quotas-capacity"
+coolingPeriod: "Dynamic (Returns 503/429 under high load; Exponential back-off recommended)"
+segmentation:
+  - Service Level: Dedicated capacity per SU. No compartido con otros clientes.
+  - High Availability: Requiere 2+ réplicas para SLA de lectura y 3+ para lectura/escritura.
