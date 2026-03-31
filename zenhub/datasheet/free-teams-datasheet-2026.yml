@@ -1,0 +1,25 @@
+associatedSaaS:
+  name: Zenhub
+  url: https://developers.zenhub.com/graphql-api-docs/rate-limiting
+  type: Full SaaS
+capacity:
+  value: 90s/min por API Key
+  autoRecharge: No especificado
+  extraCharge: No especificado
+maxPower:
+  value: 90s/min por API Key
+  throttling: Token Bucket
+  policies: 
+    - 30 peticiones concurrentes por token.
+    - Algoritmo de Token Bucket se rellena continuamente (sin tiempo de reinicio único).
+    - La consulta se detiene si supera los 200 puntos de complejidad (1 punto por objeto/propiedad, las conexiones multiplican a los hijos).
+perRequestCost: null
+coolingPeriod: 
+  value: Relleno continuo (Token Bucket)
+segmentation:
+  rateLimitLevel: Token / Personal API Key
+  quotaLevel: Personal API Key
+sharedLimits: Límites por Personal API Key.
+extraFields:
+  RateLimitHeaders: X-RateLimit-Limit, X-RateLimit-Used, X-RateLimit-Remaining
+  ComplexityLimit: 200 puntos por consulta.

@@ -1,0 +1,20 @@
+Associated SaaS: ZenHub 2022 (https://web.archive.org/web/20220817231107/https://developers.zenhub.com/graphql-api-docs/rate-limiting/index.html)
+type: Full SaaS
+capacity:
+  - value: 90 seconds processing time per minute
+    autoRecharge: continuous (Token Bucket)
+    extraCharge: None (Return HTTP 429)
+maxPower:
+  - value: 30 concurrent requests per token
+coolingPeriod: Continuous replenishment (replenished until the bucket is "full")
+segmentation:
+  - Personal API Key: Limits applied per personal API key.
+notes:
+  - Token Bucket: There is not a singular reset time; the limit replenishes until full.
+  - Query Complexity: Maximum complexity for a single query is capped at 200.
+  - Complexity Calculation: Each property is 1 point, each object is 1 point, and any connection multiplies its children's points based on pagination arguments.
+extraFields:
+  headers:
+    - X-RateLimit-Limit: The total amount of processing time allowed per minute.
+    - X-RateLimit-Used: The total amount of processing time consumed by the current request.
+    - X-RateLimit-Remaining: The total amount of processing time still available.
