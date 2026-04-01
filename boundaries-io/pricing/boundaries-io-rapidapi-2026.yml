@@ -1,0 +1,366 @@
+saasName: boundaries-io
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://rapidapi.com/VanitySoft/api/boundaries-io-1/pricing"
+createdAt: "2026-01-15"
+currency: "USD"
+
+features:
+  # Sending And Receiving features
+  censusTractQuery1000:
+    description: >-
+      Query using a POST with up to 1,000 census tract geoids. This billing object is incremented by the following endpoints: POST Get Census Tracts by GeoIds
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  request1:
+    description: A call to any endpoint is one request.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN 
+  queryByWKT:
+    description: >-
+      This billing object is incremented by the following endpoints: POST Query by WKT(MultiPolygon or Polygon)
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN 
+  queryForMultipleCounty:
+    description: >-
+      Query for multiple Counties boundaries in a single call. This billing object is incremented by the following endpoints: GET Query for County Names By State. POST (PRO Plan and above only) Query for multiple county boundaries. Query for multiple county boundaries. Max is 20 counties
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN 
+  unofficialDesignatedMarketAreaEndpoints:
+    description: >-
+      DMA boundaries by DMA Name. This billing object is incremented by the following endpoints: GET (MEGA PLAN ONLY)Query for DMA Region Names by State *MEGA Subscription required* Query for DMA Region Names by State n Names by State. GET (MEGA PLAN ONLY)Query for DMA Region Area Boundary *MEGA Subscription required* Query for Nielsen's Designated Market Areas by State. GET (MEGA PLAN ONLY)Query for Nielsen's Designated Market Areas by State. GET (MEGA PLAN ONLY)Query for Nielsen's Designated Market Areas by State. GET (MEGA PLAN ONLY)Query for Nielsen's Designated Market Areas by State.
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN 
+  ubersH3Support:
+    description: >-
+      H3: Uber’s Hexagonal Hierarchical Spatial Index. This billing object is incremented by the following endpoints: GET Query for H3 Hexagon by H3 Index(Long). Query for H3 Hexagon by H3 Index(Long). GET Convert a a valid H3 Address as a Long Datatype value into a H3 Address Hex. Convert a a valid H3 Address as a Long Datatype value into a H3 Address Hex. GET Query for H3 Hexagon by H3 Index(hex). Query for Hexagon by H3 Index(hex). GET Query for H3 Hexagon by Location. Query for H3 Hexagon by Location. GET Convert a a valid H3 Address Hex value into a H3 Address as a Long Datatype. Convert a a valid H3 Address Hex value into a H3 Address as a Long Datatype. GET Query for Distance & Bearing Between two H3 Index(hex). Query for Distance & Bearing Between H3 Index(hex).
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN 
+  requests2:
+    description: >-
+      Endpoints returning GeoJson/TopJson: This billing object is incremented by the following endpoints: GET Get Census Tract By Location (Retrieve Census Tract by Location); GET Get Census Tract by County (Returns a GeoJson representation of CensusTracts by county); GET Query by Location for Neighborhood boundaries (Query by Location for Neighborhood); GET Query for State or Territories (Query for any of the 57 states and territories by abbreviation); GET Get County names by State (Returns a list of county names by state acronym); GET Query for State Boundaries (Query for State Boundary, simpler GeoJson without zip codes, only counties); GET Get Census Tract by GeoId (Get Census Tract by GeoId); GET [Deprecated] Query by Zipcodes Boundaries (Query by Zipcodes Boundaries); GET Query for United States Outline (Outline of US and its territories); GET Query for Neighborhood Names by State (Query for Neighborhood Names by State); GET Query by Location for Zipcode boundaries (Search for a zipcode that intersects a location); GET Query for Place Names by State (Query for Place Names by State); GET Query by Location for Place boundaries (Query by Location for Place/City boundaries, incorporated and unincorporated); GET Query for Neighborhood by State with City, County (Query for Neighborhood by State with City, County); GET Query for County boundaries (Returns the generic county boundary file from US Census); GET Query for Neighborhood by Name and State (Query for Neighborhood by Name and State); GET Query by a FIPS for Zipcode boundaries (Query by FIPS county code for zipcode boundaries); GET Query by Radius (in miles) for Zipcode boundaries (Get US zipcode boundaries within or intersecting a radius); GET Query for County Names By State (Query for County Names By State); POST Query by WKT (MultiPolygon or Polygon); GET Query by Zipcode(s) for zipcode boundaries (Get US State, Zipcode, or City boundaries); GET Query by Location for County boundaries (Query by Location for a County boundary); GET Query for Place boundaries (Query for Place/City boundaries, incorporated and unincorporated); GET Query by Location for State boundaries (Query by Location for State boundaries).
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN 
+  zipCodeQuery1000:
+    description: >-
+      Query using a POST with up to 1,000 Zipcodes. This billing object is incremented by the following endpoints: POST (PRO Plan and above) Query for up to 1000 zipcodes. Query for up to 1000 zipcodes using a JSON ARRAY 
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN 
+  rateLimit:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN 
+  bandwidthPlatformFee:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN 
+
+usageLimits:
+
+
+  hourlyRateLimit:
+    description: Rate limit of requests per hour
+    valueType: NUMERIC
+    defaultValue: 1000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: HOUR
+    linkedFeatures:
+      - rateLimit
+
+  limitCensusTract:
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - censusTractQuery1000
+
+  limitRequest1:
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - request1
+
+  limitWKT:
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - queryByWKT
+
+  limitMultipleCounty:
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - queryForMultipleCounty
+
+  limitUnofficialDMA:
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - unofficialDesignatedMarketAreaEndpoints
+
+  limitH3:
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - ubersH3Support
+
+  limitRequests2:
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - requests2
+
+  limitZipCode:
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+      - zipCodeQuery1000
+
+
+  maxBandwidth:
+    description: amount MB allowed per month
+    valueType: NUMERIC
+    defaultValue: 10240
+    unit: MB
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+    - bandwidthPlatformFee
+  
+
+plans:
+  BASIC:
+    price: 0.00
+    unit: user/month
+    features:
+      rateLimit:
+        value: true
+      queryByWKT:
+        value: true
+      ubersH3Support:
+        value: true
+      requests2:
+        value: true
+    usageLimits:
+      hourlyRateLimit:
+        value: 1000
+      limitWKT:
+        value: 50
+      limitH3:
+        value: 50
+      limitRequests2:
+        value: 50
+      maxBandwidth:
+        value: 10240
+  PRO:
+    price: 27.00
+    unit: user/month
+    features:
+      censusTractQuery1000:
+        value: true
+      request1:
+        value: true
+      queryByWKT:
+        value: true
+      queryForMultipleCounty:
+        value: true
+      ubersH3Support:
+        value: true
+      requests2:
+        value: true
+      zipCodeQuery1000:
+        value: true
+      rateLimit:
+        value: true
+    usageLimits:
+      hourlyRateLimit:
+        value: .inf
+      limitCensusTract:
+        value: 5000
+      limitRequest1:
+        value: 5000
+      limitWKT:
+        value: 5000
+      limitMultipleCounty:
+        value: 5000
+      limitH3:
+        value: 5000
+      limitRequests2:
+        value: 5000
+      limitZipCode:
+        value: 5000
+      maxBandwidth:
+        value: 10240
+  ULTRA:
+    price: 55.00
+    unit: user/month
+    features:
+      censusTractQuery1000:
+        value: true
+      request1:
+        value: true
+      queryByWKT:
+        value: true
+      queryForMultipleCounty:
+        value: true
+      ubersH3Support:
+        value: true
+      requests2:
+        value: true
+      zipCodeQuery1000:
+        value: true
+      rateLimit:
+        value: true
+    usageLimits:
+      hourlyRateLimit:
+        value: .inf
+      limitCensusTract:
+        value: 30000
+      limitRequest1:
+        value: 30000
+      limitWKT:
+        value: 30000
+      limitMultipleCounty:
+        value: 30000
+      limitH3:
+        value: 30000
+      limitRequests2:
+        value: 30000
+      limitZipCode:
+        value: 30000
+      maxBandwidth:
+        value: 10240
+  MEGA:
+    price: 95.00
+    unit: user/month
+    features:
+      censusTractQuery1000:
+        value: true
+      request1:
+        value: true
+      queryByWKT:
+        value: true
+      queryForMultipleCounty:
+        value: true
+      ubersH3Support:
+        value: true
+      requests2:
+        value: true
+      zipCodeQuery1000:
+        value: true
+      unofficialDesignatedMarketAreaEndpoints:
+        value: true
+      rateLimit:
+        value: true
+    usageLimits:
+      hourlyRateLimit:
+        value: .inf
+      limitCensusTract:
+        value: 100000
+      limitRequest1:
+        value: 100000
+      limitWKT:
+        value: 200000
+      limitMultipleCounty:
+        value: 200000
+      limitUnofficialDMA:
+        value: 200000
+      limitH3:
+        value: 200000
+      limitRequests2:
+        value: 200000
+      limitZipCode:
+        value: 200000
+      maxBandwidth:
+        value: 10240
+
+addOns:
+  extraBandwidth:
+    description: extra bandwidth for Bandwidth Platform Fee
+    price: 0.001
+    unit: MB
+    availableFor:
+      - BASIC
+      - PRO
+      - ULTRA
+      - MEGA
+    usageLimitsExtensions:
+      maxBandwidth:
+        value: 1
+  extraRequests:
+    description: extra requests over the daily limit
+    price: 0.01
+    unit: request
+    availableFor:
+      - PRO
+      - ULTRA
+      - MEGA
+    usageLimitsExtensions:
+      limitCensusTract:
+        value: 1
+      limitRequest1:
+        value: 1
+      limitWKT:
+        value: 1
+      limitMultipleCounty:
+        value: 1
+      limitUnofficialDMA:
+        value: 1
+      limitH3:
+        value: 1
+      limitRequests2:
+        value: 1
+      limitZipCode:
+        value: 1
