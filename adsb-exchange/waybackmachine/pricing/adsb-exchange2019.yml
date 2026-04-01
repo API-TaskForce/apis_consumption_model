@@ -1,0 +1,110 @@
+saasName: ADSBexchange.com API
+syntaxVersion: "3.0"
+version: "2019"
+url: "https://web.archive.org/web/20190920154142/https://rapidapi.com/adsbx/api/adsbexchange-com1/pricing"
+createdAt: "2026-01-22"
+currency: "USD"
+
+features:
+  singleAircraftInfo:
+    description: "Access to detailed information for a specific aircraft."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  radiusQuerySmall:
+    description: "Queries within 1, 5, 10, or 25 nm radius."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  radiusQueryMedium:
+    description: "Queries within a 100 nm radius."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  radiusQueryLarge:
+    description: "Queries within a 250 nm radius."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN  
+  restJsonFormat:
+    description: "Access to data via RESTful API in JSON format."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  extraCallCharge:
+    description: "Extra charges for additional calls"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  dailySingleAircraft:
+    description: "Daily quota for single aircraft info requests."
+    valueType: NUMERIC
+    defaultValue: 500
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+    - singleAircraftInfo
+    
+  dailySmallRadius:
+    description: "Daily quota for queries up to 25 nm radius."
+    valueType: NUMERIC
+    defaultValue: 1000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures: 
+    - radiusQuerySmall
+
+  dailyMediumRadius:
+    description: "Daily quota for 100 nm radius queries."
+    valueType: NUMERIC
+    defaultValue: 1000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+    linkedFeatures:
+    - radiusQueryMedium
+
+plans:
+  BASIC:
+    price: 9.99
+    unit: user/month
+    description: "Entry-level access for personal or small-scale tracking."
+    features:
+      restJsonFormat:
+        value: true
+      singleAircraftInfo:
+        value: true
+      radiusQuerySmall:
+        value: true
+      radiusQueryMedium:
+        value: true
+      radiusQueryLarge:
+        value: false
+    usageLimits:
+      dailySingleAircraft:
+        value: 500
+      dailySmallRadius:
+        value: 1000
+      dailyMediumRadius:
+        value: 1000
+
+addOns:
+  extraRequestCharge:
+    description: "+0.002$ extra per call after exceeding daily quota"
+    price: 0.002
+    unit: call
+    availableFor:
+      - BASIC
+    features:
+      extraCallCharge:
+        value: true
