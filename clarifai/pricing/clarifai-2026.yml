@@ -1,0 +1,841 @@
+saasName: Clarifai
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://www.clarifai.com/pricing"
+createdAt: "2026-01-12"
+currency: "USD"
+tags:
+  - Usage and limits
+  - Compute
+  - Inference
+  - Development & training
+features:
+  monthlyRequests:
+    tag: Usage and limits
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  requestsPerSecond:
+    tag: Usage and limits
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  sdk&ApiAccess:
+    tag: Usage and limits
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  deploymentTypes:
+    tag: Compute
+    valueType: TEXT
+    defaultValue: "SaaS, Local Dev, Hybrid Cloud (Self-Hosted)"
+    type: DOMAIN
+  nvidiaGpus:
+    tag: Compute
+    valueType: TEXT
+    defaultValue: "A10G, L4, L40S, A100"
+    type: DOMAIN
+  intel&AmdCpus:
+    tag: Compute
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  preTrainedModelAccess:
+    tag: Inference
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  batchRequests:
+    tag: Inference
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  realtimeBiDirectionalStreaming:
+    tag: Inference
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  gpuFractioning:
+    tag: Inference
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  scaleToZero:
+    tag: Inference
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  spotInstances:
+    tag: Inference
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  customModelTraining:
+    tag: Development & training
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  modelEvaluation:
+    tag: Development & training
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  modelUpload:
+    tag: Development & training
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  modelExport:
+    tag: Development & training
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  datasetManagement:
+    tag: Development & training
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  vectorSearch:
+    tag: Development & training
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  automatedDataLabeling:
+    tag: Development & training
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  monthlyRequests:
+    description: Number of monthly requests
+    valueType: NUMERIC
+    defaultValue: 100000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+  requestsPerSecond:
+    description: Number of requests per second
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: SEC
+  dedicatedNodeQuota:
+    description: Quota for Dedicated Nodes (tracked in minutes)
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: minute
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+  inferenceTokensQuota:
+    description: Quota for Inference Tokens (1M tokens)
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: 1M tokens
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+  inferenceRequestsQuota:
+    description: Quota for Inference Requests
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+  activeInputsIndexQuota:
+    description: Quota for Active Inputs Index
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: input
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+  modelTrainingQuota:
+    description: Quota for Model Training Hours
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: hour
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+plans:
+  enterprise:
+    description: Unlimited SaaS or VPC AI development and production workloads.
+    price: 0.00
+    unit: month
+    features:
+      deploymentTypes:
+        value: "SaaS, Local Dev, Hybrid Cloud (Self-Hosted), VPC, On-Prem, Air Gapped"
+      nvidiaGpus:
+        value: "H100, H200, B200"
+    usageLimits:
+      monthlyRequests:
+        value: null
+      requestsPerSecond:
+        value: null
+  
+  payAsYouGo:
+    description: Explore AI using dedicated deployments, serverless pre-trained models in the cloud, our robust API and low-code UIs.
+    price: 0.00
+    unit: month
+    features: null
+    usageLimits:
+      monthlyRequests:
+        value: .inf
+      requestsPerSecond:
+        value: 1000 #ponemos el limite mas retrictivo
+
+
+addOns:
+  dedicatedNodeNvidiaT416GbXl:
+    description: NVIDIA T4 16GB XL (g4dn.xlarge)
+    price: 0.011
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaA10g24GbXl:
+    description: NVIDIA A10G 24GB XL (g5.xlarge)
+    price: 0.021
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaA10g24Gb2Xl:
+    description: NVIDIA A10G 24GB 2XL (g5.2xlarge)
+    price: 0.0253
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaL424GbXl:
+    description: NVIDIA L4 24GB XL (g6.xlarge)
+    price: 0.0168
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaL424Gb2Xl:
+    description: NVIDIA L4 24GB 2XL (g6.2xlarge)
+    price: 0.0204
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaL40s48GbXl:
+    description: NVIDIA L40S 48GB XL (g6e.xlarge)
+    price: 0.0388
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaL40s192Gb12Xl:
+    description: NVIDIA L40S 192GB 12XL (g6e.12xlarge)
+    price: 0.2186
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeAmdEpyc7000M:
+    description: AMD EPYC 7000 M (t3a.medium)
+    price: 0.0012
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeAmdEpyc7000L:
+    description: AMD EPYC 7000 L (t3a.large)
+    price: 0.0016
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeAmdEpyc7000Xl:
+    description: AMD EPYC 7000 XL (t3a.xlarge)
+    price: 0.0031
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeAmdEpyc70002Xl:
+    description: AMD EPYC 7000 2XL (t3a.2xlarge)
+    price: 0.0063
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaL424Gb3Xl:
+    description: NVIDIA L4 24GB 3XL (g2-standard-12)
+    price: 0.0208
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaL424Gb4Xl:
+    description: NVIDIA L4 24GB 4XL (g2-standard-16)
+    price: 0.0239
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaL424Gb5Xl:
+    description: NVIDIA L4 24GB 5XL (g2-standard-32)
+    price: 0.0361
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaA10080GbXl:
+    description: NVIDIA A100 80GB XL (a2-ultragpu-1g)
+    price: 0.1189
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaH10080GbXl:
+    description: NVIDIA H100 80GB XL (a3-highgpu-1g)
+    price: 0.2304
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeIntelIclCslCpu8Gb:
+    description: Intel ICL/CSL CPU 8GB (n2-standard-2)
+    price: 0.0023
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeIntelIclCslCpu16Gb:
+    description: Intel ICL/CSL CPU 16GB (n2-standard-4)
+    price: 0.0046
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeIntelIclCslCpu32Gb:
+    description: Intel ICL/CSL CPU 32GB (n2-standard-8)
+    price: 0.0091
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeIntelIclCslCpu64Gb:
+    description: Intel ICL/CSL CPU 64GB (n2-standard-16)
+    price: 0.0182
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaA16M16Gb:
+    description: NVIDIA A16 M 16GB (vcg-a16-6c-64g-16vram)
+    price: 0.0098
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaL40sXl48Gb:
+    description: NVIDIA L40S XL 48GB (vcg-l40s-16c-180g-48vram)
+    price: 0.0348
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+  dedicatedNodeNvidiaA100Xl80Gb:
+    description: NVIDIA A100 XL 80GB (vcg-a100-12c-120g-80vram)
+    price: 0.0499
+    unit: minute
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      dedicatedNodeQuota:
+        value: null
+        unit: minute/month
+
+
+  # Large Language Models
+  inferenceLlmGptOss120bInput:
+    description: GPT OSS 120B Inference (Input)
+    price: 0.09
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmGptOss120bOutput:
+    description: GPT OSS 120B Inference (Output)
+    price: 0.36
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmLlama3_2_3bInput:
+    description: Llama-3.2 3B Instruct Inference (Input)
+    price: 0.13
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmLlama3_2_3bOutput:
+    description: Llama-3.2 3B Instruct Inference (Output)
+    price: 0.63
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmQwen2_5_Coder7bInput:
+    description: Qwen-2.5 Coder 7B Instruct vLLM Inference (Input)
+    price: 0.44
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmQwen2_5_Coder7bOutput:
+    description: Qwen-2.5 Coder 7B Instruct vLLM Inference (Output)
+    price: 1.32
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmMiniCpm3_4bInput:
+    description: MiniCPM3-4B Inference (Input)
+    price: 0.69
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmMiniCpm3_4bOutput:
+    description: MiniCPM3-4B Inference (Output)
+    price: 1.10
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmQwq32bInput:
+    description: QwQ-32B-AWQ Inference (Input)
+    price: 1.22
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmQwq32bOutput:
+    description: QwQ-32B-AWQ Inference (Output)
+    price: 1.56
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmDeepseekR1Input:
+    description: DeepSeek-R1-Distill-Qwen-7B Inference (Input)
+    price: 0.21
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceLlmDeepseekR1Output:
+    description: DeepSeek-R1-Distill-Qwen-7B Inference (Output)
+    price: 0.67
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+
+  # Vision Language Models
+  inferenceVlmMiniCpmO2_6Input:
+    description: MiniCPM-o 2.6 Language Inference (Input)
+    price: 0.66
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceVlmMiniCpmO2_6Output:
+    description: MiniCPM-o 2.6 Language Inference (Output)
+    price: 1.11
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceVlmQwen2_5Vl7bInput:
+    description: Qwen2.5-VL 7B Instruct Inference (Input)
+    price: 0.44
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceVlmQwen2_5Vl7bOutput:
+    description: Qwen2.5-VL 7B Instruct Inference (Output)
+    price: 1.32
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceVlmGpt4oInput:
+    description: GPT-4o Inference (Input)
+    price: 6.25
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceVlmGpt4oOutput:
+    description: GPT-4o Inference (Output)
+    price: 10.00
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceVlmClaudeSonnet4Input:
+    description: Claude Sonnet 4 Inference (Input)
+    price: 3.75
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+  inferenceVlmClaudeSonnet4Output:
+    description: Claude Sonnet 4 Inference (Output)
+    price: 18.75
+    unit: 1M tokens
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceTokensQuota:
+        value: null
+        unit: 1M tokens
+
+  # Small Image Models
+  inferenceSimPreTrainedClassification:
+    description: Small Image Model - Pre-trained classification
+    price: 0.0012
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+  inferenceSimPreTrainedDetection:
+    description: Small Image Model - Pre-trained detection
+    price: 0.002
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+  inferenceSimPreTrainedSegmentation:
+    description: Small Image Model - Pre-trained segmentation
+    price: 0.0032
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+  inferenceSimCustomClassification:
+    description: Small Image Model - Custom classification
+    price: 0.0032
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+  inferenceSimCustomDetection:
+    description: Small Image Model - Custom detection
+    price: 0.005
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+  inferenceSimCustomSegmentation:
+    description: Small Image Model - Custom segmentation
+    price: 0.008
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+
+  # Small Language Models
+  inferenceSlmPreTrainedClassification:
+    description: Small Language Model - Pre-trained classification
+    price: 0.0012
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+  inferenceSlmPreTrainedNer:
+    description: Small Language Model - Pre-trained NER
+    price: 0.002
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+  inferenceSlmCustomClassification:
+    description: Small Language Model - Custom classification
+    price: 0.0032
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+
+  # Inputs and Vectors
+  inputVectorGeneralEmbeddings:
+    description: Input and vector ingest general embeddings
+    price: 0.0012
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+  inputVectorDetectionEmbeddings:
+    description: Input and vector ingest detection embeddings
+    price: 0.002
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+  activeInputsIndex:
+    description: Active inputs index
+    price: 0.001
+    unit: input/month # Assumed monthly based on context
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      activeInputsIndexQuota:
+        value: null
+        unit: input
+  inputVectorSearch:
+    description: Input and vector search
+    price: 0.0012
+    unit: request
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      inferenceRequestsQuota:
+        value: null
+        unit: request
+
+  # Model Training
+  modelTrainingSingleGpu:
+    description: Model training job (single GPU)
+    price: 4.00
+    unit: hour
+    availableFor:
+      - payAsYouGo
+      - enterprise
+    usageLimits:
+      modelTrainingQuota:
+        value: null
+        unit: hour
