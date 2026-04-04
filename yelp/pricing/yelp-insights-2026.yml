@@ -1,0 +1,175 @@
+saasName: Yelp Insights API
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://business.yelp.com/data/products/insights-api/"
+createdAt: "2026-01-26"
+currency: "USD"
+
+features:
+  businessName:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  adddress:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  openCloseStatus:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  hoursOfOperation:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  historicalStarRatings:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  businessSummaries:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  popularItemsAndPricing:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  parentCompanyInfo:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  businessViabilityScore:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  consumerIntentSignals:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  photos:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  fullReviewText:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  locationPopularityScore:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  r2rAccess:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  leadsApiAccess:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+
+plans:
+  BASE:
+    description: Point of interest, firmographic, & operational data.
+    price: 0.04
+    unit: location/12-months
+    features:
+      businessName:
+        value: true
+      adddress:
+        value: true
+      openCloseStatus:
+        value: true
+      hoursOfOperation:
+        value: true
+    notes:
+      - Starting price; plus volume-based discounts as usage grows.
+
+  ENHANCED:
+    description: Deeper location details & business insights. Starting price; plus volume-based discounts as usage grows.
+    price: 0.06
+    unit: location/12-months
+    features:
+      businessName:
+        value: true
+      adddress:
+        value: true
+      openCloseStatus:
+        value: true
+      hoursOfOperation:
+        value: true
+      historicalStarRatings:
+        value: true
+      businessSummaries:
+        value: true
+      popularItemsAndPr icing:
+        value: true
+      parentCompanyInfo:
+        value: true
+
+  PREMIUM:
+    description: Predictive analytics & location intelligence. Starting price; plus volume-based discounts as usage grows.
+    price: 0.08
+    unit: location/12-months
+    features:
+      businessName:
+        value: true
+      adddress:
+        value: true
+      openCloseStatus:
+        value: true
+      hoursOfOperation:
+        value: true
+      historicalStarRatings:
+        value: true
+      businessSummaries:
+        value: true
+      popularItemsAndPricing:
+        value: true
+      parentCompanyInfo:
+        value: true
+      businessViabilityScore:
+        value: true
+      consumerIntentSignals:
+        value: true
+      photos:
+        value: true
+      fullReviewText:
+        value: true
+      locationPopularityScore:
+        value: true
+
+  SOCIAL_ANALYTICS:
+    description: Ability to ingest, manage, & respond to Yelp reviews at-scale. Contact us for enterprise pricing. Leads API is mentioned as "coming soon".
+    price: 0.00
+    unit: custom
+    features:
+      businessName:
+        value: true
+      adddress:
+        value: true
+      openCloseStatus:
+        value: true
+      hoursOfOperation:
+        value: true
+      historicalStarRatings:
+        value: true
+      businessSummaries:
+        value: true
+      popularItemsAndPricing:
+        value: true
+      parentCompanyInfo:
+        value: true
+      businessViabilityScore:
+        value: true
+      consumerIntentSignals:
+        value: true
+      photos:
+        value: true
+      fullReviewText:
+        value: true
+      locationPopularityScore:
+        value: true
+      r2rAccess:
+        value: true
+      leadsApiAccess:
+        value: true

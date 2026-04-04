@@ -1,0 +1,11 @@
+Associated SaaS: Yelp Insights API (https://docs.developer.yelp.com/docs/yelp-insights)
+type: Partner API
+capacity:
+  - value: Custom / Negotiated
+    autoRecharge: TBD (Based on contract)
+    extraCharge: Based on enterprise agreement
+maxPower:
+  - value: Negotiated per case (No public standard QPS)
+coolingPeriod: TBD
+segmentation:
+  - Partner Level: Access is disabled by default and reserved for contracted Yelp partners 

@@ -1,0 +1,73 @@
+saasName: Yelp AI API
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://business.yelp.com/data/products/ai-api/"
+createdAt: "2026-01-26"
+currency: "USD"
+
+features:
+  fullPremiumAccess:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  businessSummaries:
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  conversationalPrompts:
+    description: "Conversational multi-turn prompts support."
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  contextualContent:
+    description: "Contextual content like photos and reviews."
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+  conversationalReservations:
+    description: "Ability to handle restaurant reservations through the conversational interface."
+    valueType: BOOLEAN
+    defaultValue: false
+    type: DOMAIN
+
+usageLimits:
+  apiCalls:
+    description: "Minimum daily API calls commitment."
+    valueType: NUMERIC
+    defaultValue: 1000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: DAY
+
+plans:
+  Yelp_AI_API:
+    description: "query and display Yelp content within a conversational consumer-facing product. Pricing is $25 per 1,000 API calls. Requires a minimum commitment of 1,000 daily API calls ($750/month min). Start free trial available."
+    price: 750.00 # Calculated based on $25/day (1,000 calls minimum * $25/1000 calls)
+    unit: month
+    features:
+      fullPremiumAccess:
+        value: true
+      businessSummaries:
+        value: true
+      conversationalPrompts:
+        value: true
+      contextualContent:
+        value: true
+      conversationalReservations:
+        value: true
+    usageLimits:
+      apiCalls:
+        value: 30000 # 1,000 per day * 30 days
+
+addOns:
+  aiOverage:
+    description: "Additional AI API calls beyond the minimum commitment."
+    price: 0.025 # $25 / 1000 calls
+    unit: request
+    availableFor:
+      - Yelp_AI_API
+    usageLimitsExtensions:
+      apiCalls:
+        value: 1
