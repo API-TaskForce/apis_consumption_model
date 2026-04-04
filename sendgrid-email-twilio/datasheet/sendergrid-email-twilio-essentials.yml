@@ -1,0 +1,17 @@
+associatedSaaS: Twilio SendGrid
+url: "https://sendgrid.com/en-us/solutions/email-api/pricing"
+planReference: ESSENTIALS
+type: Partial SaaS
+capacity:
+  - value: 100000 emails
+    type: QUOTA
+    windowType: MONTHLY
+    extraCharge: "Overage charges apply if exceeding the starting tier."
+maxPower:
+  value: 2 webhooks
+  type: RATE_LIMIT
+  description: "Support for up to 2 concurrent event webhooks."
+coolingPeriod: "Immediate"
+segmentation:
+  - Teammate Gating: Limited to 1 additional teammate.
+  - IP Gating: No dedicated IP address available; uses shared IP pools.
