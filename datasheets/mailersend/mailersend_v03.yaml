@@ -137,10 +137,10 @@ plans:
       v1/email:
         quota: quota_500_emails_month
         workload:
-          unit: emails
-          min: 1
-          max: 70
-          description: "depends on the params you use, cc, to, bcc"
+          - unit: emails
+            min: 1
+            max: 70
+            description: "depends on the params you use, cc, to, bcc"
         healthy_reputation:
           rate: rate_120_min
         under_review_reputation:
@@ -148,10 +148,10 @@ plans:
       v1/bulk:
         quota: quota_500_emails_month
         workload:
-          unit: emails
-          min: 1
-          max: 35000
-          description: "depends on the number of emails you send and the params you use, cc, to, bcc"
+          - unit: emails
+            min: 1
+            max: 35000
+            description: "depends on the number of emails you send and the params you use, cc, to, bcc"
         healthy_reputation:
           rate: rate_10_min
         under_review_reputation:
@@ -169,10 +169,10 @@ plans:
       v1/email:
         quota: quota_5k_emails_month
         workload:
-          unit: emails
-          min: 1
-          max: 70
-          description: "depends on the params you use, cc, to, bcc"
+          - unit: emails
+            min: 1
+            max: 70
+            description: "depends on the params you use, cc, to, bcc"
         healthy_reputation:
           rate: rate_120_min
         under_review_reputation:
@@ -180,17 +180,17 @@ plans:
       v1/bulk:
         quota: quota_5k_emails_month
         workload:
-          unit: emails
-          min: 1
-          max: 35000
-          description: "depends on the number of emails you send and the params you use, cc, to, bcc"
+          - unit: emails
+            min: 1
+            max: 35000
+            description: "depends on the number of emails you send and the params you use, cc, to, bcc"
         healthy_reputation:
           rate: rate_10_min
         under_review_reputation:
           rate: rate_1_min
 
   starter:
-    price: 28.00 
+    price: 28.00
     period:
       value: 1
       unit: MONTH
@@ -201,10 +201,10 @@ plans:
       v1/email:
         quota: quota_50k_emails_month
         workload:
-          unit: emails
-          min: 1
-          max: 70
-          description: "depends on the params you use, cc, to, bcc"
+          - unit: emails
+            min: 1
+            max: 70
+            description: "depends on the params you use, cc, to, bcc"
         healthy_reputation:
           rate: rate_120_min
         under_review_reputation:
@@ -212,10 +212,10 @@ plans:
       v1/bulk:
         quota: quota_50k_emails_month
         workload:
-          unit: emails
-          min: 1
-          max: 35000
-          description: "depends on the number of emails you send and the params you use, cc, to, bcc"
+          - unit: emails
+            min: 1
+            max: 35000
+            description: "depends on the number of emails you send and the params you use, cc, to, bcc"
         healthy_reputation:
           rate: rate_10_min
         under_review_reputation:
@@ -224,10 +224,10 @@ plans:
         rate: rate_60_min
         quota: quota_100_sms_month
         workload:
-          unit: sms
-          min: 1
-          max: 50
-          description: "depends on the number of people you send sms to"
+          - unit: sms
+            min: 1
+            max: 50
+            description: "depends on the number of people you send sms to"
 
   professional:
     price: 88.00
@@ -241,10 +241,10 @@ plans:
       v1/email:
         quota: quota_50k_emails_month
         workload:
-          unit: emails
-          min: 1
-          max: 70
-          description: "depends on the params you use, cc, to, bcc"
+          - unit: emails
+            min: 1
+            max: 70
+            description: "depends on the params you use, cc, to, bcc"
         healthy_reputation:
           rate: rate_120_min
         under_review_reputation:
@@ -252,10 +252,10 @@ plans:
       v1/bulk:
         quota: quota_50k_emails_month
         workload:
-          unit: emails
-          min: 1
-          max: 35000
-          description: "depends on the number of emails you send and the params you use, cc, to, bcc"
+          - unit: emails
+            min: 1
+            max: 35000
+            description: "depends on the number of emails you send and the params you use, cc, to, bcc"
         healthy_reputation:
           rate: rate_10_min
         under_review_reputation:
@@ -264,7 +264,7 @@ plans:
         rate: rate_60_min
         quota: quota_150_sms_month
         workload:
-          unit: sms
-          min: 1
-          max: 50
-          description: "depends on the number of people you send sms to"
+          - unit: sms
+            min: 1
+            max: 50
+            description: "depends on the number of people you send sms to"
