@@ -1,0 +1,3227 @@
+associated_saas: MailerSend
+type: full_saas
+url: https://developers.mailersend.com/
+syntax_version: "0.3"
+date: "2026-05-10"
+currency: USD
+
+
+consumption_units:
+  - emails
+  - requests
+  - sms
+  - credits
+  - domains
+  - tokens
+  - webhooks
+  - templates
+  - seats
+  - users
+  - routes
+  - identities
+  - mb
+  - connections
+  - smtp_requests
+  - recipients
+
+
+capacity:
+  quota_500_emails_month:
+    value: 500
+    unit: emails
+    period:
+      value: 1
+      unit: MONTH
+    window_type: rolling
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "the Free plan allows you to send up to 500 emails a month for free, with a daily limit of 100 emails"
+    confidence: 1.0
+    status: found
+
+
+  quota_5000_emails_month:
+    value: 5000
+    unit: emails
+    period:
+      value: 1
+      unit: MONTH
+    window_type: rolling
+    overage_cost:
+      price: 1.50
+      value: 1000
+      unit: emails
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "The Hobby plan allows you to send up to 5,000 emails every month."
+    confidence: 1.0
+    status: found
+
+
+  quota_50000_emails_month:
+    value: 50000
+    unit: emails
+    period:
+      value: 1
+      unit: MONTH
+    window_type: rolling
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Emails/month | From 50,000"
+    confidence: 0.95
+    status: found
+
+
+  quota_100_emails_day:
+    value: 100
+    unit: emails
+    period:
+      value: 1
+      unit: DAY
+    window_type: fixed_utc_midnight
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "the Free plan allows you to send up to 500 emails a month for free, with a daily limit of 100 emails"
+    confidence: 1.0
+    status: found
+
+
+  quota_100_api_requests_day:
+    value: 100
+    unit: requests
+    period:
+      value: 1
+      unit: DAY
+    window_type: fixed_utc_midnight
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors
+    evidence: "Free | 100 (Quota / day)"
+    confidence: 1.0
+    status: found
+
+
+  quota_1000_api_requests_day:
+    value: 1000
+    unit: requests
+    period:
+      value: 1
+      unit: DAY
+    window_type: fixed_utc_midnight
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "Hobby plan accounts are limited to 1,000 daily requests."
+    confidence: 1.0
+    status: found
+
+
+  quota_100000_api_requests_day:
+    value: 100000
+    unit: requests
+    period:
+      value: 1
+      unit: DAY
+    window_type: fixed_utc_midnight
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "Starter plan accounts can send up to 100,000 daily requests"
+    confidence: 1.0
+    status: found
+
+
+  quota_500000_api_requests_day:
+    value: 500000
+    unit: requests
+    period:
+      value: 1
+      unit: DAY
+    window_type: fixed_utc_midnight
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "Professional or Enterprise plan accounts can send up to 500,000 requests."
+    confidence: 1.0
+    status: found
+
+
+  quota_1_day_activity_retention:
+    value: 1
+    unit: DAY
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: 5.00
+      value: null
+      unit: USD_per_month
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Activity retention | 24 hours (Free plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_7_days_activity_retention:
+    value: 7
+    unit: DAY
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: 5.00
+      value: null
+      unit: USD_per_month
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Activity retention | 7 days (Starter plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_30_days_activity_retention:
+    value: 30
+    unit: DAY
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Activity retention | 30 days (Professional plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_7_days_log_retention:
+    value: 7
+    unit: DAY
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Log retention | 7 days (Professional plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_10_verification_credits:
+    value: 10
+    unit: credits
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Email verification credits | 10 (Free plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_100_verification_credits:
+    value: 100
+    unit: credits
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "100 email verification credits on signup"
+    confidence: 1.0
+    status: found
+
+
+  quota_400_verification_credits:
+    value: 400
+    unit: credits
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "400 email verification credits on signup"
+    confidence: 1.0
+    status: found
+
+
+  quota_100_sms_month:
+    value: 100
+    unit: sms
+    period:
+      value: 1
+      unit: MONTH
+    window_type: rolling
+    overage_cost:
+      price: 1.40
+      value: 100
+      unit: sms
+    source_url: https://www.mailersend.com/pricing
+    evidence: "100 SMS /month"
+    confidence: 1.0
+    status: found
+
+
+  quota_1_domain:
+    value: 1
+    unit: domains
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: 4.00
+      value: 1
+      unit: domains
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Sending domains | 1"
+    confidence: 1.0
+    status: found
+
+
+  quota_10_domains:
+    value: 10
+    unit: domains
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: 4.00
+      value: 1
+      unit: domains
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Sending domains | 10 (Starter plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_1000_domains:
+    value: 1000
+    unit: domains
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Sending domains | 1,000 (Professional plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_1_webhook:
+    value: 1
+    unit: webhooks
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Webhooks | 1 (Free plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_50_webhooks:
+    value: 50
+    unit: webhooks
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "50 webhooks, SMTP users (5 users/domain), and API tokens"
+    confidence: 1.0
+    status: found
+
+
+  quota_5000_webhooks:
+    value: 5000
+    unit: webhooks
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Webhooks | 5,000 (Professional plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_1_template:
+    value: 1
+    unit: templates
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Templates | 1 (Free column)"
+    confidence: 1.0
+    status: found
+
+
+  quota_3_templates:
+    value: 3
+    unit: templates
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Templates | 3 (Hobby column)"
+    confidence: 1.0
+    status: found
+
+
+  quota_250_templates:
+    value: 250
+    unit: templates
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Templates | 250 (Starter plan)"
+    confidence: 0.95
+    status: found
+
+
+  quota_5000_templates:
+    value: 5000
+    unit: templates
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Templates | 5,000 (Professional plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_2_user_seats:
+    value: 2
+    unit: seats
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "User seats | 1 + 1 accountant (Free plan)"
+    confidence: 0.95
+    status: found
+
+
+  quota_5_user_seats:
+    value: 5
+    unit: seats
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "User seats | 5"
+    confidence: 1.0
+    status: found
+
+
+  quota_1000_user_seats:
+    value: 1000
+    unit: seats
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "User seats | 1,000 (Professional plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_1_api_token:
+    value: 1
+    unit: tokens
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "API tokens | 1 (Free column)"
+    confidence: 1.0
+    status: found
+
+
+  quota_3_api_tokens:
+    value: 3
+    unit: tokens
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "API tokens | 3 (Hobby column)"
+    confidence: 1.0
+    status: found
+
+
+  quota_50_api_tokens:
+    value: 50
+    unit: tokens
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "50 webhooks, SMTP users (5 users/domain), and API tokens"
+    confidence: 1.0
+    status: found
+
+
+  quota_1000_api_tokens:
+    value: 1000
+    unit: tokens
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "1,000 API tokens and SMTP users (20 users/domain)"
+    confidence: 1.0
+    status: found
+
+
+  quota_1_smtp_user:
+    value: 1
+    unit: users
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "SMTP users | 1"
+    confidence: 1.0
+    status: found
+
+
+  quota_50_smtp_users:
+    value: 50
+    unit: users
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "SMTP users | 50 (Starter plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_1000_smtp_users:
+    value: 1000
+    unit: users
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "SMTP users | 1,000 (Professional plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_5_smtp_users_per_domain:
+    value: 5
+    unit: users
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "SMTP users (5 users/domain)"
+    confidence: 1.0
+    status: found
+
+
+  quota_20_smtp_users_per_domain:
+    value: 20
+    unit: users
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "1,000 API tokens and SMTP users (20 users/domain)"
+    confidence: 1.0
+    status: found
+
+
+  quota_1_inbound_route:
+    value: 1
+    unit: routes
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Inbound routes | 1"
+    confidence: 1.0
+    status: found
+
+
+  quota_50_inbound_routes:
+    value: 50
+    unit: routes
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Inbound routes | 50 (Starter plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_100000_inbound_routes:
+    value: 100000
+    unit: routes
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "100,000 inbound routes (5,000/domain)"
+    confidence: 1.0
+    status: found
+
+
+  quota_5_inbound_routes_per_domain:
+    value: 5
+    unit: routes
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "5 inbound routes/domain"
+    confidence: 1.0
+    status: found
+
+
+  quota_5000_inbound_routes_per_domain:
+    value: 5000
+    unit: routes
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "100,000 inbound routes (5,000/domain)"
+    confidence: 1.0
+    status: found
+
+
+  quota_50_sender_identities:
+    value: 50
+    unit: identities
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Sender Identities | 50 (Starter plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_5000_sender_identities:
+    value: 5000
+    unit: identities
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Sender Identities | 5,000 (Professional plan)"
+    confidence: 1.0
+    status: found
+
+
+  quota_25_mb_attachment:
+    value: 25
+    unit: mb
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "The attachment size exceeds the limit of 25MB."
+    confidence: 1.0
+    status: found
+
+
+  quota_500_batch_size:
+    value: 500
+    unit: emails
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "The number of email objects must not be greater than 500."
+    confidence: 1.0
+    status: found
+
+
+  quota_50_recipients_to:
+    value: 50
+    unit: recipients
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "Approved accounts can include up to 50 TO, 10 CC and 10 BCC recipients."
+    confidence: 1.0
+    status: found
+
+
+  quota_10_recipients_to:
+    value: 10
+    unit: recipients
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "Unapproved accounts can include up to 10 TO, 1 CC and 1 BCC recipients."
+    confidence: 1.0
+    status: found
+
+
+  quota_10_recipients_cc:
+    value: 10
+    unit: recipients
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "Approved accounts can include up to 50 TO, 10 CC and 10 BCC recipients."
+    confidence: 1.0
+    status: found
+
+
+  quota_1_recipient_cc:
+    value: 1
+    unit: recipients
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "Unapproved accounts can include up to 10 TO, 1 CC and 1 BCC recipients."
+    confidence: 1.0
+    status: found
+
+
+  quota_10_recipients_bcc:
+    value: 10
+    unit: recipients
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "Approved accounts can include up to 50 TO, 10 CC and 10 BCC recipients."
+    confidence: 1.0
+    status: found
+
+
+  quota_1_recipient_bcc:
+    value: 1
+    unit: recipients
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://developers.mailersend.com/general
+    evidence: "Unapproved accounts can include up to 10 TO, 1 CC and 1 BCC recipients."
+    confidence: 1.0
+    status: found
+
+
+  quota_256_blocklist_monitoring_domains:
+    value: 256
+    unit: domains
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: null
+      value: null
+      unit: null
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "Blocklist monitoring for up to 256 domains/IPs"
+    confidence: 1.0
+    status: found
+
+
+  quota_10_dmarc_monitoring_domains:
+    value: 10
+    unit: domains
+    period:
+      value: null
+      unit: null
+    window_type: null
+    overage_cost:
+      price: 2.00
+      value: 1
+      unit: domains
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "DMARC monitoring for up to 10 domains (+ add-on for additional domains)"
+    confidence: 1.0
+    status: found
+
+
+max_power:
+  rate_60_requests_min:
+    value: 60
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://developers.mailersend.com/general
+    evidence: "All API requests (excluding email endpoints): 60 requests/minute"
+    confidence: 1.0
+    status: found
+
+
+  rate_120_requests_min_email:
+    value: 120
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://developers.mailersend.com/general
+    evidence: "API requests to POST /v1/email: 120 requests/minute"
+    confidence: 1.0
+    status: found
+
+
+  rate_10_requests_min_email_under_review:
+    value: 10
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors
+    evidence: "API requests to v1/email — Under review reputation: 10 requests per minute"
+    confidence: 1.0
+    status: found
+
+
+  rate_10_requests_min_bulk_email:
+    value: 10
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://developers.mailersend.com/general
+    evidence: "API requests to POST /v1/bulk-email: 10 requests/minute"
+    confidence: 1.0
+    status: found
+
+
+  rate_10_requests_min_bulk_healthy_free_hobby:
+    value: 10
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors
+    evidence: "API requests to v1/bulk — Healthy reputation — Free/Hobby plan: 10 API calls/min"
+    confidence: 1.0
+    status: found
+
+
+  rate_15_requests_min_bulk_healthy_starter:
+    value: 15
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors
+    evidence: "API requests to v1/bulk — Healthy reputation — Starter plan: 15 API calls/min"
+    confidence: 1.0
+    status: found
+
+
+  rate_30_requests_min_bulk_healthy_professional:
+    value: 30
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors
+    evidence: "API requests to v1/bulk — Healthy reputation — Professional plan: 30 API calls/min"
+    confidence: 1.0
+    status: found
+
+
+  rate_60_requests_min_bulk_healthy_enterprise:
+    value: 60
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors
+    evidence: "API requests to v1/bulk — Healthy reputation — Enterprise plan: 60 API calls/min"
+    confidence: 1.0
+    status: found
+
+
+  rate_1_request_min_bulk_under_review:
+    value: 1
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors
+    evidence: "API requests to v1/bulk — Under review reputation: 1 request per minute"
+    confidence: 1.0
+    status: found
+
+
+  rate_10_requests_min_activity:
+    value: 10
+    unit: requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://developers.mailersend.com/general
+    evidence: "API requests to GET /v1/activity: 10 requests/minute"
+    confidence: 1.0
+    status: found
+
+
+  rate_120_smtp_requests_min:
+    value: 120
+    unit: smtp_requests
+    period:
+      value: 1
+      unit: MIN
+    throttling: fixed_window
+    source_url: https://www.mailersend.com/help/smtp-relay
+    evidence: "SMTP relay requests: Up to 120 requests per minute."
+    confidence: 1.0
+    status: found
+
+
+  concurrency_5_smtp_connections:
+    value: 5
+    unit: connections
+    period:
+      value: null
+      unit: null
+    throttling: null
+    source_url: https://www.mailersend.com/help/smtp-relay
+    evidence: "The SMTP relay has a limit on the maximum number of concurrent connections. That limit is 5 for Trial, Free, Hobby and Starter accounts"
+    confidence: 1.0
+    status: found
+
+
+  concurrency_50_smtp_connections:
+    value: 50
+    unit: connections
+    period:
+      value: null
+      unit: null
+    throttling: null
+    source_url: https://www.mailersend.com/help/smtp-relay
+    evidence: "The SMTP relay has a limit on the maximum number of concurrent connections. That limit is ... 50 for Professional and Enterprise."
+    confidence: 1.0
+    status: found
+
+
+plans:
+  free:
+    price: 0
+    period:
+      value: 1
+      unit: MONTH
+    billing_model: free_tier
+    billing_frequency: null
+    quota:
+      - quota_500_emails_month
+      - quota_100_emails_day
+      - quota_100_api_requests_day
+      - quota_1_day_activity_retention
+      - quota_10_verification_credits
+      - quota_1_domain
+      - quota_1_webhook
+      - quota_1_template
+      - quota_2_user_seats
+      - quota_1_api_token
+      - quota_1_smtp_user
+      - quota_1_inbound_route
+      - quota_25_mb_attachment
+      - quota_500_batch_size
+    rate:
+      - rate_60_requests_min
+      - rate_120_smtp_requests_min
+      - concurrency_5_smtp_connections
+    endpoints:
+      /v1/email:
+        method: POST
+        alias: send_email
+        group: email
+        quota: []
+        rate:
+          - rate_120_requests_min_email
+        contexts:
+          under_review_reputation:
+            rate:
+              - rate_10_requests_min_email_under_review
+      /v1/bulk-email:
+        method: POST
+        alias: send_bulk_email
+        group: email
+        quota:
+          - quota_500_batch_size
+        rate:
+          - rate_10_requests_min_bulk_email
+        contexts:
+          healthy_reputation:
+            rate:
+              - rate_10_requests_min_bulk_healthy_free_hobby
+          under_review_reputation:
+            rate:
+              - rate_1_request_min_bulk_under_review
+      /v1/bulk-email/{bulk_email_id}:
+        method: GET
+        alias: get_bulk_email_status
+        group: email
+        quota: []
+        rate: []
+      /v1/activity/{domain_id}:
+        method: GET
+        alias: get_activities_by_domain
+        group: activity
+        quota: []
+        rate:
+          - rate_10_requests_min_activity
+      /v1/activities/{activity_id}:
+        method: GET
+        alias: get_single_activity
+        group: activity
+        quota: []
+        rate: []
+      /v1/analytics/date:
+        method: GET
+        alias: get_analytics_by_date
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/country:
+        method: GET
+        alias: get_opens_by_country
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/reading-environment:
+        method: GET
+        alias: get_opens_by_reading_environment
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/ua-name:
+        method: GET
+        alias: get_opens_by_user_agent
+        group: analytics
+        quota: []
+        rate: []
+      /v1/domains:
+        method: GET
+        alias: list_domains
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains_post:
+        method: POST
+        alias: create_domain
+        group: domains
+        quota:
+          - quota_1_domain
+        rate: []
+      /v1/domains/{domain_id}:
+        method: GET
+        alias: get_domain
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}_put:
+        method: PUT
+        alias: update_domain_settings
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}_delete:
+        method: DELETE
+        alias: delete_domain
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/dns-records:
+        method: GET
+        alias: get_domain_dns_records
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/recipients:
+        method: GET
+        alias: get_domain_recipients
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/verify:
+        method: GET
+        alias: get_domain_verification_status
+        group: domains
+        quota: []
+        rate: []
+      /v1/recipients:
+        method: GET
+        alias: list_recipients
+        group: recipients
+        quota: []
+        rate: []
+      /v1/recipients/{recipient_id}:
+        method: GET
+        alias: get_recipient
+        group: recipients
+        quota: []
+        rate: []
+      /v1/recipients/{recipient_id}_delete:
+        method: DELETE
+        alias: delete_recipient
+        group: recipients
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_get:
+        method: GET
+        alias: get_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_post:
+        method: POST
+        alias: add_to_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_delete:
+        method: DELETE
+        alias: delete_from_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/templates:
+        method: GET
+        alias: list_templates
+        group: templates
+        quota:
+          - quota_1_template
+        rate: []
+      /v1/templates/{template_id}:
+        method: GET
+        alias: get_template
+        group: templates
+        quota: []
+        rate: []
+      /v1/templates/{template_id}_delete:
+        method: DELETE
+        alias: delete_template
+        group: templates
+        quota: []
+        rate: []
+      /v1/webhooks:
+        method: GET
+        alias: list_webhooks
+        group: webhooks
+        quota:
+          - quota_1_webhook
+        rate: []
+      /v1/webhooks_post:
+        method: POST
+        alias: create_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}:
+        method: GET
+        alias: get_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}_put:
+        method: PUT
+        alias: update_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}_delete:
+        method: DELETE
+        alias: delete_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/token:
+        method: GET
+        alias: list_tokens
+        group: tokens
+        quota:
+          - quota_1_api_token
+        rate: []
+      /v1/token_post:
+        method: POST
+        alias: create_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}:
+        method: GET
+        alias: get_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}_put:
+        method: PUT
+        alias: update_token_name
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}/settings:
+        method: PUT
+        alias: update_token_settings
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}_delete:
+        method: DELETE
+        alias: delete_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/identities:
+        method: GET
+        alias: list_identities
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities_post:
+        method: POST
+        alias: create_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}:
+        method: GET
+        alias: get_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}:
+        method: GET
+        alias: get_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}_put:
+        method: PUT
+        alias: update_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}_put:
+        method: PUT
+        alias: update_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}_delete:
+        method: DELETE
+        alias: delete_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}_delete:
+        method: DELETE
+        alias: delete_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/inbound:
+        method: GET
+        alias: list_inbound_routes
+        group: inbound
+        quota:
+          - quota_1_inbound_route
+        rate: []
+      /v1/inbound_post:
+        method: POST
+        alias: create_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}:
+        method: GET
+        alias: get_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}_put:
+        method: PUT
+        alias: update_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}_delete:
+        method: DELETE
+        alias: delete_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/email-verification:
+        method: GET
+        alias: list_email_verification_lists
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification_post:
+        method: POST
+        alias: create_email_verification_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}:
+        method: GET
+        alias: get_email_verification_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}/results:
+        method: GET
+        alias: get_email_verification_list_results
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}/verify:
+        method: GET
+        alias: verify_email_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/verify:
+        method: POST
+        alias: verify_email
+        group: email_verification
+        quota:
+          - quota_10_verification_credits
+        rate: []
+      /v1/email-verification/verify-async:
+        method: POST
+        alias: verify_email_async
+        group: email_verification
+        quota:
+          - quota_10_verification_credits
+        rate: []
+      /v1/email-verification/verify-async/{email_verification_id}:
+        method: GET
+        alias: get_email_verification_status
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/api-quota:
+        method: GET
+        alias: get_api_quota
+        group: quota
+        quota: []
+        rate: []
+
+
+  trial:
+    price: 0
+    period:
+      value: null
+      unit: null
+    billing_model: free_tier
+    billing_frequency: null
+    quota:
+      - quota_100_api_requests_day
+      - quota_25_mb_attachment
+      - quota_500_batch_size
+    rate:
+      - rate_60_requests_min
+      - rate_120_smtp_requests_min
+      - concurrency_5_smtp_connections
+    endpoints:
+      /v1/email:
+        method: POST
+        alias: send_email
+        group: email
+        quota: []
+        rate:
+          - rate_120_requests_min_email
+        contexts:
+          under_review_reputation:
+            rate:
+              - rate_10_requests_min_email_under_review
+      /v1/bulk-email:
+        method: POST
+        alias: send_bulk_email
+        group: email
+        quota:
+          - quota_500_batch_size
+        rate:
+          - rate_10_requests_min_bulk_email
+        contexts:
+          healthy_reputation:
+            rate:
+              - rate_10_requests_min_bulk_healthy_free_hobby
+          under_review_reputation:
+            rate:
+              - rate_1_request_min_bulk_under_review
+      /v1/activity/{domain_id}:
+        method: GET
+        alias: get_activities_by_domain
+        group: activity
+        quota: []
+        rate:
+          - rate_10_requests_min_activity
+
+
+  hobby:
+    price: 7.00
+    period:
+      value: 1
+      unit: MONTH
+    billing_model: subscription_plus_metered_overage
+    billing_frequency: monthly_or_annual
+    quota:
+      - quota_5000_emails_month
+      - quota_1000_api_requests_day
+      - quota_1_day_activity_retention
+      - quota_100_verification_credits
+      - quota_1_domain
+      - quota_3_templates
+      - quota_5_user_seats
+      - quota_3_api_tokens
+      - quota_1_smtp_user
+      - quota_1_inbound_route
+      - quota_25_mb_attachment
+      - quota_500_batch_size
+    rate:
+      - rate_60_requests_min
+      - rate_120_smtp_requests_min
+      - concurrency_5_smtp_connections
+    endpoints:
+      /v1/email:
+        method: POST
+        alias: send_email
+        group: email
+        quota: []
+        rate:
+          - rate_120_requests_min_email
+        contexts:
+          under_review_reputation:
+            rate:
+              - rate_10_requests_min_email_under_review
+      /v1/bulk-email:
+        method: POST
+        alias: send_bulk_email
+        group: email
+        quota:
+          - quota_500_batch_size
+        rate:
+          - rate_10_requests_min_bulk_email
+        contexts:
+          healthy_reputation:
+            rate:
+              - rate_10_requests_min_bulk_healthy_free_hobby
+          under_review_reputation:
+            rate:
+              - rate_1_request_min_bulk_under_review
+      /v1/bulk-email/{bulk_email_id}:
+        method: GET
+        alias: get_bulk_email_status
+        group: email
+        quota: []
+        rate: []
+      /v1/activity/{domain_id}:
+        method: GET
+        alias: get_activities_by_domain
+        group: activity
+        quota: []
+        rate:
+          - rate_10_requests_min_activity
+      /v1/activities/{activity_id}:
+        method: GET
+        alias: get_single_activity
+        group: activity
+        quota: []
+        rate: []
+      /v1/analytics/date:
+        method: GET
+        alias: get_analytics_by_date
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/country:
+        method: GET
+        alias: get_opens_by_country
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/reading-environment:
+        method: GET
+        alias: get_opens_by_reading_environment
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/ua-name:
+        method: GET
+        alias: get_opens_by_user_agent
+        group: analytics
+        quota: []
+        rate: []
+      /v1/domains:
+        method: GET
+        alias: list_domains
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains_post:
+        method: POST
+        alias: create_domain
+        group: domains
+        quota:
+          - quota_1_domain
+        rate: []
+      /v1/domains/{domain_id}:
+        method: GET
+        alias: get_domain
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}_put:
+        method: PUT
+        alias: update_domain_settings
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}_delete:
+        method: DELETE
+        alias: delete_domain
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/dns-records:
+        method: GET
+        alias: get_domain_dns_records
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/recipients:
+        method: GET
+        alias: get_domain_recipients
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/verify:
+        method: GET
+        alias: get_domain_verification_status
+        group: domains
+        quota: []
+        rate: []
+      /v1/recipients:
+        method: GET
+        alias: list_recipients
+        group: recipients
+        quota: []
+        rate: []
+      /v1/recipients/{recipient_id}:
+        method: GET
+        alias: get_recipient
+        group: recipients
+        quota: []
+        rate: []
+      /v1/recipients/{recipient_id}_delete:
+        method: DELETE
+        alias: delete_recipient
+        group: recipients
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_get:
+        method: GET
+        alias: get_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_post:
+        method: POST
+        alias: add_to_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_delete:
+        method: DELETE
+        alias: delete_from_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/templates:
+        method: GET
+        alias: list_templates
+        group: templates
+        quota:
+          - quota_3_templates
+        rate: []
+      /v1/templates/{template_id}:
+        method: GET
+        alias: get_template
+        group: templates
+        quota: []
+        rate: []
+      /v1/templates/{template_id}_delete:
+        method: DELETE
+        alias: delete_template
+        group: templates
+        quota: []
+        rate: []
+      /v1/webhooks:
+        method: GET
+        alias: list_webhooks
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks_post:
+        method: POST
+        alias: create_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}:
+        method: GET
+        alias: get_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}_put:
+        method: PUT
+        alias: update_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}_delete:
+        method: DELETE
+        alias: delete_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/token:
+        method: GET
+        alias: list_tokens
+        group: tokens
+        quota:
+          - quota_3_api_tokens
+        rate: []
+      /v1/token_post:
+        method: POST
+        alias: create_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}:
+        method: GET
+        alias: get_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}_put:
+        method: PUT
+        alias: update_token_name
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}/settings:
+        method: PUT
+        alias: update_token_settings
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}_delete:
+        method: DELETE
+        alias: delete_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/identities:
+        method: GET
+        alias: list_identities
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities_post:
+        method: POST
+        alias: create_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}:
+        method: GET
+        alias: get_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}:
+        method: GET
+        alias: get_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}_put:
+        method: PUT
+        alias: update_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}_put:
+        method: PUT
+        alias: update_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}_delete:
+        method: DELETE
+        alias: delete_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}_delete:
+        method: DELETE
+        alias: delete_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/inbound:
+        method: GET
+        alias: list_inbound_routes
+        group: inbound
+        quota:
+          - quota_1_inbound_route
+        rate: []
+      /v1/inbound_post:
+        method: POST
+        alias: create_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}:
+        method: GET
+        alias: get_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}_put:
+        method: PUT
+        alias: update_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}_delete:
+        method: DELETE
+        alias: delete_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/email-verification:
+        method: GET
+        alias: list_email_verification_lists
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification_post:
+        method: POST
+        alias: create_email_verification_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}:
+        method: GET
+        alias: get_email_verification_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}/results:
+        method: GET
+        alias: get_email_verification_list_results
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}/verify:
+        method: GET
+        alias: verify_email_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/verify:
+        method: POST
+        alias: verify_email
+        group: email_verification
+        quota:
+          - quota_100_verification_credits
+        rate: []
+      /v1/email-verification/verify-async:
+        method: POST
+        alias: verify_email_async
+        group: email_verification
+        quota:
+          - quota_100_verification_credits
+        rate: []
+      /v1/email-verification/verify-async/{email_verification_id}:
+        method: GET
+        alias: get_email_verification_status
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/api-quota:
+        method: GET
+        alias: get_api_quota
+        group: quota
+        quota: []
+        rate: []
+
+
+  starter:
+    price: 35.00
+    period:
+      value: 1
+      unit: MONTH
+    billing_model: subscription_plus_metered_overage
+    billing_frequency: monthly_or_annual
+    quota:
+      - quota_50000_emails_month
+      - quota_100000_api_requests_day
+      - quota_7_days_activity_retention
+      - quota_100_verification_credits
+      - quota_100_sms_month
+      - quota_10_domains
+      - quota_50_webhooks
+      - quota_250_templates
+      - quota_5_user_seats
+      - quota_50_api_tokens
+      - quota_50_smtp_users
+      - quota_5_smtp_users_per_domain
+      - quota_50_inbound_routes
+      - quota_5_inbound_routes_per_domain
+      - quota_50_sender_identities
+      - quota_25_mb_attachment
+      - quota_500_batch_size
+    rate:
+      - rate_60_requests_min
+      - rate_120_smtp_requests_min
+      - concurrency_5_smtp_connections
+    endpoints:
+      /v1/email:
+        method: POST
+        alias: send_email
+        group: email
+        quota: []
+        rate:
+          - rate_120_requests_min_email
+        contexts:
+          under_review_reputation:
+            rate:
+              - rate_10_requests_min_email_under_review
+      /v1/bulk-email:
+        method: POST
+        alias: send_bulk_email
+        group: email
+        quota:
+          - quota_500_batch_size
+        rate:
+          - rate_10_requests_min_bulk_email
+        contexts:
+          healthy_reputation:
+            rate:
+              - rate_15_requests_min_bulk_healthy_starter
+          under_review_reputation:
+            rate:
+              - rate_1_request_min_bulk_under_review
+      /v1/bulk-email/{bulk_email_id}:
+        method: GET
+        alias: get_bulk_email_status
+        group: email
+        quota: []
+        rate: []
+      /v1/activity/{domain_id}:
+        method: GET
+        alias: get_activities_by_domain
+        group: activity
+        quota: []
+        rate:
+          - rate_10_requests_min_activity
+      /v1/activities/{activity_id}:
+        method: GET
+        alias: get_single_activity
+        group: activity
+        quota: []
+        rate: []
+      /v1/analytics/date:
+        method: GET
+        alias: get_analytics_by_date
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/country:
+        method: GET
+        alias: get_opens_by_country
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/reading-environment:
+        method: GET
+        alias: get_opens_by_reading_environment
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/ua-name:
+        method: GET
+        alias: get_opens_by_user_agent
+        group: analytics
+        quota: []
+        rate: []
+      /v1/domains:
+        method: GET
+        alias: list_domains
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains_post:
+        method: POST
+        alias: create_domain
+        group: domains
+        quota:
+          - quota_10_domains
+        rate: []
+      /v1/domains/{domain_id}:
+        method: GET
+        alias: get_domain
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}_put:
+        method: PUT
+        alias: update_domain_settings
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}_delete:
+        method: DELETE
+        alias: delete_domain
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/dns-records:
+        method: GET
+        alias: get_domain_dns_records
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/recipients:
+        method: GET
+        alias: get_domain_recipients
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/verify:
+        method: GET
+        alias: get_domain_verification_status
+        group: domains
+        quota: []
+        rate: []
+      /v1/recipients:
+        method: GET
+        alias: list_recipients
+        group: recipients
+        quota: []
+        rate: []
+      /v1/recipients/{recipient_id}:
+        method: GET
+        alias: get_recipient
+        group: recipients
+        quota: []
+        rate: []
+      /v1/recipients/{recipient_id}_delete:
+        method: DELETE
+        alias: delete_recipient
+        group: recipients
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_get:
+        method: GET
+        alias: get_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_post:
+        method: POST
+        alias: add_to_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_delete:
+        method: DELETE
+        alias: delete_from_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/templates:
+        method: GET
+        alias: list_templates
+        group: templates
+        quota:
+          - quota_250_templates
+        rate: []
+      /v1/templates/{template_id}:
+        method: GET
+        alias: get_template
+        group: templates
+        quota: []
+        rate: []
+      /v1/templates/{template_id}_delete:
+        method: DELETE
+        alias: delete_template
+        group: templates
+        quota: []
+        rate: []
+      /v1/webhooks:
+        method: GET
+        alias: list_webhooks
+        group: webhooks
+        quota:
+          - quota_50_webhooks
+        rate: []
+      /v1/webhooks_post:
+        method: POST
+        alias: create_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}:
+        method: GET
+        alias: get_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}_put:
+        method: PUT
+        alias: update_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}_delete:
+        method: DELETE
+        alias: delete_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/token:
+        method: GET
+        alias: list_tokens
+        group: tokens
+        quota:
+          - quota_50_api_tokens
+        rate: []
+      /v1/token_post:
+        method: POST
+        alias: create_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}:
+        method: GET
+        alias: get_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}_put:
+        method: PUT
+        alias: update_token_name
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}/settings:
+        method: PUT
+        alias: update_token_settings
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}_delete:
+        method: DELETE
+        alias: delete_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/identities:
+        method: GET
+        alias: list_identities
+        group: sender_identity
+        quota:
+          - quota_50_sender_identities
+        rate: []
+      /v1/identities_post:
+        method: POST
+        alias: create_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}:
+        method: GET
+        alias: get_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}:
+        method: GET
+        alias: get_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}_put:
+        method: PUT
+        alias: update_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}_put:
+        method: PUT
+        alias: update_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}_delete:
+        method: DELETE
+        alias: delete_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}_delete:
+        method: DELETE
+        alias: delete_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/inbound:
+        method: GET
+        alias: list_inbound_routes
+        group: inbound
+        quota:
+          - quota_50_inbound_routes
+        rate: []
+      /v1/inbound_post:
+        method: POST
+        alias: create_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}:
+        method: GET
+        alias: get_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}_put:
+        method: PUT
+        alias: update_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}_delete:
+        method: DELETE
+        alias: delete_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/sms:
+        method: POST
+        alias: send_sms
+        group: sms
+        quota:
+          - quota_100_sms_month
+        rate: []
+      /v1/sms-activity:
+        method: GET
+        alias: list_sms_activities
+        group: sms_activity
+        quota: []
+        rate: []
+      /v1/sms-activity/{sms_message_id}:
+        method: GET
+        alias: get_sms_message_activity
+        group: sms_activity
+        quota: []
+        rate: []
+      /v1/sms-webhooks:
+        method: GET
+        alias: list_sms_webhooks
+        group: sms_webhooks
+        quota: []
+        rate: []
+      /v1/sms-webhooks_post:
+        method: POST
+        alias: create_sms_webhook
+        group: sms_webhooks
+        quota: []
+        rate: []
+      /v1/sms-webhooks/{sms_webhook_id}:
+        method: GET
+        alias: get_sms_webhook
+        group: sms_webhooks
+        quota: []
+        rate: []
+      /v1/sms-webhooks/{sms_webhook_id}_put:
+        method: PUT
+        alias: update_sms_webhook
+        group: sms_webhooks
+        quota: []
+        rate: []
+      /v1/sms-webhooks/{sms_webhook_id}_delete:
+        method: DELETE
+        alias: delete_sms_webhook
+        group: sms_webhooks
+        quota: []
+        rate: []
+      /v1/sms-inbounds:
+        method: GET
+        alias: list_sms_inbounds
+        group: sms_inbounds
+        quota: []
+        rate: []
+      /v1/sms-inbounds_post:
+        method: POST
+        alias: create_sms_inbound
+        group: sms_inbounds
+        quota: []
+        rate: []
+      /v1/sms-inbounds/{sms_inbound_id}:
+        method: GET
+        alias: get_sms_inbound
+        group: sms_inbounds
+        quota: []
+        rate: []
+      /v1/sms-inbounds/{sms_inbound_id}_put:
+        method: PUT
+        alias: update_sms_inbound
+        group: sms_inbounds
+        quota: []
+        rate: []
+      /v1/sms-inbounds/{sms_inbound_id}_delete:
+        method: DELETE
+        alias: delete_sms_inbound
+        group: sms_inbounds
+        quota: []
+        rate: []
+      /v1/email-verification:
+        method: GET
+        alias: list_email_verification_lists
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification_post:
+        method: POST
+        alias: create_email_verification_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}:
+        method: GET
+        alias: get_email_verification_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}/results:
+        method: GET
+        alias: get_email_verification_list_results
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}/verify:
+        method: GET
+        alias: verify_email_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/verify:
+        method: POST
+        alias: verify_email
+        group: email_verification
+        quota:
+          - quota_100_verification_credits
+        rate: []
+      /v1/email-verification/verify-async:
+        method: POST
+        alias: verify_email_async
+        group: email_verification
+        quota:
+          - quota_100_verification_credits
+        rate: []
+      /v1/email-verification/verify-async/{email_verification_id}:
+        method: GET
+        alias: get_email_verification_status
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/api-quota:
+        method: GET
+        alias: get_api_quota
+        group: quota
+        quota: []
+        rate: []
+
+
+  professional:
+    price: 110.00
+    period:
+      value: 1
+      unit: MONTH
+    billing_model: subscription_plus_metered_overage
+    billing_frequency: monthly_or_annual
+    quota:
+      - quota_50000_emails_month
+      - quota_500000_api_requests_day
+      - quota_30_days_activity_retention
+      - quota_7_days_log_retention
+      - quota_400_verification_credits
+      - quota_100_sms_month
+      - quota_1000_domains
+      - quota_5000_webhooks
+      - quota_5000_templates
+      - quota_1000_user_seats
+      - quota_1000_api_tokens
+      - quota_1000_smtp_users
+      - quota_20_smtp_users_per_domain
+      - quota_100000_inbound_routes
+      - quota_5000_inbound_routes_per_domain
+      - quota_5000_sender_identities
+      - quota_256_blocklist_monitoring_domains
+      - quota_10_dmarc_monitoring_domains
+      - quota_25_mb_attachment
+      - quota_500_batch_size
+    rate:
+      - rate_60_requests_min
+      - rate_120_smtp_requests_min
+      - concurrency_50_smtp_connections
+    endpoints:
+      /v1/email:
+        method: POST
+        alias: send_email
+        group: email
+        quota: []
+        rate:
+          - rate_120_requests_min_email
+        contexts:
+          under_review_reputation:
+            rate:
+              - rate_10_requests_min_email_under_review
+      /v1/bulk-email:
+        method: POST
+        alias: send_bulk_email
+        group: email
+        quota:
+          - quota_500_batch_size
+        rate:
+          - rate_10_requests_min_bulk_email
+        contexts:
+          healthy_reputation:
+            rate:
+              - rate_30_requests_min_bulk_healthy_professional
+          under_review_reputation:
+            rate:
+              - rate_1_request_min_bulk_under_review
+      /v1/bulk-email/{bulk_email_id}:
+        method: GET
+        alias: get_bulk_email_status
+        group: email
+        quota: []
+        rate: []
+      /v1/activity/{domain_id}:
+        method: GET
+        alias: get_activities_by_domain
+        group: activity
+        quota: []
+        rate:
+          - rate_10_requests_min_activity
+      /v1/activities/{activity_id}:
+        method: GET
+        alias: get_single_activity
+        group: activity
+        quota: []
+        rate: []
+      /v1/analytics/date:
+        method: GET
+        alias: get_analytics_by_date
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/country:
+        method: GET
+        alias: get_opens_by_country
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/reading-environment:
+        method: GET
+        alias: get_opens_by_reading_environment
+        group: analytics
+        quota: []
+        rate: []
+      /v1/analytics/ua-name:
+        method: GET
+        alias: get_opens_by_user_agent
+        group: analytics
+        quota: []
+        rate: []
+      /v1/domains:
+        method: GET
+        alias: list_domains
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains_post:
+        method: POST
+        alias: create_domain
+        group: domains
+        quota:
+          - quota_1000_domains
+        rate: []
+      /v1/domains/{domain_id}:
+        method: GET
+        alias: get_domain
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}_put:
+        method: PUT
+        alias: update_domain_settings
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}_delete:
+        method: DELETE
+        alias: delete_domain
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/dns-records:
+        method: GET
+        alias: get_domain_dns_records
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/recipients:
+        method: GET
+        alias: get_domain_recipients
+        group: domains
+        quota: []
+        rate: []
+      /v1/domains/{domain_id}/verify:
+        method: GET
+        alias: get_domain_verification_status
+        group: domains
+        quota: []
+        rate: []
+      /v1/recipients:
+        method: GET
+        alias: list_recipients
+        group: recipients
+        quota: []
+        rate: []
+      /v1/recipients/{recipient_id}:
+        method: GET
+        alias: get_recipient
+        group: recipients
+        quota: []
+        rate: []
+      /v1/recipients/{recipient_id}_delete:
+        method: DELETE
+        alias: delete_recipient
+        group: recipients
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_get:
+        method: GET
+        alias: get_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_post:
+        method: POST
+        alias: add_to_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/suppressions/{suppression_type}_delete:
+        method: DELETE
+        alias: delete_from_suppression_list
+        group: suppressions
+        quota: []
+        rate: []
+      /v1/templates:
+        method: GET
+        alias: list_templates
+        group: templates
+        quota:
+          - quota_5000_templates
+        rate: []
+      /v1/templates/{template_id}:
+        method: GET
+        alias: get_template
+        group: templates
+        quota: []
+        rate: []
+      /v1/templates/{template_id}_delete:
+        method: DELETE
+        alias: delete_template
+        group: templates
+        quota: []
+        rate: []
+      /v1/webhooks:
+        method: GET
+        alias: list_webhooks
+        group: webhooks
+        quota:
+          - quota_5000_webhooks
+        rate: []
+      /v1/webhooks_post:
+        method: POST
+        alias: create_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}:
+        method: GET
+        alias: get_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}_put:
+        method: PUT
+        alias: update_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/webhooks/{webhook_id}_delete:
+        method: DELETE
+        alias: delete_webhook
+        group: webhooks
+        quota: []
+        rate: []
+      /v1/token:
+        method: GET
+        alias: list_tokens
+        group: tokens
+        quota:
+          - quota_1000_api_tokens
+        rate: []
+      /v1/token_post:
+        method: POST
+        alias: create_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}:
+        method: GET
+        alias: get_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}_put:
+        method: PUT
+        alias: update_token_name
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}/settings:
+        method: PUT
+        alias: update_token_settings
+        group: tokens
+        quota: []
+        rate: []
+      /v1/token/{token_id}_delete:
+        method: DELETE
+        alias: delete_token
+        group: tokens
+        quota: []
+        rate: []
+      /v1/identities:
+        method: GET
+        alias: list_identities
+        group: sender_identity
+        quota:
+          - quota_5000_sender_identities
+        rate: []
+      /v1/identities_post:
+        method: POST
+        alias: create_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}:
+        method: GET
+        alias: get_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}:
+        method: GET
+        alias: get_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}_put:
+        method: PUT
+        alias: update_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}_put:
+        method: PUT
+        alias: update_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/{identity_id}_delete:
+        method: DELETE
+        alias: delete_identity
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/identities/email/{email}_delete:
+        method: DELETE
+        alias: delete_identity_by_email
+        group: sender_identity
+        quota: []
+        rate: []
+      /v1/inbound:
+        method: GET
+        alias: list_inbound_routes
+        group: inbound
+        quota:
+          - quota_100000_inbound_routes
+        rate: []
+      /v1/inbound_post:
+        method: POST
+        alias: create_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}:
+        method: GET
+        alias: get_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}_put:
+        method: PUT
+        alias: update_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/inbound/{inbound_id}_delete:
+        method: DELETE
+        alias: delete_inbound_route
+        group: inbound
+        quota: []
+        rate: []
+      /v1/sms:
+        method: POST
+        alias: send_sms
+        group: sms
+        quota:
+          - quota_100_sms_month
+        rate: []
+      /v1/sms-activity:
+        method: GET
+        alias: list_sms_activities
+        group: sms_activity
+        quota: []
+        rate: []
+      /v1/sms-activity/{sms_message_id}:
+        method: GET
+        alias: get_sms_message_activity
+        group: sms_activity
+        quota: []
+        rate: []
+      /v1/sms-webhooks:
+        method: GET
+        alias: list_sms_webhooks
+        group: sms_webhooks
+        quota: []
+        rate: []
+      /v1/sms-webhooks_post:
+        method: POST
+        alias: create_sms_webhook
+        group: sms_webhooks
+        quota: []
+        rate: []
+      /v1/sms-webhooks/{sms_webhook_id}:
+        method: GET
+        alias: get_sms_webhook
+        group: sms_webhooks
+        quota: []
+        rate: []
+      /v1/sms-webhooks/{sms_webhook_id}_put:
+        method: PUT
+        alias: update_sms_webhook
+        group: sms_webhooks
+        quota: []
+        rate: []
+      /v1/sms-webhooks/{sms_webhook_id}_delete:
+        method: DELETE
+        alias: delete_sms_webhook
+        group: sms_webhooks
+        quota: []
+        rate: []
+      /v1/sms-inbounds:
+        method: GET
+        alias: list_sms_inbounds
+        group: sms_inbounds
+        quota: []
+        rate: []
+      /v1/sms-inbounds_post:
+        method: POST
+        alias: create_sms_inbound
+        group: sms_inbounds
+        quota: []
+        rate: []
+      /v1/sms-inbounds/{sms_inbound_id}:
+        method: GET
+        alias: get_sms_inbound
+        group: sms_inbounds
+        quota: []
+        rate: []
+      /v1/sms-inbounds/{sms_inbound_id}_put:
+        method: PUT
+        alias: update_sms_inbound
+        group: sms_inbounds
+        quota: []
+        rate: []
+      /v1/sms-inbounds/{sms_inbound_id}_delete:
+        method: DELETE
+        alias: delete_sms_inbound
+        group: sms_inbounds
+        quota: []
+        rate: []
+      /v1/email-verification:
+        method: GET
+        alias: list_email_verification_lists
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification_post:
+        method: POST
+        alias: create_email_verification_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}:
+        method: GET
+        alias: get_email_verification_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}/results:
+        method: GET
+        alias: get_email_verification_list_results
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/{verification_list_id}/verify:
+        method: GET
+        alias: verify_email_list
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/email-verification/verify:
+        method: POST
+        alias: verify_email
+        group: email_verification
+        quota:
+          - quota_400_verification_credits
+        rate: []
+      /v1/email-verification/verify-async:
+        method: POST
+        alias: verify_email_async
+        group: email_verification
+        quota:
+          - quota_400_verification_credits
+        rate: []
+      /v1/email-verification/verify-async/{email_verification_id}:
+        method: GET
+        alias: get_email_verification_status
+        group: email_verification
+        quota: []
+        rate: []
+      /v1/api-quota:
+        method: GET
+        alias: get_api_quota
+        group: quota
+        quota: []
+        rate: []
+
+
+  enterprise:
+    price: null
+    period:
+      value: null
+      unit: null
+    billing_model: custom_enterprise
+    billing_frequency: null
+    quota:
+      - quota_500000_api_requests_day
+      - quota_25_mb_attachment
+      - quota_500_batch_size
+    rate:
+      - rate_60_requests_min
+      - rate_120_smtp_requests_min
+      - concurrency_50_smtp_connections
+    endpoints:
+      /v1/email:
+        method: POST
+        alias: send_email
+        group: email
+        quota: []
+        rate:
+          - rate_120_requests_min_email
+        contexts:
+          under_review_reputation:
+            rate:
+              - rate_10_requests_min_email_under_review
+      /v1/bulk-email:
+        method: POST
+        alias: send_bulk_email
+        group: email
+        quota:
+          - quota_500_batch_size
+        rate:
+          - rate_10_requests_min_bulk_email
+        contexts:
+          healthy_reputation:
+            rate:
+              - rate_60_requests_min_bulk_healthy_enterprise
+          under_review_reputation:
+            rate:
+              - rate_1_request_min_bulk_under_review
+      /v1/activity/{domain_id}:
+        method: GET
+        alias: get_activities_by_domain
+        group: activity
+        quota: []
+        rate:
+          - rate_10_requests_min_activity
+      /v1/api-quota:
+        method: GET
+        alias: get_api_quota
+        group: quota
+        quota: []
+        rate: []
+
+
+  approved:
+    price: null
+    period:
+      value: null
+      unit: null
+    billing_model: null
+    billing_frequency: null
+    quota:
+      - quota_50_recipients_to
+      - quota_10_recipients_cc
+      - quota_10_recipients_bcc
+    rate: []
+    endpoints:
+      /v1/email:
+        method: POST
+        alias: send_email
+        group: email
+        quota:
+          - quota_50_recipients_to
+          - quota_10_recipients_cc
+          - quota_10_recipients_bcc
+        rate: []
+
+
+  unapproved:
+    price: null
+    period:
+      value: null
+      unit: null
+    billing_model: null
+    billing_frequency: null
+    quota:
+      - quota_10_recipients_to
+      - quota_1_recipient_cc
+      - quota_1_recipient_bcc
+    rate: []
+    endpoints:
+      /v1/email:
+        method: POST
+        alias: send_email
+        group: email
+        quota:
+          - quota_10_recipients_to
+          - quota_1_recipient_cc
+          - quota_1_recipient_bcc
+        rate: []
+
+
+shared_limits:
+  - description: Daily API request quota resets every day at midnight UTC and applies across all API calls for the account
+    applies_to:
+      - all_endpoints
+      - all_plans
+    source_url: https://developers.mailersend.com/general
+    evidence: "Every request is counted against the quota and is reset daily at midnight UTC."
+  - description: Monthly email quota resets on a 30-day rolling basis, not tied to a calendar month
+    applies_to:
+      - email
+      - bulk_email
+    source_url: https://www.mailersend.com/help/plans-features-and-limits
+    evidence: "The number of emails that you send resets every 30 days."
+  - description: Global rate limit of 60 requests/minute applies to all endpoints except email-specific endpoints which have their own limits
+    applies_to:
+      - all_endpoints_except_email
+    source_url: https://developers.mailersend.com/general
+    evidence: "All API requests (excluding email endpoints): 60 requests/minute"
+  - description: SMTP concurrent connection limit is shared across all SMTP activity for the account
+    applies_to:
+      - smtp_relay
+    source_url: https://www.mailersend.com/help/smtp-relay
+    evidence: "The SMTP relay has a limit on the maximum number of concurrent connections."
+
+
+cooling_period:
+  retry_after_header: true
+  retry_header_name: Retry-After
+  backoff_policy: wait_for_retry_after_seconds
+  throttling_http_code: 429
+
+
+segmentation:
+  rate_limit_level:
+    - plan
+    - endpoint
+    - reputation
+  quota_level:
+    - plan
+    - account
+    - domain
+    - billing_cycle
+
+
+per_request_cost: null
+
+
+extra_fields:
+  api_quota_endpoint_exempt: "GET /v1/api-quota does not count against the daily API quota"
+  rate_limit_headers:
+    limit: x-ratelimit-limit
+    remaining: x-ratelimit-remaining
+    reset: x-ratelimit-reset
+  annual_discount:
+    value: 10
+    unit: PERCENT
+    applies_to:
+      - hobby
+      - starter
+      - professional
+    stackable_with_nonprofit: false
+    source_url: https://www.mailersend.com/pricing
+  nonprofit_discount:
+    value: 30
+    unit: PERCENT
+    applies_to:
+      - starter
+      - professional
+    stackable_with_annual: false
+    source_url: https://www.mailersend.com/pricing
+  addons:
+    activity_retention_extension:
+      price: 5.00
+      unit: USD_per_month
+      applies_to:
+        - starter
+        - professional
+      source_url: https://www.mailersend.com/pricing
+    dmarc_monitor_additional_domain:
+      price: 2.00
+      unit: USD_per_domain
+      applies_to:
+        - starter
+        - professional
+      source_url: https://www.mailersend.com/pricing
+    extra_domain_space:
+      price: 4.00
+      unit: USD_per_domain
+      applies_to:
+        - starter
+        - professional
+      source_url: https://www.mailersend.com/pricing
+    phone_number:
+      price: 2.00
+      unit: USD_per_phone_number
+      applies_to:
+        - starter
+        - professional
+      source_url: https://www.mailersend.com/pricing
+    dedicated_ip:
+      price: null
+      unit: null
+      applies_to:
+        - enterprise
+      contact_sales: true
+      source_url: https://www.mailersend.com/pricing
+  hobby_annual_equivalent_price_monthly:
+    note: conflicting values found across sources — see conflicts section
+  newly_upgraded_accounts:
+    note: Newly upgraded accounts may have a lower rate limit on /v1/email until established as a sender with good sending practices
+    source_url: https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors
+
+
+conflicts:
+  - field: pricing.monthly_equivalent_billed_yearly
+    scope: hobby plan
+    values:
+      - value: 5.60
+        source_url: https://www.mailersend.com/pricing
+        evidence: "$ 5.60 /month $67.20 billed yearly"
+        confidence: 1.0
+      - value: 6.30
+        source_url: https://www.mailersend.com/help/plans-features-and-limits
+        evidence: "$6.30 per month with an annual plan"
+        confidence: 1.0
+
+
+  - field: quota.max_webhooks
+    scope: hobby plan
+    values:
+      - value: 1
+        source_url: https://www.mailersend.com/help/plans-features-and-limits
+        evidence: "Webhooks | 1 (Hobby plan, plan limits comparison table)"
+        confidence: 0.70
+      - value: 5
+        source_url: https://www.mailersend.com/help/plans-features-and-limits
+        evidence: "5 webhooks (Hobby plan description text)"
+        confidence: 0.70
+
+
+  - field: quota.overage_emails
+    scope: starter plan
+    values:
+      - value: 0.90
+        source_url: https://www.mailersend.com/pricing
+        evidence: "Extra usage $0.90 /1,000 emails"
+        confidence: 0.70
+      - value: 1.30
+        source_url: https://www.mailersend.com/help/plans-features-and-limits
+        evidence: "you will be charged a metered rate starting at $1.30 per additional 1,000 emails sent"
+        confidence: 0.95
