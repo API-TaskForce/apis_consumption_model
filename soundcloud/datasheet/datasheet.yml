@@ -1,0 +1,10 @@
+Assoaciated SaaS: SoundCloud (https://developers.soundcloud.com/docs/api/rate-limits)
+type: Partial SaaS
+maxPower:
+  value: 15000 requests/day
+  Throttling: sliding window (24-hour time window)
+  Policies: 
+    - Applies specifically to Play Requests (/tracks/:id/stream).
+coolingPeriod: Dynamic (Check 'reset_time' in 429 JSON response body)
+segmentation:
+  - Client Application (Client ID)
