@@ -1,0 +1,20 @@
+associatedSaaS:
+  name: Boundaries IO
+  url: https://rapidapi.com/VanitySoft/api/boundaries-io-1/pricing
+  type: API-First
+capacity:
+  value: 30000 requests per endpoint group
+  autoRecharge: daily
+  extraCharge: 0.01 per request
+maxPower:
+  value: Unlimited
+  throttling: null
+  policies: Strict NO HARVESTING policy (account blocking).
+perRequestCost: null
+coolingPeriod: null
+segmentation:
+  rateLimitLevel: User
+  quotaLevel: User
+sharedLimits: Quota is specific per endpoint group.
+extraFields:
+  Uptime: Guaranteed 99.9% uptime.
