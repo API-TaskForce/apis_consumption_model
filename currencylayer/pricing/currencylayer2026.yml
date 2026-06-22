@@ -1,0 +1,272 @@
+saasName: currencylayer
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://currencylayer.com/product"
+createdAt: "2026-01-16"
+currency: "USD"
+features:
+  singleApiCalls:
+    description: "Access to API calls"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  apiRequests:
+    description: "Access to API Requests"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  updateFrequency:
+    description: "How often currency rates are refreshed."
+    valueType: TEXT
+    defaultValue: Daily Updates
+    type: DOMAIN
+  historicalRates:
+    description: "Access to historical exchange rate data."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: GUARANTEE
+  httpsEncryption:
+    description: "Access to the API via encrypted HTTPS endpoints."
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  supportLevel:
+    description: "Level of technical support provided."
+    valueType: TEXT
+    defaultValue: No support
+    type: SUPPORT
+  sourceCurrency:
+    description: "Access to source currency"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  currencyConversion:
+    description: "Access to currency conversion"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  timeFrameQueries:
+    description: "Access to queries by Time-Frame"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  currencyChangeQueries:
+    description: "Access to real time currency change"
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  maxSingleApiCalls:
+    description: "Number of API requests allowed per month."
+    valueType: NUMERIC
+    defaultValue: 100
+    unit: request
+    type: NON_RENEWABLE
+    linkedFeatures:
+      - singleApiCalls
+  maxMonthlyRequests:
+    description: "Number of API requests allowed per month."
+    valueType: NUMERIC
+    defaultValue: 2500
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - apiRequests
+
+plans:
+  FREE:
+    price: 0.00
+    unit: user/month
+    description: "Free plan for testing and personal use"
+    features:
+      singleApiCalls:
+        value: true
+      apiRequests:
+        value: false
+      updateFrequency:
+        value: Daily Updates
+      historicalRates:
+        value: true
+      httpsEncryption:
+        value: true
+      sourceCurrency:
+        value: false
+      currencyConversion:
+        value: false
+      timeFrameQueries:
+        value: false
+      currencyChangeQueries:
+        value: false
+      supportLevel:
+        value: No Support
+    usageLimits:
+      maxMonthlyRequests:
+        value: 0
+      maxSingleApiCalls:
+        value: 100
+
+  STARTER:
+    price: 9.99
+    unit: user/month
+    description: "Begin building with essential features"
+    features:
+      singleApiCalls:
+        value: false
+      apiRequests:
+        value: true
+      updateFrequency:
+        value: Hourly Updates
+      historicalRates:
+        value: true
+      httpsEncryption:
+        value: true
+      sourceCurrency:
+        value: true
+      currencyConversion:
+        value: true
+      timeFrameQueries:
+        value: false
+      currencyChangeQueries:
+        value: false
+      supportLevel:
+        value: Standard Support
+    usageLimits:
+      maxMonthlyRequests:
+        value: 2500
+      maxSingleApiCalls:
+        value: 0
+
+  BASIC:
+    price: 14.99
+    unit: user/month
+    description: "Includes commercial use"
+    features:
+      singleApiCalls:
+        value: false
+      apiRequests:
+        value: true
+      updateFrequency:
+        value: Hourly Updates
+      historicalRates:
+        value: true
+      httpsEncryption:
+        value: true
+      sourceCurrency:
+        value: true
+      currencyConversion:
+        value: true
+      timeFrameQueries:
+        value: false
+      currencyChangeQueries:
+        value: false
+      supportLevel:
+        value: Standard Support
+    usageLimits:
+      maxMonthlyRequests:
+        value: 10000
+      maxSingleApiCalls:
+        value: 0
+
+  ENTERPRISE:
+    price: 59.99
+    unit: user/month
+    description: "Professional level with premium features"
+    features:
+      singleApiCalls:
+        value: false
+      apiRequests:
+        value: true
+      updateFrequency:
+        value: 10-minute Updates
+      historicalRates:
+        value: true
+      httpsEncryption:
+        value: true
+      sourceCurrency:
+        value: true
+      currencyConversion:
+        value: true
+      timeFrameQueries:
+        value: true
+      currencyChangeQueries:
+        value: false
+      supportLevel:
+        value: Standard Support
+    usageLimits:
+      maxMonthlyRequests:
+        value: 100000
+      maxSingleApiCalls:
+        value: 0
+
+  ENTERPRISE_PLUS:
+    price: 99.99
+    unit: user/month
+    description: "Business Plus level with every feature"
+    features:
+      singleApiCalls:
+        value: false
+      apiRequests:
+        value: true
+      updateFrequency:
+        value: 60-second Updates
+      historicalRates:
+        value: true
+      httpsEncryption:
+        value: true
+      sourceCurrency:
+        value: true
+      currencyConversion:
+        value: true
+      timeFrameQueries:
+        value: true
+      currencyChangeQueries:
+        value: true
+      supportLevel:
+        value: Standard Support
+    usageLimits:
+      maxMonthlyRequests:
+        value: 500000
+      maxSingleApiCalls:
+        value: 0
+
+addOns:
+  starterCallOverage:
+    description: "Starter Plan overage cost"
+    price: 0.007992
+    unit: call
+    availableFor:
+      - STARTER
+    features:
+      apiRequests:
+        value: true
+  BasicCallOverage:
+    description: "Basic Plan overage cost"
+    price: 0.002998
+    unit: call
+    availableFor:
+      - BASIC
+    features:
+      apiRequests:
+        value: true
+  EnterpriseCallOverage:
+    description: "Enterprise Plan overage cost"
+    price: 0.0011998
+    unit: call
+    availableFor:
+      - ENTERPRISE
+    features:
+      apiRequests:
+        value: true
+  EnterprisePCallOverage:
+    description: "Enterprise Plus Plan overage cost"
+    price: 0.00039996
+    unit: call
+    availableFor:
+      - ENTERPRISE_PLUS
+    features:
+      apiRequests:
+        value: true
