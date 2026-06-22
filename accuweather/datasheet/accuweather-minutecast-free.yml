@@ -1,0 +1,17 @@
+associatedSaaS: AccuWeather MinuteCast
+planReference: MINUTECAST_FREE
+type: Partial SaaS
+capacity:
+  - value: 50 calls
+    windowType: ROLLING_24H
+    resetCondition: "24-hour period beginning at the time of your first request"
+    autoRecharge: daily
+    extraCharge: None
+maxPower:
+  value: 1 request/second
+  type: RATE_LIMIT
+  algorithm: FIXED_WINDOW
+  reference: "https://developer.accuweather.com/documentation/minutecast-quick-start"
+coolingPeriod: "TBD (Hard block hasta reinicio de cuota diaria)"
+segmentation:
+  - Account Level: 1 API Key por desarrollador.
