@@ -1,0 +1,18 @@
+Associated SaaS: Clarifai (Pay-As-You-Go Plan) - https://docs.clarifai.com/resources/api-overview/rate-limits
+Type: API-First
+Capacity (Quota):
+  Value: 100,000 operations/inputs per month (Professional Limit) / 30,000 (Essential)
+  Auto-Recharge: Monthly
+  Extra Charge: Contact sales to exceed (Custom package required for >100k)
+Max Power (Rate Limit):
+  Value: 15 requests/second
+  Throttling: Rate limited (Server-side rejection)
+  Policies: "Requests exceeding quota halt temporarily. Error: CONN_THROTTLED (11005)."
+Per-Request Cost: Varies by model type and operation (See Pricing Add-ons)
+Cooling Period: 15 seconds back-off strategy upon 429/11005 error.
+Segmentation: Account Level
+Shared Limits: Default 15 RPS limit applies to all users unless customized.
+Extra Fields:
+  - "Max Spend Limit: Customizable monthly hard limit (Default starts at $0/100)."
+  - "Essential Plan limit: 30,000 operations/mo."
+  - "Professional Plan limit: 100,000 operations/mo."

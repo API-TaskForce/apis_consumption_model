@@ -1,0 +1,18 @@
+Associated SaaS: Clarifai (Enterprise Plan) - https://docs.clarifai.com/resources/api-overview/rate-limits
+Type: API-First
+Capacity (Quota):
+  Value: Unlimited (Custom)
+  Auto-Recharge: Monthly
+  Extra Charge: Custom Pricing / Volume Discounts
+Max Power (Rate Limit):
+  Value: 15 requests/second (Default) - Customizable to 1000+
+  Throttling: Negotiated / Rate limited
+  Policies: Custom SLAs available.
+Per-Request Cost: Custom / Negotiated Rates
+Cooling Period: Dependent on configured rate limit and SLA.
+Segmentation: Organization Level
+Shared Limits: Custom limits per organization/tenant.
+Extra Fields:
+  - "Includes committed volume discounts for exceeding 100,000 operations/inputs monthly."
+  - "Dedicated support and custom SLAs available."
+  - "Default rate limit is 15 RPS, explicitly customizable for Enterprise."
