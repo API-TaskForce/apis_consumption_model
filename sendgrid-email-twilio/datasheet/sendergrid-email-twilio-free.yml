@@ -1,0 +1,18 @@
+associatedSaaS: Twilio SendGrid
+url: "https://sendgrid.com/en-us/solutions/email-api/pricing"
+planReference: FREE_TRIAL
+type: Partial SaaS
+capacity:
+  - value: 100 emails
+    type: QUOTA
+    windowType: ROLLING_24H
+    resetCondition: "Daily reset"
+    extraCharge: "None (Hard Limit)"
+maxPower:
+  value: 1 webhook
+  type: RATE_LIMIT
+  description: "Limited to a single event webhook for real-time data ingestion."
+coolingPeriod: "Immediate (Daily reset for emails)"
+segmentation:
+  - Time Gating: 60-day duration limit for the trial period.
+  - Storage Gating: 3-day searchable email activity history.

@@ -1,0 +1,22 @@
+associatedSaaS: Twilio SendGrid
+url: "https://sendgrid.com/en-us/solutions/email-api/pricing"
+planReference: PRO
+type: Partial SaaS
+capacity:
+  - value: 2500000 emails
+    type: QUOTA
+    windowType: MONTHLY
+    extraCharge: "Volume-based overage pricing."
+  - value: 2500 validations
+    type: QUOTA
+    windowType: MONTHLY
+    description: "Email Address Validation API credits included."
+maxPower:
+  value: 5 webhooks
+  type: RATE_LIMIT
+  description: "High-throughput event data streaming."
+coolingPeriod: "Immediate"
+segmentation:
+  - Reputation Gating: Includes 1 dedicated IP address and automated warmup.
+  - Admin Gating: SSO and subuser management enabled for multi-client or multi-app setups.
+  - Storage Gating: Extended 7-day email activity history.
