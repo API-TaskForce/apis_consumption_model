@@ -1,0 +1,21 @@
+associatedSaaS: MailerSend
+planReference: STARTER
+type: Partial SaaS
+capacity:
+  - value: 50000 emails
+    type: QUOTA
+    windowType: CALENDAR_MONTH
+    extraCharge: 0.95 USD CPM
+  - value: 100 requests
+    type: QUOTA
+    unit: sms
+    windowType: CALENDAR_MONTH
+    extraCharge: 14.00 USD CPM # $1.40 per 100 SMS
+  - value: 100000 requests
+    type: QUOTA
+    windowType: ROLLING_24H
+maxPower:
+  value: 60 requests per minute (https://www.mailersend.com/help/rate-limits-how-to-reduce-403-422-429-errors)
+  type: RATE_LIMIT
+segmentation:
+  - Key Level: Applied per account API key.
