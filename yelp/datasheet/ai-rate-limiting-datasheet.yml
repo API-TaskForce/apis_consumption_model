@@ -1,0 +1,12 @@
+Associated SaaS: Yelp AI API (https://business.yelp.com/data/products/ai-api/)
+type: Partial SaaS
+capacity:
+  - value: TBD
+    autoRecharge: daily
+    extraCharge: Custom / Not publicly specified
+maxPower:
+  - value: TBD
+coolingPeriod: TBD
+segmentation: TBD
+notes:
+  - Minimum Daily: Standalone AI API plans require a minimum of 1,000 calls per day.
