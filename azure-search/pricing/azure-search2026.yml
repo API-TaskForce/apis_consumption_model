@@ -1,0 +1,157 @@
+saasName: Azure AI Search
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://azure.microsoft.com/pricing/details/search/"
+createdAt: "2026-01-12"
+currency: "USD"
+features:
+  vectorSearch:
+    tag: Search Engine
+    description: Support for high-dimensional vector embeddings and ANN search.
+    valueType: BOOLEAN
+    defaultValue: true
+  semanticRanker:
+    tag: AI Enrichment
+    description: L2 re-ranking using deep learning for relevance.
+    valueType: BOOLEAN
+    defaultValue: false # Available as an add-on
+  indexCount:
+    tag: Search Engine
+    description: Maximum number of logical indexes per service.
+    valueType: NUMERIC
+    defaultValue: 3
+  semanticSearchAddOn:
+    price: 0.022
+    unit: 1M tokens # Price for semantic ranking beyond free 50M tokens
+
+plans:
+  FREE:
+    price: 0.00
+    unit: month
+    usageLimits:
+      maxStorage:
+        value: 50
+        unit: MB
+      maxIndexes:
+        value: 3
+
+  BASIC:
+    price: 73.73
+    unit: Search Unit (SU)/month
+    usageLimits:
+      maxStorage:
+        value: 15
+        unit: GB
+      maxIndexes:
+        value: 15
+      maxPartitions:
+        value: 3
+      maxReplicas:
+        value: 3
+
+  STANDARD_S1:
+    price: 245.28
+    unit: Search Unit (SU)/month
+    usageLimits:
+      maxStorage:
+        value: 160
+        unit: GB
+      maxIndexes:
+        value: 50
+      maxPartitions:
+        value: 12
+      maxReplicas:
+        value: 12
+
+  STANDARD_S2:
+    price: 981.12
+    unit: Search Unit (SU)/month
+    description: "Designed for large-scale production workloads"
+    usageLimits:
+      maxStoragePerPartition:  
+        value: 512
+        unit: GB  # Max 6 TB per service
+      maxIndexes:  
+        value: 200 
+      scaleOutLimit:  
+        value: 36 
+        unit: SU 
+      
+  STANDARD_S3:
+    price: 1962.24
+    unit: Search Unit (SU)/month
+    description: "Highest performance tier for massive index counts"
+    usageLimits:
+      maxStoragePerPartition:  value: 1, unit: TB  # Max 12 TB per service
+      maxIndexes:  
+        value: 200  # 1,000 in High Density mode
+      scaleOutLimit:  
+        value: 36
+        unit: SU 
+
+  STORAGE_OPTIMIZED_L1:
+    price: 2802.47
+    unit: Search Unit (SU)/month
+    usageLimits:
+      maxStorage:
+        value: 2
+        unit: TB
+      maxIndexes:
+        value: 10  
+
+  STORAGE_OPTIMIZED_L2:
+    price: 5604.21
+    unit: Search Unit (SU)/month
+    description: "Maximum storage capacity for disk-bound datasets"
+    usageLimits:
+      maxStoragePerPartition:  
+      value: 4 
+      unit: TB  # Max 48 TB per service
+      maxIndexes:  
+      value: 10 
+      scaleOutLimit:  
+      value: 36 
+      unit: SU 
+
+# --- Costos Adicionales Transversales ---
+extraCharges:
+  semanticRanker:
+    freeTier: "First 1,000 requests/month"
+    overage: "$1.00 per 1,000 requests"
+  agenticRetrieval:
+    freeTier: "First 50M tokens/month"
+    overage: "$0.022 per 1M additional tokens"
+  customEntityLookup:
+    unit: "1,000 text records"
+    tiers:  
+      0-1M: 1.00 
+      1M-3M: 0.75 
+      3M-10M: 0.30 
+      10M+: 0.25 
+  imageExtraction:
+    unit: "1,000 images"
+    tiers:  
+      0-1M: 1.00 
+      1M-5M: 0.80
+      5M+: 0.65 
+
+addOns:
+  semanticRankerAddOn:
+    description: "Improve search relevance"
+    price: 1.00
+    unit: 1000 requests (after first 1000 free)
+
+  agenticRetrievalAddOn:
+    description: "Conversation history and BYOM integration"
+    price: 0.022
+    unit: 1M tokens (after first 50M free)
+
+  customEntityLookup:
+    description: "Detect user-defined words"
+    price: 1.00 # Tiered pricing starts at $1 per 1k records
+    unit: 1000 records
+    
+  imageExtraction:
+    description: "Document Cracking: Image Extraction"
+    price: 1.00 # Tiered pricing starts at $1 per 1k transactions
+    unit: 1000 transactions
