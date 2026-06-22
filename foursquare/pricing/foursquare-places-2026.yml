@@ -1,0 +1,193 @@
+saasName: Foursquare Places API
+syntaxVersion: "3.0"
+version: "2026"
+url: "https://foursquare.com/pricing/#places_api"
+createdAt: "2026-01-20"
+currency: "USD"
+tags:
+  - Pro endpoints
+  - Premium endpoints
+
+features:
+  placeSearch:
+    tag: Pro endpoints
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  placeDetails:
+    tag: Pro endpoints
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  autocomplete:
+    tag: Pro endpoints
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  geotagging:
+    tag: Pro endpoints
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  photos:
+    tag: Premium endpoints
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+  tips:
+    tag: Premium endpoints
+    valueType: BOOLEAN
+    defaultValue: true
+    type: DOMAIN
+
+usageLimits:
+  limitProEndpoints:
+    description: Monthly quota for Pro endpoints (Search, Details, Autocomplete, Geotagging) with default fields.
+    valueType: NUMERIC
+    defaultValue: 10000
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - placeSearch
+      - placeDetails
+      - autocomplete
+      - geotagging
+
+  limitPremiumEndpoints:
+    description: Monthly quota for Premium endpoints (Tips, Photos) or Pro endpoints with premium fields.
+    valueType: NUMERIC
+    defaultValue: 0
+    unit: request
+    type: RENEWABLE
+    period:
+      value: 1
+      unit: MONTH
+    linkedFeatures:
+      - photos
+      - tips
+plans:
+  PAY_AS_YOU_GO:
+    price: 0.00
+    unit: user/month
+    features:
+      placeSearch:
+        value: true
+      placeDetails:
+        value: true
+      autocomplete:
+        value: true
+      geotagging:
+        value: true
+      photos:
+        value: true
+      tips:
+        value: true
+    usageLimits:
+      limitProEndpoints:
+        value: 10000 # 10k Free Pro calls, then paid
+      limitPremiumEndpoints:
+        value: 0
+
+addOns:
+  extraProCallsTier1:
+    description: Pro calls 10,001 - 100,000 ($15.00 CPM).
+    price: 0.015
+    unit: request
+    availableFor:
+      - PAY_AS_YOU_GO
+    usageLimitsExtensions:
+      limitProEndpoints:
+        value: 1
+
+  extraProCallsTier2:
+    description: Pro calls 100,001 - 500,000 ($12.00 CPM).
+    price: 0.012
+    unit: request
+    availableFor:
+      - PAY_AS_YOU_GO
+    usageLimitsExtensions:
+      limitProEndpoints:
+        value: 1
+
+  extraProCallsTier3:
+    description: Pro calls 500,001 - 1,000,000 ($9.00 CPM).
+    price: 0.009
+    unit: request
+    availableFor:
+      - PAY_AS_YOU_GO
+    usageLimitsExtensions:
+      limitProEndpoints:
+        value: 1
+  
+  extraProCallsTier4:
+    description: Pro calls 1,000,001 - 5,000,000 ($4.50 CPM).
+    price: 0.0045
+    unit: request
+    availableFor:
+      - PAY_AS_YOU_GO
+    usageLimitsExtensions:
+      limitProEndpoints:
+        value: 1
+
+  extraProCallsTier5:
+    description: Pro calls 5,000,001+ ($1.25 CPM).
+    price: 0.00125
+    unit: request
+    availableFor:
+      - PAY_AS_YOU_GO
+    usageLimitsExtensions:
+      limitProEndpoints:
+        value: 1
+
+  extraPremiumCallsTier1:
+    description: Premium calls 0 - 100,000 ($18.75 CPM).
+    price: 0.01875
+    unit: request
+    availableFor:
+      - PAY_AS_YOU_GO
+    usageLimitsExtensions:
+      limitPremiumEndpoints:
+        value: 1
+
+  extraPremiumCallsTier2:
+    description: Premium calls 100,001 - 500,000 ($15.00 CPM).
+    price: 0.015
+    unit: request
+    availableFor:
+      - PAY_AS_YOU_GO
+    usageLimitsExtensions:
+      limitPremiumEndpoints:
+        value: 1
+  
+  extraPremiumCallsTier3:
+    description: Premium calls 500,001 - 1,000,000 ($11.25 CPM).
+    price: 0.01125
+    unit: request
+    availableFor:
+      - PAY_AS_YOU_GO
+    usageLimitsExtensions:
+      limitPremiumEndpoints:
+        value: 1
+
+  extraPremiumCallsTier4:
+    description: Premium calls 1,000,001 - 5,000,000 ($5.75 CPM).
+    price: 0.00575
+    unit: request
+    availableFor:
+      - PAY_AS_YOU_GO
+    usageLimitsExtensions:
+      limitPremiumEndpoints:
+        value: 1
+
+  extraPremiumCallsTier5:
+    description: Premium calls 5,000,001+ ($1.75 CPM).
+    price: 0.00175
+    unit: request
+    availableFor:
+      - PAY_AS_YOU_GO
+    usageLimitsExtensions:
+      limitPremiumEndpoints:
+        value: 1

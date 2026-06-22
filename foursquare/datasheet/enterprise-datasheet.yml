@@ -1,0 +1,22 @@
+associatedSaaS:
+  name: Foursquare Places API (Enterprise)
+  url: https://docs.foursquare.com/developer/reference/rate-limits
+  type: API-First
+capacity:
+  value: Custom / Negotiated
+  autoRecharge: monthly
+  extraCharge: Negotiated / Volume Based
+maxPower:
+  value: 100 QPS
+  throttling: Calculated across all endpoints in total.
+  policies: 
+    - Enterprise Customers: 100 QPS
+perRequestCost: Custom / Negotiated Rates
+coolingPeriod: 
+  value: 1 second (implied by QPS)
+segmentation:
+  rateLimitLevel: Organization
+  quotaLevel: Organization
+
+extraFields:
+  Features: Access to full Enterprise features and support.
